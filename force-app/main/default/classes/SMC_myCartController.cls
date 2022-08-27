@@ -1,7 +1,7 @@
 public without sharing class SMC_myCartController {
    // Important : all product presented  must be shared with all user that have access to the community 
     public SMC_myCartController() { 
-
+/*comment*/
     }
 
     @AuraEnabled
