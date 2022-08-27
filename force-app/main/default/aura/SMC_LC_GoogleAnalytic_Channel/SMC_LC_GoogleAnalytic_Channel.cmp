@@ -1,0 +1,18 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 07-21-2020
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   07-21-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<aura:component
+  implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes"
+  access="global"
+>
+  <c:sMC_LWC_Markenting_Library
+    onsendtoga="{!c.getGAInformations}"
+  ></c:sMC_LWC_Markenting_Library>
+</aura:component>

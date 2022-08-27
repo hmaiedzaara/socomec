@@ -1,0 +1,9 @@
+.THIS .data-table{
+    margin-top: 10px;
+    height: 200px;
+}
+
+.THIS .selectUniqueOrMultiple{
+    display: none;
+    margin: 10px 5px 5px 5px;
+}

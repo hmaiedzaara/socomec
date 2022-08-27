@@ -1,0 +1,7 @@
+<design:component>
+    <design:attribute name="selectedId"             label="id du lookup"/>
+    <design:attribute name="objectAPIName"          label="nom technique de l'objet requeté"/>
+    <design:attribute name="additionalWhere"        label="clause where"/>
+    <design:attribute name="IconName"               label="nom de l'icone"   />
+    <design:attribute name="label"                  label="nom du champ"   />
+</design:component>

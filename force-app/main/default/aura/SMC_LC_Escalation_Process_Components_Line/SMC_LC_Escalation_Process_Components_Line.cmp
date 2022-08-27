@@ -1,0 +1,70 @@
+<aura:component>
+  <aura:attribute name="selectApprovalByDesign" type="String" />
+  <aura:attribute
+    name="oneProcessInstance"
+    type="SMC_AC_Escalation_Process_Components.EscalationProcessWrapper"
+  />
+  <!-- <aura:attribute name="idxIteration" type="Integer" /> -->
+
+  <!-- Initialization -->
+  <!-- <aura:handler name="init" value="{! this }" action="{! c.doInit }" /> -->
+
+  <p>
+    <aura:if
+      isTrue="{! v.selectApprovalByDesign == $Label.c.SMC_Item_To_Approve_Delegated }"
+    >
+      <a
+        onclick="{! c.redirection }"
+        data-id="{! v.oneProcessInstance.processInstanceWorkitemId }"
+        target="_blank"
+        >{! v.oneProcessInstance.targetObjectName }</a
+      >
+    </aura:if>
+    <aura:if isTrue="{! v.selectApprovalByDesign == $Label.c.SMC_AllAproval}">
+      <a
+        onclick="{! c.redirection }"
+        data-id="{! v.oneProcessInstance.targetObjectId }"
+        target="_blank"
+        >{! v.oneProcessInstance.targetObjectName }</a
+      >
+    </aura:if>
+    <!-- Dropdown to open menu : Approve / Reject / Reassign -->
+    <!-- <div class="slds-dropdown-trigger slds-dropdown-trigger_click fix-right-side">
+            <button aura:id="{! v.oneProcessInstance.processInstanceId }" class="dropdown-button slds-button slds-button_icon">
+                <lightning:icon iconName="utility:down" size="xx-small" alternativeText="Dropdown menu" title="Dropdown menu"
+                    class="dropdown-menu-icon-color" />
+            </button>
+            <div class="{! v.idxIteration }">
+                <div class="slds-dropdown slds-dropdown_rigth" >
+                    <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="javascript:void(0);" role="menuitem" tabindex="0">
+                                <span title="Menu Item One">Menu Item One</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span title="Menu Item One">Menu Item Two</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+  </p>
+  <p>
+    <span class="target-object-type"
+      >{! v.oneProcessInstance.targetObjectType }</span
+    >
+    <aura:if isTrue="{! v.selectApprovalByDesign == $Label.c.SMC_AllAproval }">
+      <span class="submitted-by-name"
+        >Original submitter : {! v.oneProcessInstance.submittedByName }</span
+      >
+      <aura:set attribute="else">
+        <span class="submitted-by-name"
+          >Submitted by {! v.oneProcessInstance.submittedByName }</span
+        >
+      </aura:set>
+    </aura:if>
+  </p>
+</aura:component>

@@ -1,0 +1,128 @@
+<design:component >
+
+    <!--common options -->
+    <design:attribute name="size" 
+                      label="Select Menu Icon Size" 
+                      datasource="Small,Medium,Large" 
+                      description="Icon Size to display on screen. Adjust based on device is phone, tablet or desktop" />
+    <design:attribute name="shape" 
+                      label="Select Icon Shape" 
+                      datasource="Square, Round, Round 2x" 
+                      description="All icones within component will have the selected shape" />
+ 
+
+
+    <!-- Set 1 -->
+    <design:attribute name="allowback1" 
+                      label="Do not allow Back button" 
+                      description="Check it if, it is a Salesforce record to be opend in Lightning Experience or redirection to back is not needed. It does not show back arrow when checked." />
+    
+
+    <design:attribute name="iconURL1" 
+                      label="Select Menu Icon" 
+                      description="Pre-existing set of icons" 
+                      datasource='account,apps,apps_admin,article,avatar,calibration,call,call_history,campaign,case,case_change_status,case_comment,case_email,connected_apps,contact,contract,custom,dashboard,default,document,email,endorsement,event,feed,forecasts,group_loading,lead,metrics'/>
+	
+    <design:attribute name="icon1" 
+                      label="Enter Menu Icon URL" 
+                      description="Menu Icon URL if pre-existing icons are not needed." />
+    
+    <design:attribute name="url1" 
+                      label="Enter Menu Navigation URL" 
+                      description="Url to navigate. Write protocol (HTTPS, FTP etc) for full address else it will be considered as relative address" />
+    
+    <design:attribute name="bordercolor1" 
+                      label="Select Menu Border Color" 
+                      datasource="DeepSkyBlue,IndianRed,SapGreen" 
+                      description="Menu's border color. This will not work if custom border color is defined." />
+    
+    <design:attribute name="backgroundcolor1" 
+                      label="Select Button Background Color" 
+                      datasource="DodgerBlue,SpringGreen,DarkGreen,Black,Grey,BlueViolet" 
+                      description="Background color of button. This will not work if custom background color is defined." />
+    
+    <design:attribute name="bordercolorCustom1" 
+                      label="Enter HEX or Name for Border Color" 
+                      description="Enter custom hexadecimal value or supported color name. For example #441888 or Red. This will override defined button border color." />
+    
+    <design:attribute name="backgroundcolorCustom1" 
+                      label="Enter HEX or Name of Background Color" 
+                      description="Enter custom hexadecimal value or name of background color. For example #551888 or BlueViolet. This will override defined button background color." />
+    
+
+
+    <!-- Set 2 -->
+    <design:attribute name="allowback2" 
+                      label="Do not allow Back button" 
+                      description="Check it if, it is a Salesforce record to be opend in Lightning Experience or redirection to back is not needed. It does not show back arrow when checked." />
+    
+
+	<design:attribute name="icon2" 
+                      label="Enter Menu Icon URL" 
+                      description="Menu Icon URL if pre-existing icons are not needed." />
+    
+    <design:attribute name="iconURL2"
+                      label="Select Menu Icon" 
+                      description="Pre-existing set of icons" 
+                      datasource='account,apps,apps_admin,article,avatar,calibration,call,call_history,campaign,case,case_change_status,case_comment,case_email,connected_apps,contact,contract,custom,dashboard,default,document,email,endorsement,event,feed,forecasts,group_loading,lead,metrics'/>
+	
+    <design:attribute name="url2"
+                      label="Enter Menu Navigation URL" 
+                      description="Url to navigate. Write protocol (HTTPS, FTP etc) for full address else it will be considered as relative address" />
+        
+    <design:attribute name="bordercolor2"
+                      label="Select Menu Border Color" 
+                      datasource="DeepSkyBlue,IndianRed,SapGreen" 
+                      description="Menu's border color. This will not work if custom border color is defined." />
+    
+    <design:attribute name="backgroundcolor2" 
+                      label="Select Button Background Color" 
+                      datasource="DodgerBlue,SpringGreen,DarkGreen,Black,Grey,BlueViolet" />
+    
+    <design:attribute name="bordercolorCustom2"
+                      label="Enter HEX or Name for Border Color" 
+                      description="Enter custom hexadecimal value or supported color name. For example #441888 or Red. This will override defined button border color." />
+
+    <design:attribute name="backgroundcolorCustom2"
+                      label="Enter HEX or Name of Background Color" 
+                      description="Enter custom hexadecimal value or name of background color. For example #551888 or BlueViolet. This will override defined button background color." />
+    
+    
+
+    <!-- Set 3 -->
+    <design:attribute name="allowback3" 
+                      label="Do not allow Back button" 
+                      description="Check it if, it is a Salesforce record to be opend in Lightning Experience or redirection to back is not needed. It does not show back arrow when checked." />
+    
+
+    <design:attribute name="icon3" 
+                      label="Enter Menu Icon URL" 
+                      description="Menu Icon URL if pre-existing icons are not needed." />
+    
+    <design:attribute name="iconURL3"
+                      label="Select Menu Icon" 
+                      description="Pre-existing set of icons" 
+                      datasource='account,apps,apps_admin,article,avatar,calibration,call,call_history,campaign,case,case_change_status,case_comment,case_email,connected_apps,contact,contract,custom,dashboard,default,document,email,endorsement,event,feed,forecasts,group_loading,lead,metrics'/>
+    
+    <design:attribute name="url3"
+                      label="Enter Menu Navigation URL" 
+                      description="Url to navigate. Write protocol (HTTPS, FTP etc) for full address else it will be considered as relative address" />
+    
+    <design:attribute name="bordercolor3"
+                      label="Select Menu Border Color" 
+                      datasource="DeepSkyBlue,IndianRed,SapGreen" 
+                      description="Menu's border color. This will not work if custom border color is defined." />
+    
+    <design:attribute name="backgroundcolor3" 
+                      label="Select Button Background Color" 
+                      datasource="DodgerBlue,SpringGreen,DarkGreen,Black,Grey,BlueViolet" />
+    
+    <design:attribute name="bordercolorCustom3"
+                      label="Enter HEX or Name for Border Color" 
+                      description="Enter custom hexadecimal value or supported color name. For example #441888 or Red. This will override defined button border color." />
+
+    <design:attribute name="backgroundcolorCustom3"
+                      label="Enter HEX or Name of Background Color" 
+                      description="Enter custom hexadecimal value or name of background color. For example #551888 or BlueViolet. This will override defined button background color." />
+	
+</design:component>

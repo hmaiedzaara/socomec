@@ -1,0 +1,19 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 04-13-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   04-06-2021   Vincent RECASENS (Modis)   Initial Version
+-->
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:attribute name="recordId" type="String" />
+    
+    <c:smc_lwc_maintenance_plan
+        recordid="{!v.recordId}"
+        onclosequickaction="{!c.closeQuickAction}"
+    ></c:smc_lwc_maintenance_plan>
+	
+</aura:component>

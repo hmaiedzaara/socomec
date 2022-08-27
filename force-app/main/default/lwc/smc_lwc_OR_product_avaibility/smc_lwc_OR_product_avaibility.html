@@ -1,0 +1,99 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 10-29-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   07-22-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <template if:true={listNotEmpty}>
+    <h2>{productAvailability.PRODUCT_AVAILABILITY}</h2>
+    <div class="slds-grid slds-wrap slds-gutters">
+      <div class="slds-col slds-large-size_4-of-12">
+          <c-smc_lwc_autocompleteinput
+          label={productCodeLabel.PRODUCT_CODE}
+          placeholder={productCodeLabel.PRODUCT_CODE}
+          listvalues={productsList}
+          cdparlist={cdparList}
+          onelementselected={handleProductSelected}
+        ></c-smc_lwc_autocompleteinput>
+      </div>
+    </div>
+  </template>
+  <template if:true={showAlternativePdt}>
+    <c-smc_lwc_neworder_altpdt_modal
+      altpdts={altPdts}
+      onclickaltpdt={handleAlternativeProduct}
+    ></c-smc_lwc_neworder_altpdt_modal>
+  </template>
+  <template if:true={productSelected}>
+    <div class="slds-grid slds-wrap slds-gutters margin-top-30">
+      <div class="slds-col slds-size_12-of-12">
+        <ul>
+          <li class="slds-border_bottom slds-border_top">
+            <div class="slds-grid slds-wrap slds-gutters">
+              <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                <span><strong>{productCodeLabel.PRODUCT_CODE}</strong></span>
+              </div>
+              <div class="slds-col slds-size_3-of-12 slds-text-align_center">
+                <span
+                  ><strong
+                    >{productDescriptionLabel.PRODUCT_DESCRIPTION}</strong
+                  ></span
+                >
+              </div>
+              <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                <span><strong>{quantityLabel.QUANTITY}</strong></span>
+              </div>
+              <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                <span><strong>{availabilityLabel.AVAILABILITY}</strong></span>
+              </div>
+              <div class="slds-col slds-size_3-of-12 slds-text-align_center">
+                <span><strong>{actionsLabel.ACTIONS}</strong></span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="slds-grid slds-wrap slds-gutters li-hover">
+              <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                <span>{specificProduct.CDPAR}</span>
+              </div>
+              <div class="slds-col slds-size_3-of-12  slds-text-align_center">
+                <span>{specificProduct.DESCRIPTION}</span>
+              </div>
+              <div
+                class="slds-col slds-size_2-of-12 slds-text-align_center center-input"
+              >
+                <input
+                type="number"
+                min=1
+                value={quantity}
+                onkeyup={handleChangeQuantity}
+                onchange={handleChangeQuantity}
+              ></input>
+              </div>
+              <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                <span>{specificProduct.receivedAvailableDate}</span>
+              </div>
+              <div class="slds-col slds-size_3-of-12 slds-text-align_center">
+                
+        <span class="space-beteween-icon" onclick={handleSearchProductCode}>
+          <lightning-icon
+            icon-name="action:reset_password"
+            alternative-text={refreshLabel.REFRESH}
+            size="xx-small"
+            title={refreshLabel.REFRESH}
+          >
+          </lightning-icon>
+        </span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </template>
+</template>

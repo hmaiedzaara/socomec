@@ -1,0 +1,36 @@
+h2 {
+  font-size: 24px;
+}
+.slds-col {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.margin-top-bottom-15 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+li > div {
+  box-sizing: content-box !important;
+}
+.ligth-background {
+  background-color: #ffffff;
+}
+.alternative-ligth-background {
+  background-color: #f3f8fc;
+}
+.line-hover :hover {
+  background-color: #f2f6fa;
+}
+
+.realign-button {
+  padding: 0px;
+  margin: 0px;
+  margin-left: 8px;
+  width: 80px;
+}
+
+.uniform-size {
+  min-width: 75px;
+}

@@ -1,0 +1,31 @@
+.THIS span{
+    color: rgb(110, 110, 110);
+}
+
+.THIS .target-object-type::after{
+    content: "\2022";
+    margin-top: 0px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+}
+
+.THIS .fix-right-side{
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+}
+
+.THIS .hide {
+    display: none;
+}
+
+.THIS .dropdown-button{
+    width: 20px;
+    height: 20px;
+}
+
+.THIS .dropdown-menu-icon-color{
+    fill: rgb(150, 150, 150);
+    border: 1px solid rgb(207, 207, 207);
+}

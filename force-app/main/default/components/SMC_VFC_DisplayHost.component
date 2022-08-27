@@ -1,0 +1,20 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 11-23-2020
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   11-23-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<apex:component controller="SMC_UTILS_GetHost_VFEmailTemplate" access="global">
+
+    <apex:attribute name="sendTo" type="String" description="Identifier for redirection" assignto="{!sender}"/>
+    <apex:attribute name="theCaseId" type="String" description="Target Case Id" assignto="{!caseId}"/>
+    <apex:attribute name="theCaseNumber" type="String" description="Target Case Number"/>
+
+    <apex:outputLink value="{!LEFT(url,IF(FIND('?',url) = 0, LEN(url), FIND('?',url )))}">
+        {!theCaseNumber}
+    </apex:outputLink>
+</apex:component>

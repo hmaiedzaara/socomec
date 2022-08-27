@@ -1,0 +1,31 @@
+<template>
+  <lightning-layout vertical-align="center">
+    <lightning-layout-item>
+      <ul>
+        <li>
+          <lightning-icon
+            icon-name={icon}
+            alternative-text={thefile.FileExtension}
+            class="margin-icon"
+            size="small"
+          ></lightning-icon>
+          <a class="document-detail" onclick={redirectToTheFile} target="_blank"
+            >{thefile.Title}</a
+          >
+          <label class="document-detail">{thefile.FileExtension}</label>
+          <label class="document-detail"
+            >{thefile.ContentSize} {bytesLabel.BYTES_LABEL}</label
+          >
+        </li>
+        <li>
+          <!-- file type/size/case number -->
+        </li>
+        <li>
+          <label class="case-number"
+            >{caseNumberLabel.CASE_NUMBER_LABEL} {thefile.CaseNumber}</label
+          >
+        </li>
+      </ul>
+    </lightning-layout-item>
+  </lightning-layout>
+</template>

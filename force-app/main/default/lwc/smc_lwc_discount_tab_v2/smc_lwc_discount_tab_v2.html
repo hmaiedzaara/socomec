@@ -1,0 +1,79 @@
+<template>
+      <!-- Bloc TAB -->
+      <template if:true={isThereDiscount}>
+      <div class="slds-tabs_default">
+        <div class="slds-tabs_default__content">
+        <table>
+          <!-- Bloc TITLE COLUMN -->
+            <thead>
+                <tr class="scoringTab">
+                    <td class="group">{pricingGroup.PRICING_GROUP}</td>
+                    <td class="code">{pricingGroupDescription.PRICING_GROUP_DESCRIPTION}</td>
+                    <td class="min">{minDiscount.MIN_DISCOUNT}</td>
+                    <td class="max">{maxDiscount.MAX_DISCOUNT}</td>
+                    <template if:true={isAuthorizeToSeeMaxSuggested}>
+                        <template if:true={userSeeMaxSuggestedFilter}>
+                            <td class="maxSuggested"
+                            >{maxSuggestionDiscount.MAX_SUGGESTED_DISCOUNT}</td
+                            >
+                        </template>
+                    </template>
+                    <td class="discount">{standardDiscount.STANDARD_DISCOUNT}</td>
+                    <td class="discountIsValid">{discountValidity.DISCOUNT_VALIDITY}</td>
+                    <td class="lastEditDate withScroller">{lastEditDate.LAST_EDI_TDATE}</td>
+                </tr>
+            </thead>
+            <!-- Bloc VALUE -->
+            </table>
+            <template if:true={spinner}>
+              <lightning-spinner
+                alternative-text="Loading"
+                size="large"
+              ></lightning-spinner>
+            </template>
+            <div class="slds-scrollable_y">
+                <template if:true={isLoad}>
+                  <template if:false={filteredLines}>
+                    <template for:each={discountLine} for:item="oneline">
+                      <c-smc_lwc_discount_line_v2
+                        user-see-max-suggested-filter={userSeeMaxSuggestedFilter}
+                        is-authorize-to-see-max-suggested={isAuthorizeToSeeMaxSuggested}
+                        dline={oneline}
+                        online={handleLine}
+                        key={oneline.id}
+                        >
+                      </c-smc_lwc_discount_line_v2>
+                    </template>
+                  </template>
+                  <template if:true={filteredLines}>
+                    <template for:each={wantedLinesId} for:item="oneline">
+                      <c-smc_lwc_discount_line_v2
+                        user-see-max-suggested-filter={userSeeMaxSuggestedFilter}
+                        is-authorize-to-see-max-suggested={isAuthorizeToSeeMaxSuggested}
+                        dline={oneline}
+                        online={handleLine}
+                        key={oneline.id}
+                        >
+                      </c-smc_lwc_discount_line_v2>
+                    </template>
+                  </template>
+                </template>
+            </div>
+        
+        </div>
+      </div>
+      <div class="slds-text-align_right">
+        <lightning-button 
+          name="saveDiscount"
+          variant="brand"
+          label={save.SAVE}
+          onclick={saveScoring}>
+        </lightning-button>
+      </div>
+    </template>
+    <template if:false={isThereDiscount}>
+      <h2>
+        <b>{messageNoData.MESSAGE_NO_DATA}</b>
+      </h2>
+    </template>
+</template>

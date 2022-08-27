@@ -1,0 +1,7 @@
+<design:component>
+    <design:attribute name="buttonLabel" label="Button label" default="DOWNLOAD FILE"/>
+    <design:attribute name="fileId" label="File Id" />
+    <design:attribute name="fileUrl" label="File URL" />
+    <design:attribute name="isPublic" label="Is public?" />
+    <design:attribute name="commentOnFileId" label="What is this ID?" />
+</design:component>

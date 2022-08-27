@@ -1,0 +1,32 @@
+.THIS .padding-16px {
+  height: 35.2px;
+  padding: 16px;
+}
+
+.THIS .slds-page-header-custom {
+  height: 35.2px;
+  margin-bottom: 40px;
+  box-shadow: none;
+  padding: 1rem;
+  border-radius: 0px;
+  background: padding-box rgb(250, 250, 249);
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: padding-box;
+  background-color: rgb(250, 250, 249, 0);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0);
+  border-image: initial;
+}
+
+.THIS .account-icon-background {
+  background-color: #7f8de1 !important;
+  border-radius: 4px;
+}

@@ -1,0 +1,70 @@
+<aura:component
+  description="SMC_LC_CA_InstalledProductInfo"
+  implements="flexipage:availableForRecordHome,force:lightningQuickAction,force:hasRecordId"
+  access="global"
+  controller="SMC_AC_LC_CaseController"
+>
+  <!-- Define components attributes -->
+  <aura:attribute
+    name="installedProductInfosHTML"
+    type="String"
+    access="global"
+    description="HTML content retrieve by WebMethod"
+  />
+  <aura:attribute name="isSpinner" type="boolean" default="true" />
+
+  <aura:attribute
+    name="record"
+    type="Object"
+    description="The record object to be displayed"
+  />
+  <aura:attribute
+    name="simpleRecord"
+    type="Object"
+    description="A simplified view record object to be displayed"
+  />
+  <aura:attribute
+    name="recordError"
+    type="String"
+    description="An error message bound to force:recordData"
+  />
+
+  <!-- Handle record attributes -->
+  <force:recordData
+    aura:id="record"
+    layoutType="FULL"
+    recordId="{!v.recordId}"
+    targetError="{!v.recordError}"
+    targetRecord="{!v.record}"
+    targetFields="{!v.simpleRecord}"
+    recordUpdated="{!c.recordUpdate}"
+    mode="VIEW"
+  />
+
+  <!-- Content's lightning component -->
+  <div class="slds-card">
+    <div class="slds-card__body slds-card__body_inner smc-container">
+      <aura:if isTrue="{!v.isSpinner}">
+        <lightning:spinner
+          alternativeText="{!$Label.c.SMC_Loading}"
+          size="medium"
+        />
+        <aura:set attribute="else">
+          <aura:if isTrue="{!empty(v.simpleRecord.SMC_Serial_Number__c)}">
+            {!$Label.c.SMC_NoSerialNumber}
+            <aura:set attribute="else">
+              <aura:if isTrue="{!not(empty(v.installedProductInfosHTML))}">
+                <div class="slds-scrollable smc-container-content">
+                  <aura:unescapedHtml value="{!v.installedProductInfosHTML}" />
+                </div>
+                <aura:set attribute="else">
+                  {!$Label.c.SMC_NoResultFound}
+                </aura:set>
+              </aura:if>
+            </aura:set>
+          </aura:if>
+        </aura:set>
+      </aura:if>
+    </div>
+  </div>
+</aura:component>

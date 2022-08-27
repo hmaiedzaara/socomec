@@ -1,0 +1,43 @@
+<aura:component>
+  <lighten:SldsStuff />
+  <aura:attribute name="title" type="String" default="" />
+  <aura:attribute name="count" type="Integer" default="00" />
+  <aura:attribute name="bordercolor" type="String" default="cyan" />
+  <div class="slds">
+    <div class="slds-form--compound cardspace">
+      <div class="slds-card">
+        <div class="slds-card__header slds-grid card-header-ext border-botton">
+          <div class="slds-media slds-media--center slds-has-flexi-truncate">
+            <div
+              class="{!'slds-media__figure round-xxx-small '+v.bordercolor+'-bg'}"
+            >
+              <span aria-hidden="true" class="slds-button__icon">
+                <img
+                  src="../resource/lighten__SLDS090/assets/icons/standard/case_60.png"
+                  alt="Placeholder"
+                  style="max-width: 25px;"
+                />
+              </span>
+            </div>
+            <div class="slds-media__body">
+              <h2 class="slds-text-heading--small slds-truncate">{!v.title}</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="slds-card__body cardspace cardspace-center cleanspace">
+          <h3
+            class=" slds-text-heading--small slds-p-top--large slds-p-bottom--large"
+          >
+            <span dir="ltr" class="{!'uiOutputText round '+v.bordercolor}">
+              <ui:outputNumber
+                aura:id="outputNumber"
+                value="{!v.count>5000?5000:v.count}"
+              />{!v.count>5000 ? '+':''}
+            </span>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</aura:component>

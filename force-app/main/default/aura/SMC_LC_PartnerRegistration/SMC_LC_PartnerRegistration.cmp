@@ -1,0 +1,12 @@
+<aura:component
+  implements="forceCommunity:availableForAllPageTypes"
+  access="global"
+>
+  <div class="title-form">
+    <h1 id="registration"
+      >{! $Label.c.SMC_PartnersCommunity_CL_PartnerRegistration}</h1
+    >
+    <p>{! $Label.c.SMC_PartnersCommunity_CL_PartnerRegistrationSubtitle}</p>
+    <span class="separator"></span>
+  </div>
+</aura:component>

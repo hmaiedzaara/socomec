@@ -1,0 +1,17 @@
+.center-no-data{
+    width: 100%;
+    text-align: center;
+}
+.position-icon{
+    margin-right: 8px;
+}
+.style-element-list{
+    margin-top: 8px;
+    padding: 0px 9px;
+}
+.reduce-width{
+    width: 50%;
+}
+.grey-color{
+    color:rgb(92, 92, 92);
+}

@@ -1,0 +1,38 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 10-27-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   10-09-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <!-- ACTIONS -->
+  <template if:true={orderRetrieved}>
+    <template if:true={orderIsCreated}>
+      <div class="space-betwee-cmp">
+        <c-smc_lwc_order_details_actions
+          cdord={cdord}
+          onbuyagainorder={handleBuyAgainOrder}
+          oncancelorder={handleCancelOrder}
+        ></c-smc_lwc_order_details_actions>
+      </div>
+    </template>
+    <!-- HEADER -->
+    <div class="space-betwee-cmp">
+      <c-smc_lwc_order_details_header
+        cdcli={cdcli}
+        order={order}
+      ></c-smc_lwc_order_details_header>
+    </div>
+    <!-- LINES -->
+    <div>
+      <c-smc_lwc_order_details_orderlines
+        orderlines={order.rows}
+        productlabelnotavailable={order.productLabelNotAvailable}
+      ></c-smc_lwc_order_details_orderlines>
+    </div>
+  </template>
+</template>

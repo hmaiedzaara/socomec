@@ -1,0 +1,11 @@
+<design:component label="Display an Image">
+	<design:attribute name="title" label="Title" 
+                          description="Define a title for the component" />
+    <design:attribute name="isFromStaticResources" label="Image is located in static resources ?"
+                          description="If the image you want to display is located in salesforce static resources, 
+                                       tick the checkbox and fill only the resources name in URL/Resource name field"/>
+    <design:attribute name="url" label="URL or Static resource name"
+                          description="URL image or static resource name"/>
+    <design:attribute name="legend" label="Image Legend"
+                          description="Text display under the image in order to describe it"/>
+</design:component>

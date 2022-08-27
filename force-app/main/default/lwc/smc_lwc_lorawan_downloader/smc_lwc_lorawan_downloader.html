@@ -1,0 +1,65 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 09-13-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   03-04-2021   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <!-- Spinner during loading -->
+  <template if:true={searching}>
+    <lightning-spinner
+      alternative-text="Loading"
+      size="large"
+    ></lightning-spinner>
+  </template>
+  <template if:false={searching}>
+    <template if:true={formatContainsCLIENT}>
+      <lightning-card title="'Key' lines">
+        <template if:true={clientHasLine}>
+          <lightning-button
+            variant="brand"
+            label="Download 'Key' lines returned"
+            title="Download 'Key' lines returned"
+            onclick={handleDownloadClientLine}
+            class="slds-m-left_x-small margin-bottom"
+          ></lightning-button>
+        </template>
+        <template if:true={clientHasInvalidLine}>
+          <lightning-button
+            variant="destructive"
+            label="Download 'Key' lines not returned"
+            title="Download 'Key' lines not returned"
+            onclick={handleDownloadClientInvalidLine}
+            class="slds-m-left_x-small"
+          ></lightning-button>
+        </template>
+      </lightning-card>
+    </template>
+    <template if:true={formatContainsNKE}>
+      <lightning-card title="'Config' lines">
+        <template if:true={nkeHasLine}>
+          <lightning-button
+            variant="brand"
+            label="Download 'Config' lines returned"
+            title="Download 'Config' lines returned"
+            onclick={handleDownloadNkeLine}
+            class="slds-m-left_x-small margin-bottom"
+          ></lightning-button>
+        </template>
+        <template if:true={nkeHasInvalidLine}>
+          <lightning-button
+            variant="destructive"
+            label="Download 'Config' lines returned"
+            title="Download 'Config' lines returned"
+            onclick={handleDownloadNkeInvalidLine}
+            class="slds-m-left_x-small"
+          ></lightning-button>
+        </template>
+      </lightning-card>
+    </template>
+  </template>
+</template>

@@ -1,0 +1,53 @@
+.obscur-background {
+  position: absolute;
+  height: 500%;
+  width: 200%;
+  background: rgba(119, 119, 119, 0.5);
+  z-index: 1000;
+  top: -20px;
+  left: -50px;
+  overflow: auto;
+}
+
+.modal {
+  width: 130px;
+}
+
+.padding-rigth-5 {
+  padding-right: 5px;
+}
+
+.padding-bottom-5 {
+  padding-bottom: 5px;
+}
+
+.outline-destructive {
+  border-color: red;
+  color: red;
+}
+
+/* Mobile */
+/* .inline {
+  display: inline;
+}
+.iconSettings {
+  background-color: #969492 !important;
+}
+.iconSettings > svg {
+  height: 32px;
+  width: 32px;
+} */
+
+.mobileTitle {
+  padding-top: 12px;
+  padding-left: 5px;
+  font: 16px "Salesforce Sans" Arial, sans-serif;
+}
+
+.slds-col {
+  /* margin: auto; */
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

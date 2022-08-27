@@ -1,0 +1,38 @@
+.king-blue {
+  color: rgb(0, 95, 178);
+}
+
+.submit-btn {
+  letter-spacing: 1.5px;
+  background: rgb(0, 95, 178);
+}
+
+.font-sizing {
+  font-size: 8rem;
+}
+
+.light-grey {
+  color: #dfdfdf;
+}
+.grey-color {
+  color: #7d7d7d;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+/* Scrollbar Webkit */
+.slds-scrollable_y::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(212, 212, 212);
+}
+.slds-scrollable_y::-webkit-scrollbar-thumb {
+  background: #005fb2;
+}
+/* Scrollbar FF */
+.slds-scrollable_y {
+  scrollbar-color: #005fb2 rgb(212, 212, 212);
+  scrollbar-width: thin;
+  height: 300px;
+}

@@ -1,0 +1,64 @@
+.slds-card-blue-background{
+    position: relative;
+    padding: 0;
+    background:#102e61;
+    border: 1px solid #102e61;
+    border-radius: .25rem;
+    background-clip: padding-box;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.10);
+}
+.max-width{
+    --sds-c-button-sizing-border: 1px 135px;    
+}
+.slds-button_brand{
+    transition: none !important;
+}
+.modalContainer{
+    height: 650px !important;
+}
+.slds-modal__container{
+    width: 1000px !important;
+    max-width: 1100px;
+    min-width: 950px;
+}
+@media (min-width: 48em){
+     .slds-modal__container {
+        width: 1000px !important;
+        max-width: 1100px;
+        min-width: 950px;
+    }
+}
+
+.greyColor svg{
+    fill:lightgrey;
+}
+
+/*Style button like tab DPHA*/
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    margin-top : 10px;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }

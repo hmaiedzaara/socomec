@@ -1,0 +1,91 @@
+<aura:component>
+  <aura:attribute name="numberOfVisibleLines" type="Integer" />
+  <aura:attribute name="userSeeMaxSuggested" type="Boolean" />
+  <aura:attribute name="isAuthorizeToSeeMaxSuggested" type="Boolean" />
+  <aura:attribute name="line" type="Object" />
+  <aura:attribute name="listItems" type="List" />
+  <aura:attribute name="toggleIconValidity" type="Boolean" default="true" />
+  <aura:attribute name="isShowingOnFilter" type="Boolean" default="true" />
+
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:handler
+    event="c:SMC_LC_EVT_Scoring"
+    action="{! c.toggleDisplayOnFilter }"
+  />
+
+  <aura:renderif isTrue="{! v.isShowingOnFilter }">
+    <tr
+      class="{! v.numberOfVisibleLines > 10 ? 'has-scroll scoringTab' : 'scoringTab' }"
+    >
+      <td class="groupValue">
+        {! v.line.priceGroup.label }
+      </td>
+      <td class="code">
+        {! v.line.priceGroup.description }
+      </td>
+      <!-- <td class="code">
+                {! v.line.priceGroup.tier }
+            </td> -->
+      <!-- <td class="code">
+                {! v.line.priceGroup.type }
+            </td> -->
+      <td class="textBlack">
+        <ui:outputNumber value="{! v.line.min }" format="0.0" />
+      </td>
+      <td class="textBlack">
+        <ui:outputNumber value="{! v.line.max }" format="0.0" />
+      </td>
+      <aura:renderif isTrue="{! v.isAuthorizeToSeeMaxSuggested }">
+        <aura:renderif isTrue="{! !v.userSeeMaxSuggested }">
+          <td class="textBlack">
+            <input
+              class="inputMaxSuggestedAndDiscount"
+              aura:id="maxSuggested"
+              type="number"
+              name="maxSuggested"
+              value="{! v.line.maxSuggested }"
+              step="0.1"
+              onblur="{! c.onMaxSuggestedBlur }"
+            />
+          </td>
+        </aura:renderif>
+      </aura:renderif>
+      <td class="textBlack">
+        <input
+          class="inputMaxSuggestedAndDiscount"
+          aura:id="discount"
+          type="number"
+          value="{! v.line.discount }"
+          step="0.1"
+          onblur="{! c.onDiscountBlur }"
+        />
+      </td>
+      <!-- <td class="discountIsValidValue"> -->
+      <td>
+        <aura:if isTrue="{! v.toggleIconValidity }">
+          <aura:if isTrue="{! v.line.max >= v.line.discount }">
+            <lightning:icon
+              iconName="utility:up"
+              size="small"
+              alternativeText="{!$Label.c.SMC_Discount_Valid}"
+              title="Discount in corridor"
+              class="validIcon"
+            />
+          </aura:if>
+          <aura:if isTrue="{! !(v.line.max >= v.line.discount) }">
+            <lightning:icon
+              iconName="utility:up"
+              size="small"
+              alternativeText="{!$Label.c.SMC_High_Discount}"
+              title="Discount out corridor"
+              class="warningIcon"
+            />
+          </aura:if>
+        </aura:if>
+      </td>
+      <td class="textBlack">
+        <ui:outputDate value="{!v.line.createDate}" />
+      </td>
+    </tr>
+  </aura:renderif>
+</aura:component>

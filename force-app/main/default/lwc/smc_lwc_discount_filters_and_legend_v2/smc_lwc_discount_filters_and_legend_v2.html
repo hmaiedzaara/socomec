@@ -1,0 +1,62 @@
+<template>
+    <div class="searchBar">
+        <div class="input-search-container searchInput">
+          <lightning-input
+            class="searchTools"
+            label={searchPricingGroup.SEARCH_PRICING_GROUP}
+            placeholder={pricingGroup.PRINCING_GROUP}
+            onchange={handleSearchPricingGroup}><!--{searchPricingGroup.SEARCH_PRICING_GROUP}-->
+         </lightning-input>
+          <lightning-input
+            class="searchTools"
+            label={searchDescription.SEARCH_DESCRIPTION}
+            placeholder={pricingGroupDescription.PRICING_GROUP_DESCRIPTION}
+            onchange={handleSearchDescription}>
+         </lightning-input>
+        </div>
+        <div class="filters-container">
+            <p>{filters.FILTERS}</p>
+            <div class="filtersCheckbox">
+                <p>{highDiscount.HIGH_DISCOUNT}</p>
+                <lightning-input
+                class="searchTools"
+                type="checkbox"
+                onchange={timeoutFiltrage}>
+                </lightning-input>
+            </div>  
+            <!-- <div>
+                <template if:true={isAuthorizeToSeeMaxSuggested}>
+                    <lightning-input
+                        class="searchTools"
+                        type="checkbox"
+                        label={hideMaxSuggested.HIDE_MAX_SUGGESTED}
+                        change={hiddeMaxSuggested}>
+                    </lightning-input>
+                </template>
+            </div> -->
+        </div>
+        <div class="chartLegend">
+            <p>{legend.LEGEND}</p>
+            <p>
+                <lightning-icon
+                    icon-name="utility:up"
+                    size="small"
+                    alternative-text={discountValid.DISCOUNT_VALID}
+                    title="Discount in corridor"
+                    class="validIcon">
+                </lightning-icon>
+                {discountValid.DISCOUNT_VALID}
+            </p>
+            <p>
+                <lightning-icon
+                    icon-name="utility:up"
+                    size="small"
+                    alternative-text={highDiscount.HIGH_DISCOUNT}
+                    title="Discount out corridor"
+                    class="warningIcon">
+                </lightning-icon>
+                {highDiscount.HIGH_DISCOUNT}
+            </p>
+        </div>
+      </div>
+</template>

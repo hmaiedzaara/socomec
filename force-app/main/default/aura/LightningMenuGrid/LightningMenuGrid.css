@@ -1,0 +1,102 @@
+.THIS .gridm {
+    text-align:center;
+}
+
+.THIS .table1 {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.THIS .btn {
+    border: solid 1px;
+    text-align:center;
+    margin:.2em;
+    color:white;
+}
+
+.THIS .btn:hover {
+    filter:hue-rotate(20deg);
+    -webkit-filter:hue-rotate(20deg);
+}
+
+.THIS .btn:active {
+    filter:brightness(80%);
+    -webkit-filter:brightness(80%);
+}
+
+.THIS .Round {
+    border-radius: 51%;
+}
+
+.THIS .SquareRound {
+    border-radius: .6em;
+}
+
+.THIS .Square {
+    border-radius: 0px;
+}
+
+.THIS .Small {
+    height: 6.2em;
+    width: 6.2em;
+    padding:.3em .3em .3em .3em;
+    font-size:.6em;
+}
+
+.THIS .Medium {
+    height: 7em;
+    width: 7em;
+    padding:.3em .3em .3em .3em;
+    font-size:.9em;
+}
+
+.THIS .Large {
+    height: 8em;
+    width: 8em;
+    padding:.3em .3em .3em .3em;
+    font-size:1.1em;
+}
+
+.THIS .Orange {
+	color:#EE9A00;
+}
+
+.THIS .White {
+	color:#FFFFFF;
+}
+
+.THIS .OrangeRed {
+	color:#CD3700;
+}
+
+.THIS .DodgerBlue {
+	background-color:#1E90FF;
+}
+
+.THIS .SpringGreen {
+	background-color:#008B45;
+}
+
+.THIS .DarkGreen {
+	background-color:#006400;
+}
+
+.THIS .Black {
+	background-color:#000000;
+}
+
+.THIS .Grey {
+	background-color:grey;
+}
+
+.THIS .DeepSkyBlue {
+	border-color:#009ACD;
+}
+
+.THIS .IndianRed {
+	border-color:#B0171F;
+}
+
+.THIS .SapGreen {
+	border-color:#308014;
+}

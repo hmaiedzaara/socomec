@@ -1,0 +1,29 @@
+.THIS .upload-legend {
+    font: 1.2em "Fira Sans", serif;
+    color: #D3D3D3;
+}
+
+/* remove the "or drop files" label from the right of the lightning:input type file */
+.THIS .slds-file-selector__dropzone .slds-file-selector__text{
+    /* display: none; */
+    font-size: 0;
+}
+
+/* insert the text "or drag and drop files here" label from the right of the lightning:input type file */
+.THIS .slds-file-selector__dropzone .slds-file-selector__text:after{
+    content: 'or drag and drop files here';
+    font-size: .8125rem;
+    color: #6e6e6e;
+}
+
+/* remove the "Upload Files" text from the button of the lightning:input type file */
+.THIS .slds-file-selector__dropzone .slds-file-selector__button{
+    font-size: 0;
+}
+
+/* insert the text "Select files" into the button of the lightning:input type file */
+.THIS .slds-file-selector__dropzone .slds-file-selector__button:after{
+    content: 'Select files';
+    font-size: .8125rem;
+    color: rgba(27, 82, 151, 1.0);
+}

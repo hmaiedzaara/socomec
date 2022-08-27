@@ -1,0 +1,26 @@
+.obscur-background {
+  position: absolute;
+  height: 200%;
+  width: 200%;
+  background: rgba(119, 119, 119, 0.5);
+  z-index: 1000;
+  top: 0;
+  /* left: -100px; */
+  overflow: auto;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+.padding-rigth-5 {
+  padding-right: 5px;
+}
+
+.padding-left-10 {
+  padding-left: 10px;
+}
+
+h2 {
+  color: #004f9f;
+}

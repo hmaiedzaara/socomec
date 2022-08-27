@@ -1,0 +1,29 @@
+<apex:component >
+    <apex:attribute name="backgroundPicture" description="Picture" type="String"/>
+    <apex:attribute name="participant" description="Participant Name" type="String"/>
+    <apex:attribute name="company" description="Company Name" type="String"/>
+    <apex:attribute name="endValidity" description="Expiration Date" type="Date"/>
+    <apex:attribute name="trainer" description="Trainer Name" type="String"/>
+    
+    <!-- BACKGROUND PICTURE -->
+    <div class="backgroud-picture">
+    	<apex:image style="width: 100%" value="{!backgroundPicture}" />
+    </div>
+    
+    <!-- DYNAMIC TEXT -->
+    <div class="dynamic-text participant">
+        <label>{!participant}</label>
+    </div>
+    <div class="dynamic-text company">
+        <label>{!company}</label>
+    </div>
+    <div class="dynamic-text expiration-date">
+        <apex:outputText value="{0, date, MMMM d','  yyyy}">
+            <apex:param value="{!endValidity}" /> 
+        </apex:outputText>
+    </div>
+    <div class="dynamic-text trainer">
+        <label>{!trainer}</label>
+    </div>
+    
+</apex:component>

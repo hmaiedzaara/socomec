@@ -1,0 +1,40 @@
+.THIS .align
+{
+	background-color:white;  
+    border-bottom-left-radius: 15rem;
+    border-top-left-radius: 15rem;
+    border:solid 1px #000;
+}
+
+.THIS .no-padding
+{
+    padding:0px;
+    height:32px;
+    margin: .12rem;
+    border-radius: 15rem;
+}
+
+.THIS .status
+{
+    line-height: 2.0rem;
+}
+
+.THIS .Error
+{
+    background-color:#c23934;  
+}
+
+.THIS .Success
+{
+    background-color:#4bca81;  
+}
+
+.THIS .Warning
+{
+    background-color:#ffb75d;  
+}
+
+.THIS .In-Complete
+{
+    background-color:#e0e5ee;  
+}

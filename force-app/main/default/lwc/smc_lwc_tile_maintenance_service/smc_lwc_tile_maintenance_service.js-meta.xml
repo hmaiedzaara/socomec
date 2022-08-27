@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Tile Maintenance Service</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="titleIcon" type="String" label="Title Icon" description="A CSS class as [fa fa-tickets]" default="fa fa-cog fa-2x"/>
+            <property name="title" type="String" label="Title" default="Maintenance Service"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

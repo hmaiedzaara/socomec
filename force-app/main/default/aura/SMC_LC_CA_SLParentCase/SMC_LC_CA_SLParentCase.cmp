@@ -1,0 +1,35 @@
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId"
+  access="global"
+>
+  <aura:attribute
+    name="record"
+    type="Object"
+    description="The record object to be displayed"
+  />
+  <aura:attribute
+    name="simpleRecord"
+    type="Object"
+    description="A simplified view record object to be displayed"
+  />
+  <aura:attribute
+    name="recordError"
+    type="String"
+    description="An error message bound to force:recordData"
+  />
+
+  <!-- Handle record attributes -->
+  <force:recordData
+    aura:id="record"
+    layoutType="FULL"
+    recordId="{!v.recordId}"
+    targetError="{!v.recordError}"
+    targetRecord="{!v.record}"
+    targetFields="{!v.simpleRecord}"
+    mode="VIEW"
+  />
+
+  <aura:unescapedHtml
+    value="{!v.simpleRecord.SMC_URL_Socoline_Origin_Request__c}"
+  />
+</aura:component>

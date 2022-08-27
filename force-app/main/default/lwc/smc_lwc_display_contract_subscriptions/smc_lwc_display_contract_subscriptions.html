@@ -1,0 +1,76 @@
+<!--
+  @File Name          : smc_lwc_display_contract_subscriptions.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 25/03/2020 à 12:28:18
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    25/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+  <div class="slds-card">
+    <template if:true={isLoading}>
+      <div role="status" class="slds-spinner slds-spinner--small">
+        <span class="slds-assistive-text">Loading</span>
+        <div class="slds-spinner__dot-a"></div>
+        <div class="slds-spinner__dot-b"></div>
+      </div>
+    </template>
+    <div class="slds-card__header">
+      <div class="slds-media slds-media_center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <span
+            class="slds-icon_container king-blue"
+            title="MY CONTRACT SUBSCRIPTIONS"
+          >
+            <i class="fa fa-credit-card-alt"></i>
+          </span>
+        </div>
+        <div class="slds-media__body">
+          <h2 class="slds-card__header-title slds-align_center">
+            <span>MY CONTRACT SUBSCRIPTIONS</span>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <!-- <div
+        class="slds-card__body slds-card__body_inner slds-border_top slds-border_bottom"
+        style="min-height: 300px; max-height: 300px; overflow: hidden;"
+      > -->
+    <template if:false={isLoading}>
+      <div
+        class="slds-card__body slds-card__body_inner slds-border_top slds-border_bottom"
+      >
+        <div class="slds-scrollable_y">
+          <ul class="slds-list_vertical-space slds-m-top_medium">
+            <template for:each={results} for:item="elmt">
+              <li key={elmt.id} class="slds-item slds-border_bottom">
+                <div class="slds-grid slds-p-around_x-small">
+                  <div class="slds-size_12-of-12">
+                    <h3 class="slds-tile__title slds-truncate">
+                      <a class="grey-color" href={elmt.linkContractSubscription}
+                        >{elmt.name}</a
+                      >
+                    </h3>
+                  </div>
+                </div>
+                <div class="slds-grid slds-p-around_x-small">
+                  <div class="slds-size_6-of-12 grey-color">
+                    <label class="grey-color">Contract Number : </label
+                    ><a href={elmt.linkContract}>{elmt.contractNumber}</a>
+                  </div>
+                  <div class="slds-size_6-of-12 grey-color">
+                    <label class="grey-color">Product Name : </label
+                    ><a href={elmt.linkProduct}>{elmt.productName}</a>
+                  </div>
+                </div>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+    </template>
+  </div>
+</template>

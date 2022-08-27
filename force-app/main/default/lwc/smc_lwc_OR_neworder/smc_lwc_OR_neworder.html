@@ -1,0 +1,141 @@
+<!--
+  @description       : N'yant pas réussit à faire passer des données à des composants enfants, tout se retrouve dans celui-ci.
+                       Ce composant peut être recoupé pour une meilleure maintenance.
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 06-04-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   07-23-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <template if:true={isLoad}>
+    <!-- GENERAL INFORMATION -->
+    <c-smc_lwc_neworder_generalinformation
+      cacheinfos={genralCacheInfos}
+      onaccountselected={handleAccountSelected}
+      onaddressselected={handleAddressSelected}
+      oncustrefselected={handleCustRefSelected}
+      oncontactnameselected={handleContactNameSelected}
+      oncontactphoneselected={handleContactPhoneSelected}
+      onrequesteddeliverydateselected={handleRequestedDeliveryDateValueSelected}
+      onpreftimeselected={handlePreftimeSelected}
+      ontailliftselected={handleTailliftSelected}
+      onnoteselected={handleNoteSelected}
+    ></c-smc_lwc_neworder_generalinformation>
+    <!-- ORDER LINES -->
+    <template if:true={accountIsSelected}>
+      <h2>{orderLinesLabel.ORDER_LINES}</h2>
+      <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_4-of-12">
+          <template if:true={listNotEmpty}>
+            <c-smc_lwc_autocompleteinput
+              label="Add a product to the order"
+              placeholder={productCodeLabel.PRODUCT_CODE}
+              listvalues={productsList}
+              cdparlist={cdparList}
+              onelementselected={handleSearchProductCode}
+            ></c-smc_lwc_autocompleteinput>
+          </template>
+          <template if:true={showAlternativePdt}>
+            <c-smc_lwc_neworder_altpdt_modal
+              altpdts={altPdts}
+              onclickaltpdt={handleAlternativeProduct}
+            ></c-smc_lwc_neworder_altpdt_modal>
+          </template>
+        </div>
+      </div>
+      <!-- See order -->
+      <div class="slds-grid slds-wrap slds-gutters margin-top-30">
+        <div class="slds-col slds-size_1-of-1">
+          <ul>
+            <li class="lightgrey-color">
+              <i>{refreshLineLegend.REFRESH_LINE_LEGEND}</i>
+            </li>
+            <li class="slds-border_bottom slds-border_top">
+              <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                  <span><strong>{lineNumberLabel.LINE_NUMBER}</strong></span>
+                </div>
+                <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                  <span><strong>{productCodeLabel.PRODUCT_CODE}</strong></span>
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                  <span
+                    ><strong
+                      >{productDescriptionLabel.PRODUCT_DESCRIPTION}</strong
+                    ></span
+                  >
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                  <span><strong>{availabilityLabel.AVAILABILITY}</strong></span>
+                </div>
+                <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                  <span><strong>{unitPriceLabel.UNIT_PRICE}</strong></span>
+                </div>
+                <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                  <span
+                    ><strong
+                      >{discountPercentLabel.DISCOUNT_PERCENT}</strong
+                    ></span
+                  >
+                </div>
+                <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                  <span><strong>{netPriceLabel.NET_PRICE}</strong></span>
+                </div>
+                <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                  <span><strong>{quantityLabel.QUANTITY}</strong></span>
+                </div>
+                <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                  <span><strong>{priceLabel.PRICE}</strong></span>
+                </div>
+                <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                  <strong>{actionsLabel.ACTIONS}</strong>
+                </div>
+              </div>
+            </li>
+            <!-- Datas Products -->
+            <template for:each={orderLines} for:item="oneLine">
+              <li key={oneLine.CDPAR} class={checkBackground}>
+                <c-smc_lwc_neworder_orderlines
+                  havenetpricepermission={haveNetPricePermission}
+                  line={oneLine}
+                  requesteddeliverydate={testRequestedDeliveryDate}
+                  onlinemodification={handleLineModification}
+                  onavailability={handleAvailability}
+                  onrefreshline={handleRefreshLineFromOrderList}
+                  onlinedeletion={handleLineDeletion}
+                ></c-smc_lwc_neworder_orderlines>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+    </template>
+    <template if:true={showAlternativePdt}>
+
+    </template>
+    <!-- BUTTONS -->
+    <div class="slds-grid slds-wrap slds-gutters">
+      <div class="slds-col slds-size_12-of-12 slds-align_absolute-center">
+        <div class="page-width margin-top-30">
+          <lightning-button
+            variant="neutral"
+            label={resetLabel.RESET}
+            onclick={handleResetOrder}
+            class="space-beteween-btn"
+          ></lightning-button>
+          <template if:true={productIsSelected}>
+            <lightning-button
+              variant="success"
+              label={sendOrderLabel.SEND_ORDER}
+              onclick={handleSendOrder}
+              class="space-beteween-btn"
+            ></lightning-button>
+          </template>
+        </div>
+      </div>
+    </div>
+  </template>
+</template>

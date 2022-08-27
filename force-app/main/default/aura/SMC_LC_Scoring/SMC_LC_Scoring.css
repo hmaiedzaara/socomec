@@ -1,0 +1,124 @@
+.THIS .warningIcon svg{
+    fill:orange;
+}
+.THIS .validIcon svg{
+    fill:green;
+}
+.THIS .invalidIcon svg{
+    fill:red;
+}
+
+.THIS input::-ms-clear{
+    display: none;
+}
+.THIS .filters-container{
+    margin-right: 40px;
+}
+.THIS .filters-checkboxes-container > div{
+    margin-right: 20px;
+}
+.THIS .input-search-container{
+    margin-right: 40px;
+}
+.THIS .searchBar{    
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.THIS .searchTools{  
+    margin-left: 10px;
+    float: right;
+    border: 1px solid grey;
+}
+.THIS .searchInput{
+    width: 20%;
+}
+.THIS .chartLegend{
+    width: fit-content;
+    margin-left: 35%;
+}
+.THIS .chartLegend > p > span{
+    margin-right: 5px;
+}
+
+
+
+.THIS .scoringTab{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.THIS .slds-scrollable_y{
+    height:270px;
+}
+
+
+/* Adjust scrollbar width problem by default adjust for chrome */
+.THIS .scoringTab.has-scroll{
+   width: calc(100% + 18px);
+}
+/*  by browser cf. https://stackoverflow.com/a/48998808 */
+/* IE */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .THIS .scoringTab.has-scroll{
+       width: calc(100% + 18px);
+    }
+}
+
+.THIS td{
+    text-align: center;
+    font-size: .78rem;
+    width: 9%;
+    flex-grow: 1;
+    color:white;
+    border: 1px solid lightgrey;
+}
+.THIS .textBlack{
+    color: black;
+}
+
+
+
+.THIS .group{
+    background-color:#27519b;
+    border-radius: 10px 0px 0px 0px;
+}
+.THIS .code{
+    background-color:#27519b;
+}
+.THIS .min{
+    background-color:#52ca2d;
+}
+.THIS .max{
+    background-color:#9556a5;
+}
+.THIS .maxSuggested{
+    background-color:#acabab;
+}
+.THIS .discount{
+    background-color:#fdc55d;
+}
+.THIS .discountIsValid{
+    background-color:#a73333;
+}
+.THIS .lastEditDate{
+    border-radius: 0px 10px 0px 0px;
+    background-color:rgb(114, 80, 52);
+}
+.THIS .groupValue{
+    background-color:#27519b;
+}
+.THIS .inputMaxSuggestedAndDiscount{
+    height: 25px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid lightgreen;
+}
+
+
+.THIS .unsaved{
+    color : red;
+    margin-top: 10px;
+}

@@ -1,0 +1,4 @@
+<design:component label="Quote Pipe Amount">
+    <design:attribute name="title" label="Title" 
+                          description="Define a title for the component" />
+</design:component>

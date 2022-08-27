@@ -1,0 +1,17 @@
+<design:component label="Display an Image from my personnal documents">
+	<design:attribute name="title" label="Title" 
+                          description="Define a title for the component" />
+    <design:attribute name="prefixInterfaceName" label="Prefix image name comming from an interface"
+                          description="If the image you want to display provide from interface and this interface give a prefix fill in, 
+                                       else keep blank this field"/>
+    <design:attribute name="isPrefixByUserAlias" label="Image name is prefixed by user alias ?"
+                          description="If the image you want to display is generate for every user and filename contains user id, 
+                                       tick the checkbox and fill only the resources name in URL/Resource name field"/>
+    <design:attribute name="isPrefixByTodayDate" label="Image name is prefixed by today's date ?"
+                          description="If the image you want to display is generate every day and contains the date in the file, 
+                                       tick the checkbox"/>
+    <design:attribute name="name" label="Image Name" 
+                          description="Define the image name defined in salesforce document" />
+    <design:attribute name="legend" label="Image Legend"
+                          description="Text display under the image in order to describe it"/>
+</design:component>

@@ -1,0 +1,65 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 07-29-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   01-26-2021   Vincent RECASENS (Modis)   Initial Version
+-->
+<aura:component
+  implements="forceCommunity:availableForAllPageTypes"
+  access="global"
+  controller="SMC_AC_UploadFile"
+>
+  <!-- 'parentId' Aura Attribute for store the Id for Parent Record where we are attach our file -->
+  <aura:attribute name="parentId" type="Id" default="" />
+  <!-- 'showLoadingSpinner' attribute for show/hide the uploading image and msg in aura:if-->
+  <aura:attribute name="showLoadingSpinner" type="boolean" default="false" />
+  <aura:attribute name="fileUploaded" type="boolean" default="false" />
+  <!-- 'fileName' attribute for display the selected file name -->
+  <aura:attribute name="fileName" type="String" default="No file selected" />
+  <!-- Lightning Input with file type and on file change call the 'handleFilesChange' controller -->
+
+  <aura:registerevent
+    name="Send_UploadStatus_To_Parent"
+    type="c:SMC_LC_EVT_UploadStatus"
+  />
+  <p class="upload-legend"><i>{! $Label.c.SMC_Upload_File_Legend }</i></p>
+  <!-- <lightning:input
+    aura:id="fileId"
+    onchange="{!c.handleFilesChange}"
+    type="file"
+    name="file"
+    label="Upload Attachment (max size : 4.5MB)"
+    multiple="false"
+  /> -->
+  <lightning:fileUpload multiple="false"
+                        variant="label-hidden"
+                        recordId="{!v.recordId}"
+                        accept="['.pdf','.pptx','.jpg','.png','.docx','.odt','.doc','.txt','.html','.csv','.xlsx']"
+                        onuploadfinished="{!c.handleUploadFinished}"
+                        class="slds-m-bottom_small"/>
+  <aura:if isTrue="{!v.fileUploaded}">
+    <div class="slds-text-body_small slds-text-color_success">{!$Label.c.SMC_Upload_Done}</div>
+  </aura:if>
+
+  <br />
+  <!--use aura:if for show-hide the loading spinner image-->
+  <!-- <aura:if isTrue="{!v.showLoadingSpinner}">
+    <div class="slds-text-body_small slds-text-color_error"
+      >Uploading...
+      <img
+        src="/auraFW/resources/aura/images/spinner.gif"
+        class="spinner-img"
+        alt="Loading"
+      />
+    </div>
+  </aura:if>
+
+
+  <button class="slds-button slds-button_brand" onclick="{!c.doSave}"
+    >Upload attachment</button
+  > -->
+</aura:component>

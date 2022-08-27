@@ -1,0 +1,92 @@
+<!--
+  @File Name          : smc_lwc_tile_help.html
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 15/06/2020 à 16:24:45
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    02/06/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<template>
+  <div class="slds-card">
+    <div class="slds-card__header">
+      <div class="slds-media slds-media_center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <span class="slds-icon_container king-blue" title={title}>
+            <i class={titleIcon}></i>
+          </span>
+        </div>
+        <div class="slds-media__body">
+          <h2 class="slds-card__header-title slds-align_center slds-truncate">
+            <a class="slds-card__header-link slds-truncate" title={title}>
+              <span>{title}</span>
+            </a>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div
+      class="slds-card__body slds-card__body_inner slds-border_top sizing-body"
+    >
+      <!-- BODY -->
+      <div class="slds-grid slds-wrap slds-gutters shadow-box">
+        <div
+          class="slds-col slds-large-size_1-of-2 slds-medium-size_1-of-2 slds-size_1-of-1"
+        >
+          <a href="/myspace/s/create-new-standard-case">
+            <lightning-icon
+              icon-name="utility:case"
+              alternative-text={createNewCase.CREATE_NEW_CASE}
+              title={createNewCase.CREATE_NEW_CASE}
+            ></lightning-icon>
+            <div>{createNewCase.CREATE_NEW_CASE}</div>
+          </a>
+        </div>
+        <div
+          class="slds-col slds-large-size_1-of-2 slds-medium-size_1-of-2 slds-size_1-of-1"
+        >
+          <a href="/myspace/s/faq">
+            <div>
+              <lightning-icon
+                icon-name="utility:help"
+                alternative-text={faq.FAQ}
+                title={faq.FAQ}
+              ></lightning-icon>
+            </div>
+            <div>{faq.FAQ}</div>
+          </a>
+        </div>
+        <div
+          class="slds-col slds-large-size_1-of-2 slds-medium-size_1-of-2 slds-size_1-of-1"
+        >
+          <a href="/myspace/s/contactsupport">
+            <div>
+              <lightning-icon
+                icon-name="utility:questions_and_answers"
+                alternative-text={contactUs.CONTACT_US}
+                title={contactUs.CONTACT_US}
+              ></lightning-icon>
+            </div>
+            <div>{contactUs.CONTACT_US}</div>
+          </a>
+        </div>
+        <div
+          class="slds-col slds-large-size_1-of-2 slds-medium-size_1-of-2 slds-size_1-of-1"
+        >
+          <a href="/myspace/s/contentdocument/ContentDocument/All">
+            <div>
+              <lightning-icon
+                icon-name="utility:archive"
+                alternative-text="Access Docs"
+                title="Access Docs"
+              ></lightning-icon>
+            </div>
+            <div>Access Docs</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

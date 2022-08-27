@@ -1,0 +1,100 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 10-28-2020
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   10-02-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <template if:true={isLoad}>
+    <div class="space-betwee-cmp">
+      <c-smc_lwc_order_details_header
+        cdcli={order.CDCLI}
+        order={order}
+      ></c-smc_lwc_order_details_header>
+    </div>
+    <div>
+      <h2>{orderLinesLabel.ORDER_LINES}</h2>
+      <div class="slds-grid slds-wrap slds-gutters margin-top-30">
+        <div class="slds-col slds-size_9-of-12">
+          <ul>
+            <li class="slds-border_bottom slds-border_top">
+              <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                  <span><strong>{lineNumberLabel.LINE_NUMBER}</strong></span>
+                </div>
+                <div class="slds-col slds-size_3-of-12 slds-text-align_center">
+                  <span><strong>{productCodeLabel.PRODUCT_CODE}</strong></span>
+                </div>
+                <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                  <span><strong>{quantityLabel.QUANTITY}</strong></span>
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                  <span><strong>{carrierLabel.CARRIER}</strong></span>
+                </div>
+                <div class="slds-col slds-size_3-of-12 slds-text-align_center">
+                  <span
+                    ><strong
+                      >{trackingNumberLabel.TRACKING_NUMBER}</strong
+                    ></span
+                  >
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                  <span
+                    ><strong>{deliveryDateLabel.DELIVERY_DATE}</strong></span
+                  >
+                </div>
+              </div>
+            </li>
+            <template for:each={order.rows} for:item="oneLine">
+              <li key={oneLine.CDPAR} class={checkBackground}>
+                <div class="slds-grid slds-wrap slds-gutters">
+                  <div
+                    class="slds-col slds-size_1-of-12 slds-text-align_center"
+                  >
+                    <span>{oneLine.LINENUMBER}</span>
+                  </div>
+                  <div
+                    class="slds-col slds-size_3-of-12  slds-text-align_center"
+                  >
+                    <span>{oneLine.CDPAR}</span>
+                  </div>
+                  <div
+                    class="slds-col slds-size_1-of-12  slds-text-align_center"
+                  >
+                    <span>{oneLine.QUANTITY}</span>
+                  </div>
+                  <div
+                    class="slds-col slds-size_2-of-12 slds-text-align_center"
+                  >
+                    <span>{oneLine.COURIER}</span>
+                  </div>
+                  <div
+                    class="slds-col slds-size_3-of-12 slds-text-align_center"
+                  >
+                    <span>{oneLine.TRACKINGNUMBER}</span>
+                  </div>
+                  <div
+                    class="slds-col slds-size_2-of-12 slds-text-align_center"
+                  >
+                    <span><strong>{oneLine.DELIVERYDATE}</strong></span>
+                  </div>
+                </div>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </template>
+  <template if:true={resultIsNull}>
+    <div class="margin-picture">
+      <c-smc_lwc_desert_illustration
+        noresultlabel={noresultlabel}
+      ></c-smc_lwc_desert_illustration>
+    </div>
+  </template>
+</template>

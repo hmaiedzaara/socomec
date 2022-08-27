@@ -1,0 +1,6 @@
+<design:component>
+	<design:attribute name="backgroundColor" label="Background color"/>
+	<design:attribute name="comeFromOnlineOrderPortal" label="From Online Ordering Portal?"/>
+	<design:attribute name="displayOnlineOrderingPortalLinks" label="Display Online Ordering Portal Links ?"/>
+	<design:attribute name="displayWarrantyRegistrationLinks" label="Display Warranty Registration Links ?"/>
+</design:component>

@@ -1,0 +1,70 @@
+.THIS {
+	background-color: #FFF;  
+    color: #333;
+}
+
+.THIS.slds-spinner_container {  
+  z-index: 10000;
+  position: fixed;   
+}
+
+.THIS table {
+	font-size: 1em;
+	color: #333;
+	background-color: inherit;
+	border: 1px solid #888888;
+	margin-bottom: 15px;
+    width: auto;
+}
+
+.THIS table tr {
+	height: 20px;
+}
+
+.THIS table tr.l1 {
+	background-color: #FFFFFF;
+	color: inherit;
+}
+
+.THIS table tr.l2 {
+	background-color: rgb(243, 242, 242);
+	color: inherit;
+}
+
+.THIS table th {
+    text-transform: uppercase;
+	border: 1px solid #FFFFFF;
+	height: 23px;
+	white-space: nowrap;
+	padding-left: 10px;
+	padding-right: 10px;
+    border: 1px solid #888888;
+	color: white;
+	background-color: rgb(0, 112, 210);
+}
+
+.THIS table td {
+	white-space: nowrap;
+	padding-left: 10px;
+	padding-right: 10px;
+    border: 1px solid #888888;
+}
+
+.THIS h1 {
+	font-size: 1.5em;
+    border-bottom: 1px solid #888888;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: rgb(0, 112, 210);
+}
+
+.THIS h1:first-of-type, .THIS h1:nth-of-type(1) {
+    margin-top: 0px;
+}
+
+.THIS .smc-container {
+    min-height: 50px;
+}
+.THIS .smc-container-content{
+    height:400px;
+}

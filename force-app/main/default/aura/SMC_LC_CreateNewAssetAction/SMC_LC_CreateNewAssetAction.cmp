@@ -1,0 +1,68 @@
+<aura:component
+  implements="lightning:isUrlAddressable,flexipage:availableForRecordHome,lightning:actionOverride,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName"
+  controller="SMC_AC_CreateNewAssetAction"
+>
+  <aura:attribute name="currentStep" type="String" default="choice" />
+  <aura:attribute name="selectedRecordTypeString" type="String" default="" />
+  <aura:attribute name="assetFields" type="String" default="" />
+  <aura:attribute name="inContextOfRef" type="String" default="" />
+  <aura:attribute name="selectedRow" type="List" default="[]" />
+
+  <aura:attribute name="errors" type="String" />
+
+  <aura:handler name="init" value="this" action="{!c.init}" />
+
+  <!-- Error -->
+  <aura:if isTrue="{!v.errors}">
+    <ui:message title="Error" severity="error" closable="true">
+      {!v.errors}
+    </ui:message>
+  </aura:if>
+
+  <aura:if isTrue="{!v.currentStep!='blank'}">
+    <section
+      role="dialog"
+      tabindex="-1"
+      class="slds-modal slds-fade-in-open slds-modal_large"
+      aria-labelledby="modal-heading-01"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+    >
+      <div
+        aura:id="editDialog"
+        role="dialog"
+        tabindex="-1"
+        aria-labelledby="header43"
+        class="slds-modal slds-fade-in-open "
+      >
+        <div class="slds-modal__container">
+          <div class="slds-modal__header">
+            <h2 class="slds-text-heading--medium">New Record</h2>
+          </div>
+          <div
+            class="slds-modal__content slds-p-around--medium slds-grid slds-wrap "
+          >
+            <c:SMC_LC_ServiceProductList
+              selectionUniqueOrMultipleValue="true"
+              selectedRowId="{!v.selectedRow}"
+            />
+          </div>
+          <div class="slds-modal__footer">
+            <lightning:button
+              variant="neutral"
+              label="Cancel"
+              onclick="{!c.onBack}"
+            />
+            <lightning:button
+              variant="brand"
+              label="Next"
+              onclick="{!c.onServiceProductChosen}"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <div aura:id="overlay" class="slds-backdrop slds-backdrop--open"></div>
+  </aura:if>
+  <lightning:button variant="brand" label="Back" onclick="{!c.onBack}" />
+</aura:component>

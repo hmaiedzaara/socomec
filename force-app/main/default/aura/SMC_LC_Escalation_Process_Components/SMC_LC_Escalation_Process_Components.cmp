@@ -1,0 +1,91 @@
+<!--	Name : SMC_LC_xxx
+		Author : Vincent RECASENS
+		Description : .....
+		
+		Maintenance History :
+
+		Date		    Name				Version 	Remarks 
+		28-DEC-2017     SMC_LC_NewQuote	    1.0			Initial Version
+-->
+
+<aura:component
+  implements="flexipage:availableForAllPageTypes"
+  access="global"
+  controller="SMC_AC_Escalation_Process_Components"
+>
+  <!-- Attributes -->
+  <aura:attribute name="isLoading" type="Boolean" default="true" />
+  <aura:attribute name="hasPermission" type="Boolean" default="false" />
+  <aura:attribute name="processInstanceList" type="List" />
+  <aura:attribute name="numberOfItem" type="Integer" default="0" />
+  <aura:attribute
+    name="selectApprovalByDesign"
+    type="String"
+    default="All Items to Approve"
+  />
+
+  <!-- Attribute to display errors -->
+  <aura:attribute name="errors" type="String" />
+
+  <!-- Initialization -->
+  <aura:handler name="init" value="{! this }" action="{! c.doInit }" />
+  <!-- Spinner for waiting -->
+  <aura:if isTrue="{! v.isLoading }">
+    <lightning:spinner
+      alternativeText="{!$Label.c.SMC_Loading}"
+      size="medium"
+    />
+  </aura:if>
+
+  <aura:if
+    isTrue="{! or(and(v.selectApprovalByDesign == $Label.c.SMC_AllAproval, v.hasPermission), v.selectApprovalByDesign == $Label.c.SMC_Item_To_Approve_Delegated) }"
+  >
+    <div class="slds-card">
+      <aura:if isTrue="{! !v.isLoading }">
+        <ul>
+          <li class="slds-text-heading_medium">
+            <aura:if
+              isTrue="{! v.selectApprovalByDesign == $Label.c.SMC_Item_To_Approve_Delegated }"
+            >
+              <strong>{! $Label.c.SMC_Item_To_Approve_Delegated }</strong>
+            </aura:if>
+            <aura:if
+              isTrue="{! v.selectApprovalByDesign == $Label.c.SMC_AllAproval}"
+            >
+              <strong>{! $Label.c.SMC_AllAproval }</strong>
+            </aura:if>
+          </li>
+          <!-- Error -->
+          <aura:if isTrue="{! v.errors }">
+            <li>
+              <ui:message title="Error" severity="error" closable="true">
+                {! v.errors }
+              </ui:message>
+            </li>
+          </aura:if>
+          <aura:if isTrue="{! v.numberOfItem > 0 }">
+            <div class="{! v.numberOfItem > 5 ? 'slds-scrollable_y' : ''}">
+              <aura:iteration
+                items="{! v.processInstanceList }"
+                var="processInstance"
+                indexVar="idx"
+              >
+                <li>
+                  <c:SMC_LC_Escalation_Process_Components_Line
+                    oneProcessInstance="{! processInstance }"
+                    selectApprovalByDesign="{! v.selectApprovalByDesign }"
+                  />
+                </li>
+              </aura:iteration>
+            </div>
+            <aura:set attribute="else">
+              <p class="fix-right-side-no-list">
+                {! $Label.c.SMC_NoApproval }
+              </p>
+            </aura:set>
+          </aura:if>
+        </ul>
+      </aura:if>
+    </div>
+  </aura:if>
+</aura:component>

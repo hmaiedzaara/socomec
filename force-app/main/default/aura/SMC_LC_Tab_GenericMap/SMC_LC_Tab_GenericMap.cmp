@@ -1,0 +1,32 @@
+<!--
+  @File Name          : SMC_LC_GM001_Tab.cmp
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 03-18-2021
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    10/06/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<aura:component implements="force:appHostable">
+  <div aura:id="mainContainer" class="slds-card">
+    <div class="map-title">
+      <h1><strong>{!$Label.c.SMC_Capital_Map}</strong></h1>
+      <div class="yellow-border-bottom"></div>
+    </div>
+    <ModisGenericMap:gm_lwc_container
+      recordId=""
+      centeredOn="user"
+      sObjectName="Account"
+      accountFieldName="Id"
+      whereClause=""
+      addressType="BillingAddress"
+      maxRadiusInKm="50"
+      maxNumberOfRecords="70"
+      filterList="Owner_or_Pilot"
+      defaultFilter="true"
+    >
+    </ModisGenericMap:gm_lwc_container>
+  </div>
+</aura:component>

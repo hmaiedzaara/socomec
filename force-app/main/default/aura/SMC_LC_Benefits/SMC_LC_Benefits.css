@@ -1,0 +1,93 @@
+.THIS h1,
+.THIS p {
+    text-align:center;
+}
+
+.THIS .separator {
+    display:block; 
+    background-color: #c50e1f;
+    width: 75px;
+    height: 5px;
+    margin: 40px auto;
+}
+
+.THIS h1 {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: inherit;
+    text-transform: uppercase;
+    margin-top: 21px;
+    margin-bottom: 10.5px;
+}
+
+.THIS .benefits-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.THIS .benefits-subtitle {
+    font-size: 15px; 
+}
+
+
+.THIS .benefits-container {
+    margin-bottom: 15px;   
+}
+.THIS .benefits-container .slds-col-content {
+    box-shadow: 0 1px 2px rgba(0,0,0,.20);
+}
+
+.THIS .benefits-container .top-decoration {
+    display: block;
+    width: 100%;
+    height: 15px;
+    background-color: #003880;
+}
+
+.THIS .benefits-container h2{
+    color: whitesmoke;
+    margin: 0;
+    padding: 30px 0;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #005aab;
+}
+.THIS .benefits-container p {
+    padding: 25px 15px;
+}
+
+.THIS .slds-col-custom {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.THIS h2 {
+    font-size: 25.6px; 
+}
+
+.THIS .slogan-powerful {
+    font-weight: bold;
+    font-size: 30px; 
+
+}
+
+.THIS .text-container {
+    color: white;
+    position: absolute;
+    top: 35%;
+    right: 0;
+    margin-right: 34px;
+    margin-top: 15px; 
+}
+
+.THIS .your-benefits-img-container {
+    position: relative;
+    background: url(/customers/resource/1563257303000/SMC_PartnersCommunity_Image2);
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right top;
+    height: 358px;
+}

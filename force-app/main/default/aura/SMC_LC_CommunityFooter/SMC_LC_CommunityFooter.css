@@ -1,0 +1,29 @@
+.THIS {
+    background: #eee;
+    font-size: 15px;
+}
+
+.THIS .text-bold{
+    font-weight: bold;
+}
+
+.THIS .icon-style{
+    border: 2px solid #005aab;
+    color: #005aab;
+    border-radius: 50%;
+	font-size: 16px;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    text-align: center;
+    line-height: 32px;
+}
+
+.THIS .p-style{
+    margin: 20px 0;
+}
+
+.THIS .center {
+    margin: 0 auto;
+    max-width: 1440px;
+}

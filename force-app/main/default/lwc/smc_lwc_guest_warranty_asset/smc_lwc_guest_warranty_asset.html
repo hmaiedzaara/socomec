@@ -1,0 +1,317 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 07-26-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   12-10-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <!-- Spinner during loading -->
+  <template if:true={spinnerDuringSave}>
+    <lightning-spinner
+      alternative-text="Loading"
+      size="large"
+    ></lightning-spinner>
+  </template>
+  <!-- <template if:true={refreshView}> -->
+  <lightning-card title={customLabels.CONTACT_INFORMATION} class="space-left">
+    <!-- CONTACT INFORMATIONS -->
+    <div class="slds-grid slds-wrap slds-card__body_inner">
+      <!-- FirstName -->
+      <div class="slds-col slds-size_1-of-2">
+        <lightning-input
+          type="text"
+          label={customLabels.FIRST_NAME}
+          value={contactFirstName}
+          required="true"
+          onchange={handleContactFirstName}
+        ></lightning-input>
+      </div>
+      <!-- LastName -->
+      <div class="slds-col slds-size_1-of-2">
+        <lightning-input
+          type="text"
+          label={customLabels.LAST_NAME}
+          value={contactLastName}
+          required="true"
+          onchange={handleContactLastName}
+        ></lightning-input>
+      </div>
+      <!-- CompanyName -->
+      <div class="slds-col slds-size_1-of-3">
+        <p class="style-label-blue pos-absolute">
+          <label class="color-red">*</label>{customLabels.COMPANY_NAME}
+        </p>
+        <lightning-input
+          type="text"
+          value={contactCompanyName}
+          disabled={isPersonAccount}
+          onchange={handleContactCompanyName}
+          onfocusout={handleContactCompanyNameFocusOut}
+          class={companyNameCssClass}
+        ></lightning-input>
+        <template if:true={showErrorLabelForCompanyName}>
+          <p>
+            <label class="styling-error-message">Complete this field</label>
+          </p>
+        </template>
+      </div>
+      <!-- Person Account -->
+      <div class="slds-col slds-size_1-of-6">
+        <p class="style-label-blue">
+          {customLabels.PERSON_ACCOUNT}
+        </p>
+        <lightning-input
+          type="checkbox"
+          label=""
+          onchange={handleIsPersonAccount}
+        ></lightning-input>
+      </div>
+      <!-- Job Title -->
+      <div class="slds-col slds-size_1-of-2">
+        <lightning-input
+          type="text"
+          label={customLabels.JOB_TITLE}
+          value={contactJobTitle}
+          onchange={handleJobTitle}
+        ></lightning-input>
+      </div>
+      <!-- Main Activity -->
+      <div class="slds-col slds-size_1-of-2">
+        <p class="style-label-blue">
+          <label class="color-red">*</label>{customLabels.MAIN_ACTIVITY}
+        </p>
+        <select class="slds-select" onchange={handleMainActivity}>
+          <option value="" selected disabled hidden
+            >{customLabels.CHOOSE_HERE}</option
+          >
+          <template for:each={mainactivtyvalues} for:item="oneActivity">
+            <option key={oneActivity.value} value={oneActivity.value}
+              >{oneActivity.label}</option
+            >
+          </template>
+        </select>
+      </div>
+      <!-- Your Organization -->
+      <div class="slds-col slds-size_1-of-2">
+        <p class="style-label-blue">
+          <label class="color-red">*</label>{customLabels.YOUR_ORGANIZATION}
+        </p>
+        <select class="slds-select" onchange={handleYourOrganization} required>
+          <option value="" selected disabled hidden
+            >{customLabels.CHOOSE_HERE}</option
+          >
+          <template
+            for:each={yourorganizationvalues}
+            for:item="oneOrganization"
+          >
+            <option key={oneOrganization.value} value={oneOrganization.value}
+              >{oneOrganization.label}</option
+            >
+          </template>
+        </select>
+      </div>
+      <!-- Country -->
+      <div class="slds-col slds-size_1-of-2">
+        <p class="style-label-blue">
+          <label class="color-red">*</label>{customLabels.COUNTRY}
+        </p>
+        <select class="slds-select" onchange={handleCountry} disabled={stateNotLoaded}>
+          <option value="" selected disabled hidden
+            >{customLabels.CHOOSE_HERE}</option
+          >
+          <template for:each={countryvalues} for:item="oneCountry">
+            <option key={oneCountry.value} value={oneCountry.value}
+              >{oneCountry.label}</option
+            >
+          </template>
+        </select>
+      </div>
+      <!-- State -->
+      <div class="slds-col slds-size_1-of-2">
+        <p class="style-label-blue">
+          {customLabels.STATE}
+        </p>
+        <select
+          id="satetselector"
+          class="slds-select"
+          onchange={handleState}
+          disabled={countryIsSelected}
+        >
+          <option value="" selected disabled hidden
+            >{customLabels.CHOOSE_HERE}</option
+          >
+          <template for:each={statevalues} for:item="oneState">
+            <option key={oneState.value} value={oneState.value}
+              >{oneState.label}</option
+            >
+          </template>
+        </select>
+      </div>
+      <!-- Street -->
+      <div class="slds-col slds-size_1-of-1">
+        <lightning-input
+          type="text"
+          label={customLabels.STREET}
+          value={street}
+          onchange={handleStreet}
+        ></lightning-input>
+      </div>
+      <!-- ZIP/Postal Code -->
+      <div class="slds-col slds-size_1-of-2">
+        <lightning-input
+          type="text"
+          label={customLabels.ZIP_POSTAL_CODE}
+          value={zippostalcode}
+          onchange={handleZipPostalCode}
+        ></lightning-input>
+      </div>
+      <!-- City -->
+      <div class="slds-col slds-size_1-of-2">
+        <lightning-input
+          type="text"
+          label={customLabels.CITY}
+          value={city}
+          onchange={handleCity}
+        ></lightning-input>
+      </div>
+      <!-- MobilePhone -->
+      <div class="slds-col slds-size_1-of-2">
+        <lightning-input
+          type="tel"
+          label={customLabels.MOBILE_PHONE}
+          value={contactMobilePhone}
+          required="true"
+          onchange={handleContactMobilePhone}
+        ></lightning-input>
+      </div>
+      <!-- Email -->
+      <div class="slds-col slds-size_1-of-2">
+        <lightning-input
+          type="email"
+          label={customLabels.EMAIL}
+          value={contactEmail}
+          required={emailRequired}
+          onchange={handleContactEmail}
+        ></lightning-input>
+      </div>
+      <!-- Empty block -->
+      <div class="slds-col slds-size_1-of-2"></div>
+      <!-- Confirm Email -->
+      <div class="slds-col slds-size_1-of-2">
+        <lightning-input
+          type="email"
+          label={customLabels.CONFIRM_EMAIL}
+          value={contactConfirmEmail}
+          required={emailRequired}
+          onpaste={handlePasteConfirmEmail}
+          onchange={handleContactConfirmEmail}
+          onblur={checkEmails}
+        ></lightning-input>
+      </div>
+      <!-- Send newsletter -->
+      <div class="slds-col slds-size_1-of-2">
+        <p class="style-label-blue">
+          {customLabels.SEND_NEWSLETTER}
+        </p>
+        <div class="inline-block">
+          <label class="default-color"
+            >{customLabels.SEND_NEWSLETTER_LABEL}</label
+          >
+          <lightning-input
+            type="checkbox"
+            label=""
+            onchange={handleSendNewsletter}
+          ></lightning-input>
+        </div>
+      </div>
+      <!-- Send confirmation email -->
+      <div class="slds-col slds-size_1-of-2">
+        <p class="style-label-blue">
+          {customLabels.SEND_CONFIRMATION}
+        </p>
+        <div class="inline-block">
+          <label class="default-color"
+            >{customLabels.SEND_CONFIRMATION_LABEL}</label
+          >
+          <lightning-input
+            type="checkbox"
+            label=""
+            onchange={handleSendConfirmation}
+            checked
+          ></lightning-input>
+        </div>
+      </div>
+    </div>
+  </lightning-card>
+  <lightning-card title={customLabels.PRODUCT_INFORMATION} class="space-left">
+    <div class="slds-grid slds-wrap slds-card__body_inner">
+      <!-- Serial Number -->
+      <div class="slds-col slds-size_1-of-2">
+        <lightning-input
+          type="text"
+          label={customLabels.SERIAL_NUMBER}
+          value={serialnumber}
+          required="true"
+          onchange={handleAssetSerialNumber}
+        ></lightning-input>
+      </div>
+      <!-- Product Description -->
+      <div class="slds-col slds-size_1-of-2">
+        <lightning-input
+          type="text"
+          label={customLabels.PRODUCT}
+          value={product}
+          onchange={handleProduct}
+        ></lightning-input>
+      </div>
+      <!-- Purchased from company -->
+      <div class="slds-col slds-size_1-of-2">
+        <lightning-input
+          type="text"
+          label={customLabels.PURCHASED_COMPANY}
+          value={purchasedfromcompany}
+          onchange={handleAssetPurchasedCompany}
+        ></lightning-input>
+      </div>
+      <!-- PurchasedDate -->
+      <div class="slds-col slds-size_1-of-2">
+        <p class="style-label-blue pos-absolute">
+          <label class="color-red">*</label>{customLabels.PURCHASED_DATE}
+        </p>
+        <lightning-input
+          type="date"
+          value={purchaseddate}
+          onchange={handleAssetPurchasedDate}
+          onmouseout={handleAssetPurchasedDateMouseOut}
+          class={purchaseddateCssClass}
+        ></lightning-input>
+        <template if:true={showErrorLabelForPurchasedDate}>
+          <p>
+            <label class="styling-error-message">Complete this field</label>
+          </p>
+        </template>
+      </div>
+      <!-- Purchased from country -->
+      <div class="slds-col slds-size_1-of-2">
+        <p class="style-label-blue">
+          <!-- <label class="color-red">*</label> -->
+          {customLabels.COUNTRY}
+        </p>
+        <select class="slds-select" onchange={handleAssetPurchasedCountry}>
+          <option value="" selected disabled hidden
+            >{customLabels.CHOOSE_HERE}</option
+          >
+          <template for:each={countryvalues} for:item="oneCountry">
+            <option key={oneCountry.value} value={oneCountry.value}
+              >{oneCountry.label}</option
+            >
+          </template>
+        </select>
+      </div>
+    </div>
+  </lightning-card>
+</template>

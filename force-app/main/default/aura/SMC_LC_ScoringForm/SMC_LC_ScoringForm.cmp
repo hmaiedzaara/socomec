@@ -1,0 +1,35 @@
+<aura:component
+  implements="flexipage:availableForAllPageTypes"
+  access="global"
+  controller="SMC_AC_ScoringForm"
+>
+  <aura:attribute name="errors" type="String" />
+
+  <aura:attribute name="token" type="String" />
+  <aura:attribute name="recordId" type="String" />
+  <aura:attribute name="account" type="Account" />
+  <aura:attribute name="baIds" type="List" />
+  <aura:attribute name="displayScoring" type="Boolean" />
+
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:handler
+    event="c:SMC_LC_EVT_CloseScoring"
+    action="{! c.destroyScoringForm }"
+  />
+
+  <!-- Error -->
+  <aura:if isTrue="{! v.errors }">
+    <ui:message title="Error" severity="error" closable="true">
+      {!v.errors}
+    </ui:message>
+  </aura:if>
+
+  <aura:if isTrue="{! v.displayScoring }">
+    <c:SMC_LC_Scoring
+      account="{! v.account }"
+      recordId="{! v.recordId }"
+      token="{! v.token }"
+      baIds="{! v.baIds }"
+    />
+  </aura:if>
+</aura:component>

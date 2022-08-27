@@ -1,0 +1,6 @@
+<design:component>
+	<design:attribute name="backgroundColor" label="Background color"/>
+	<design:attribute name="displayCustomersLinks" label="Display Customers Links ?"/>
+	<design:attribute name="displayCustomerPortalLinks" label="Display Customer Portal Links ?"/>
+	<design:attribute name="displaySupplierPortalLinks" label="Display Supplier Portal Links ?"/>
+</design:component>

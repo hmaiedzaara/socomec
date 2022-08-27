@@ -1,0 +1,44 @@
+<!--
+  @File Name          : SMC_LC_Edit_Report_To_Field.cmp
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 27/03/2020 à 14:22:59
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    27/02/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"
+  access="global"
+  controller="SMC_AC_Edit_Report_To_Field"
+>
+  <aura:handler
+    name="oSelectedRecordEvent"
+    event="c:selectedsObjectRecordEvent"
+    action="{!c.handleComponentEvent}"
+  />
+
+  <aura:attribute name="newManagerId" type="String" />
+  <aura:attribute name="allowEditManagerField" type="Boolean" default="false" />
+
+  <lightning:card title="Change Manager">
+    <lightning:layout multipleRows="true">
+      <lightning:layoutItem size="12" padding="around-small">
+        <c:customLookup
+          objectAPIName="User"
+          IconName="standard:user"
+          label="User"
+        ></c:customLookup>
+      </lightning:layoutItem>
+      <lightning:layoutItem size="12" class="slds-align--absolute-center">
+        <lightning:button
+          label="Submit"
+          iconName="utility:save"
+          onclick="{!c.onSave}"
+        />
+      </lightning:layoutItem>
+    </lightning:layout>
+  </lightning:card>
+</aura:component>

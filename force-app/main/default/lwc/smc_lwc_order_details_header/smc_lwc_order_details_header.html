@@ -1,0 +1,116 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 10-27-2020
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   10-09-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <h2 class="margin-bottom-10">{orderHeaderLabel.ORDER_HEADER}</h2>
+  <div class="slds-grid slds-wrap slds-gutters">
+    <!-- <div class="slds-grid slds-wrap slds-gutters"> -->
+    <div class="slds-col slds-size_3-of-12">
+      <div class="slds-grid slds-grid_vertical">
+        <!-- Socomec Reference -->
+        <div class="slds-col slds-size_12-of-12">
+          <div class="slds-text-title">
+            <strong>{socomecRefLabel.SOCOMEC_REF}</strong>
+          </div>
+          <label>{order.CDORD}</label>
+        </div>
+        <!-- Order Date -->
+        <div class="slds-col slds-size_12-of-12">
+          <div class="slds-text-title">
+            <strong>{orderDateLabel.ORDER_DATE}</strong>
+          </div>
+          <label>{order.ORDERDATE}</label>
+        </div>
+        <!-- Order Status -->
+        <div class="slds-col slds-size_12-of-12">
+          <div class="slds-text-title">
+            <strong>{orderStatusLabel.ORDER_STATUS}</strong>
+          </div>
+          <label>{order.STATUS}</label>
+        </div>
+      </div>
+    </div>
+    <div class="slds-col slds-size_3-of-12">
+      <div class="slds-grid slds-grid_vertical">
+        <!-- Company Name -->
+        <div class="slds-col slds-size_12-of-12">
+          <div class="slds-text-title">
+            <strong>{accountLabel.ACCOUNT}</strong>
+          </div>
+          <label>{order.address.COMPANYNAME}</label>
+        </div>
+        <!-- Customer Ref -->
+        <div class="slds-col slds-size_12-of-12">
+          <div class="slds-text-title">
+            <strong>{customerRefLabel.CUSTOMER_REF}</strong>
+          </div>
+          <label>{order.CUSTREF}</label>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+    <!-- Empty Block -->
+    <div class="slds-col slds-size_12-of-12"></div>
+    <!-- Delivery Address -->
+    <div class="slds-col slds-size_12-of-12">
+      <div class="slds-grid">
+        <div class="slds-col slds-size_12-of-12 slds-text-title title-address">
+          <strong>{deliveryAddressLabel.DELIVERY_ADDRESS}</strong>
+        </div>
+      </div>
+    </div>
+    <!-- Delivery Address Details -->
+    <div class="slds-col slds-size_3-of-12">
+      <div class="slds-grid slds-grid_vertical">
+        <!-- Street -->
+        <div class="slds-col slds-size_12-of-12">
+          <div class="slds-text-title">
+            <strong>{streetLabel.STREET}</strong>
+          </div>
+          <label>{order.address.ADDRESS}</label>
+        </div>
+        <!-- City -->
+        <div class="slds-col slds-size_12-of-12">
+          <div class="slds-text-title">
+            <strong>{cityLabel.CITY}</strong>
+          </div>
+          <label>{order.address.CITY}</label>
+        </div>
+        <!-- Zip/Postal Code -->
+        <div class="slds-col slds-size_12-of-12">
+          <div class="slds-text-title">
+            <strong>{zipPostalCodeLabel.ZIP_POSTAL_CODE}</strong>
+          </div>
+          <label>{order.address.ZIPCODE}</label>
+        </div>
+      </div>
+    </div>
+    <div class="slds-col slds-size_3-of-12">
+      <div class="slds-grid slds-grid_vertical">
+        <!-- Empty block -->
+        <div class="slds-col slds-size_12-of-12"></div>
+        <!-- State/Province -->
+        <div class="slds-col slds-size_12-of-12">
+          <div class="slds-text-title">
+            <strong>{stateProvLabel.STATE_PROV}</strong>
+          </div>
+          <label>{order.address.PROV}</label>
+        </div>
+        <!-- Country -->
+        <div class="slds-col slds-size_12-of-12">
+          <div class="slds-text-title">
+            <strong>{countryLabel.COUNTRY}</strong>
+          </div>
+          <label>{order.address.COUNTRY}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

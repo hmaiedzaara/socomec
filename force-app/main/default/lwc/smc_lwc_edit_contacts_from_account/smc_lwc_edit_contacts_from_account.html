@@ -1,0 +1,103 @@
+<!--
+  @File Name          : smc_lwc_edit_contacts_from_account.html
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 10-01-2020
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    27/05/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<template>
+  <!-- OBSCUR BACKGROUND -->
+  <div class="slds-is-absolute obscur-background"></div>
+  <!-- MODAL -->
+  <section
+    role="dialog"
+    tabindex="-1"
+    class="slds-modal slds-fade-in-open slds-modal_medium"
+    aria-labelledby="modal-heading-01"
+    aria-modal="true"
+    aria-describedby="modal-content-id-1"
+  >
+    <div
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="header43"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <div class="slds-modal__header">
+          <h2 class="slds-text-heading--medium">
+            {requestIOTContactModification.REQUEST_IOT_CONTACT_MODIFICATION}
+          </h2>
+        </div>
+        <!-- BODY -->
+        <div class="slds-modal__content slds-p-around--medium">
+        <!-- <div class={modalContentSize}> -->
+          <template if:false={inWaitingDuringCreation}>
+            <!-- IOT Main Contact -->
+            <lightning-combobox
+              id="mainContact"
+              name="mainContact"
+              label={iotMainContact.IOT_MAIN_CONTACT}
+              value={mainContactSelected}
+              options={mapContacts}
+              onchange={handleChangeMainContact}
+            ></lightning-combobox>
+            <!-- onclick={toogleModalSize} -->
+
+            <!-- IOT Administrative Contact -->
+            <lightning-combobox
+              id="administrativeContact"
+              name="administrativeContact"
+              label={iotAdministrativeContact.IOT_ADMINISTRATIVE_CONTACT}
+              value={administrativeContactSelected}
+              options={mapContacts}
+              onchange={handleChangeAdministrativeContact}
+            ></lightning-combobox>
+            <!-- IOT Technical Contact -->
+            <lightning-combobox
+              id="technicalContact"
+              name="technicalContact"
+              label={iotTechnicalContact.IOT_TECHNICAL_CONTACT}
+              value={technicalContactSelected}
+              options={mapContacts}
+              onchange={handleChangeTechnicalContact}
+            ></lightning-combobox>
+          </template>
+          <template if:true={inWaitingDuringCreation}>
+            <p>
+              <lightning-icon
+                icon-name="action:share"
+                alternative-text="Waiting the sending"
+                size="x-small"
+              >
+              </lightning-icon>
+              <label class="padding-left-10">Update...</label>
+            </p>
+          </template>
+        </div>
+        <!-- FOOTER -->
+        <div class="slds-modal__footer">
+          <!-- Cancel -->
+          <lightning-button
+            class="padding-rigth-5"
+            variant="destructive"
+            label={cancel.CANCEL}
+            onclick={onCancel}
+          ></lightning-button>
+          <template if:false={inWaitingDuringCreation}>
+            <!-- Save -->
+            <lightning-button
+              variant="brand"
+              label={save.SAVE}
+              onclick={onSave}
+            ></lightning-button>
+          </template>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

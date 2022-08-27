@@ -1,0 +1,85 @@
+/*DPHA - Remove the scrollbar_y when the Tab is reduce*/
+.slds-tabs_default__content{
+    position: static;
+}
+.scoringTab{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.slds-scrollable_y{
+    height:270px;
+}
+.smalltab{
+    height:135px;
+}
+
+
+
+
+/* Adjust scrollbar width problem by default adjust for chrome */
+.scoringTab.has-scroll{
+   width: calc(100% + 18px);
+}
+/*  by browser cf. https://stackoverflow.com/a/48998808 */
+/* IE */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .scoringTab.has-scroll{
+       width: calc(100% + 18px);
+    }
+}
+
+td{
+    text-align: center;
+    font-size: .78rem;
+    width: 9%;
+    flex-grow: 1;
+    color:white;
+    border: 1px solid lightgrey;
+}
+td.withScroller{
+    width: 10.85%;
+}
+.textBlack{
+    color: black;
+}
+
+
+
+.group{
+    background-color:#27519b;
+    border-radius: 10px 0px 0px 0px;
+}
+.code{
+    background-color:#27519b;
+}
+.min{
+    background-color:#52ca2d;
+}
+.max{
+    background-color:#9556a5;
+}
+.maxSuggested{
+    background-color:#acabab;
+}
+.discount{
+    background-color:#fdc55d;
+}
+.discountIsValid{
+    background-color:#a73333;
+}
+.lastEditDate{
+    border-radius: 0px 10px 0px 0px;
+    background-color:rgb(114, 80, 52);
+}
+.groupValue{
+    background-color:#27519b;
+}
+.inputMaxSuggestedAndDiscount{
+    height: 25px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid lightgreen;
+}

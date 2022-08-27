@@ -1,0 +1,18 @@
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"
+>
+  <lightning:quickActionAPI aura:id="quickActionAPI" />
+
+  <!-- Base variant: Makes a button look like a link -->
+  <lightning:button
+    label="Child asset"
+    title="child asset"
+    onclick="{! c.createGroupLevelAction }"
+  />
+  <!-- Neutral variant (default) -->
+  <lightning:button
+    label="New firmware"
+    title="firmware"
+    onclick="{! c.newFirmawareAction }"
+  />
+</aura:component>

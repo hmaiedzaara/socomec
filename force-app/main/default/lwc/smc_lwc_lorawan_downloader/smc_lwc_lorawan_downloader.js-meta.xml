@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>LoRaWan Downloader</masterLabel>
+    <description>This component is called from a flow to dowload datas from distant server.</description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="format" label="Format" type="String"/>
+            <property name="requestid" label="Request Id" type="String"/>
+            <property name="useremail" label="User email" type="String"/>
+            <property name="deveuis" label="List of devEUIs" type="String" description="Put a single string to convert in Apex."/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

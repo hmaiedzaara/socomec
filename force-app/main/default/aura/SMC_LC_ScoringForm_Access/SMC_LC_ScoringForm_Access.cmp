@@ -1,0 +1,71 @@
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId"
+  access="global"
+>
+  <aura:attribute name="errors" type="String" />
+  <aura:attribute name="openScoringForm" type="Boolean" default="false" />
+
+  <aura:handler
+    event="c:SMC_LC_EVT_CloseScoring"
+    action="{! c.refreshDiscount }"
+  />
+
+  <article class="slds-card-blue-background">
+    <lightning:button
+      class="max-width"
+      variant="brand"
+      label="{!$Label.c.SMC_Access_Discount_Form}"
+      title="{!$Label.c.SMC_Access_Discount_Form}"
+      onclick="{! c.accessToScoringForm }"
+    />
+  </article>
+
+  <aura:if isTrue="{! v.openScoringForm }">
+    <div class="modalContainer">
+      <section
+        role="dialog"
+        tabindex="-1"
+        aria-labelledby="modal-heading-01"
+        aria-modal="true"
+        aria-describedby="modal-content-id-1"
+        class="slds-modal slds-fade-in-open"
+      >
+        <div class="slds-modal__container">
+          <header class="slds-modal__header">
+            <button
+              class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+              title="Close"
+              onclick="{! c.closeScoringForm }"
+            >
+              <lightning:icon
+                class="greyColor"
+                iconName="utility:close"
+                size="small"
+                alternativeText="Close"
+                title="Close"
+              />
+            </button>
+            <h2
+              id="modal-heading-01"
+              class="slds-text-heading_medium slds-hyphenate"
+              >{!$Label.c.SMC_Discount_Form}</h2
+            >
+          </header>
+          <div
+            class="slds-modal__content slds-p-around_medium"
+            id="modal-content-id-1"
+          >
+            <div aura:id="enclosingComponent">
+              <c:SMC_LC_ScoringForm recordId="{! v.recordId }" />
+            </div>
+          </div>
+          <footer class="slds-modal__footer">
+            <!-- <button class="slds-button slds-button_neutral">Cancel</button>
+                        <button class="slds-button slds-button_brand">Save</button> -->
+          </footer>
+        </div>
+      </section>
+      <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+  </aura:if>
+</aura:component>

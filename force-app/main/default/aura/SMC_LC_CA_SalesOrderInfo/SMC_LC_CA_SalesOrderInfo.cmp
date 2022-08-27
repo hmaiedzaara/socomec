@@ -1,0 +1,95 @@
+<aura:component
+  description="SMC_LC_CA_SalesOrderInfo"
+  implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:lightningQuickAction,force:hasRecordId"
+  access="global"
+  controller="SMC_AC_LC_CaseController"
+>
+  <!-- Define components attributes -->
+  <aura:attribute
+    name="salesOrderJSON"
+    type="SMC_DTO_SalesOrderDetails[]"
+    access="global"
+  />
+  <aura:attribute name="salesOrderWrapper" type="List" access="global" />
+  <aura:attribute name="isSpinner" type="boolean" default="true" />
+  <aura:attribute name="isCommunity" type="boolean" default="false" />
+
+  <aura:attribute
+    name="record"
+    type="Object"
+    description="The record object to be displayed"
+  />
+  <aura:attribute
+    name="simpleRecord"
+    type="Object"
+    description="A simplified view record object to be displayed"
+  />
+  <aura:attribute
+    name="recordError"
+    type="String"
+    description="An error message bound to force:recordData"
+  />
+
+  <!-- Handle record attributes -->
+  <force:recordData
+    aura:id="record"
+    layoutType="FULL"
+    recordId="{!v.recordId}"
+    targetError="{!v.recordError}"
+    targetRecord="{!v.record}"
+    targetFields="{!v.simpleRecord}"
+    recordUpdated="{!c.recordUpdate}"
+    mode="VIEW"
+  />
+
+  <!-- Content's lightning component -->
+  <div class="slds-card">
+    <div class="slds-card__body slds-card__body_inner slds-scrollable_y">
+      <aura:if isTrue="{!v.isSpinner}">
+        <lightning:spinner
+          alternativeText="{!$Label.c.SMC_Loading}"
+          size="medium"
+        />
+        <aura:set attribute="else">
+          <aura:if isTrue="{!empty(v.simpleRecord.SMC_ERP_Order_Number__c)}">
+            <aura:if isTrue="{!v.isCommunity == false}">
+              {!$Label.c.SMC_NoOrderNumber}
+            </aura:if>
+            <aura:set attribute="else">
+              <div class="slds-card__header slds-grid">
+                <header
+                  class="slds-media slds-media_center slds-has-flexi-truncate"
+                >
+                  <div class="slds-media__body">
+                    <h2 class="header-title-container" id="header">
+                      <span
+                        class="slds-text-heading--small slds-truncate"
+                        title="{!$Label.c.SMC_Order_Details_Tracking_Number}"
+                        >{!$Label.c.SMC_Order_Details_Tracking_Number}</span
+                      >
+                    </h2>
+                  </div>
+                </header>
+              </div>
+              <aura:if isTrue="{!not(empty(v.salesOrderJSON))}">
+                <aura:iteration
+                  items="{!v.salesOrderWrapper}"
+                  var="salesOrderLines"
+                  indexVar="i"
+                >
+                  <c:SMC_LC_CA_SalesOrderInfo_TrackingNumber_Tab
+                    salesOrderLines="{!salesOrderLines }"
+                    indVar="{!i}"
+                  />
+                </aura:iteration>
+                <aura:set attribute="else">
+                  {!$Label.c.SMC_NoResultFound}
+                </aura:set>
+              </aura:if>
+            </aura:set>
+          </aura:if>
+        </aura:set>
+      </aura:if>
+    </div>
+  </div>
+</aura:component>

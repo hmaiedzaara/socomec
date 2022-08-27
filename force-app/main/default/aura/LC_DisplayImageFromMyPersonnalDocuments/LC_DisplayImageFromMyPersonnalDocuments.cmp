@@ -1,0 +1,106 @@
+<!--
+  @File Name          : LC_DisplayImageFromMyPersonnalDocuments.cmp
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 10/04/2020 à 11:33:05
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    10/04/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<aura:component
+  controller="SMC_AC_DisplayImage"
+  implements="flexipage:availableForAllPageTypes"
+  access="global"
+>
+  <!-- Define components attributes -->
+  <aura:attribute
+    name="title"
+    type="String"
+    access="global"
+    description="Title to display on the card top"
+  />
+  <aura:attribute
+    name="name"
+    type="String"
+    access="global"
+    required="true"
+    description="Name of the image file into My Personnal Documents folder"
+  />
+  <aura:attribute
+    name="prefixInterfaceName"
+    type="String"
+    access="global"
+    default=""
+    description="If the file is generate by interface with a particular prefix fill the prefix here'"
+  />
+  <aura:attribute
+    name="isPrefixByUserAlias"
+    type="Boolean"
+    access="global"
+    default="true"
+    description="The filename is prefix by '[User.Alias]_'"
+  />
+  <aura:attribute
+    name="isPrefixByTodayDate"
+    type="Boolean"
+    access="global"
+    default="true"
+    description="The filename is prefix by '[YYYYMMDD]_'"
+  />
+  <aura:attribute
+    name="IdDocument"
+    type="String"
+    access="global"
+    description="Image URL - if from static resources is ticked fill just the resources name"
+  />
+  <aura:attribute
+    name="defaultImageUrl"
+    type="Id"
+    access="global"
+    description="Image URL display if no file is found"
+  />
+  <aura:attribute
+    name="legend"
+    type="String"
+    access="global"
+    description="Text to display on the footer top"
+  />
+
+  <!-- Handle component initialization in a client-side controller -->
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <article
+    class="slds-card forceBaseCard forceCard flexipageCard flexipageReportChart"
+  >
+    <aura:if isTrue="{!not(empty(v.title))}">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          <div class="slds-media__body">
+            <h2 class="header-title-container" id="header">
+              <span
+                class="slds-text-heading--small slds-truncate"
+                title="{!v.title}"
+                >{!v.title}</span
+              >
+            </h2>
+          </div>
+        </header>
+      </div>
+    </aura:if>
+    <div class="slds-card__body slds-card__body--inner">
+      <aura:if isTrue="{!not(empty(v.IdDocument))}">
+        <img src="{!'/servlet/servlet.FileDownload?file=' + v.IdDocument}" />
+        <!-- TODO - DOS : Put a image "Not Found" when no image is found"
+            <aura:set attribute="else">
+                <img src="{!'/resource/' + v.defaultImageUrl}" />
+            </aura:set>
+			-->
+      </aura:if>
+    </div>
+    <aura:if isTrue="{!not(empty(!v.legend))}">
+      <div class="slds-text-body_small">{!v.legend}</div>
+    </aura:if>
+  </article>
+</aura:component>

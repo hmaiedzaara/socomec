@@ -1,0 +1,26 @@
+<!--	Name : SMC_AC_QlikView_Access
+		Author : Vincent RECASENS
+		Description : This component redirect to an url
+		
+		Maintenance History :
+
+		Date			Name	Version 	Remarks 
+		16-JUN-2019 	VRE		1.0			Initial Version
+    11-MAY-2022   DPHA  2.0     Deprecated - To Be Deleted-->
+
+<aura:component
+  implements="force:appHostable"
+  controller="SMC_AC_QlikView_Access"
+>
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+  <!-- Attribute to display errors -->
+  <aura:attribute name="errors" type="String" />
+
+  <!-- Error -->
+  <aura:if isTrue="{!v.errors}">
+    <ui:message title="Error" severity="error" closable="true">
+      {!v.errors}
+    </ui:message>
+  </aura:if>
+</aura:component>

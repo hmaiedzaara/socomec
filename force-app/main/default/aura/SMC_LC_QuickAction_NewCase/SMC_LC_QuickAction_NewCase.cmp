@@ -1,0 +1,36 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId" access="global" controller="SMC_AC_QuickAction_NewCase">
+  
+  <aura:attribute name="showCreateCase" type="Boolean" default="false" />
+  <aura:attribute name="kindCase" type="String" default=""/>
+  <aura:attribute name="predefinedValues" type="String" default="" />
+  <aura:attribute name="errors" type="String" />
+
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <!-- <aura:handler
+    event="c:SMC_LE_Close_SoSales_CreateCase"
+    action="{! c.toggleToCreateCase }"
+  /> -->
+  <ltng:require styles="{!$Resource.SMC_ModalWidthCSS}"/>
+
+  <aura:if isTrue="{! !v.showCreateCase }">
+    <div style="height:6rem;position:relative">
+      <div class="slds-spinner_container">
+        <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+          <span class="slds-assistive-text">{! $Label.c.SMC_Loading }</span>
+          <div class="slds-spinner__dot-a"></div>
+          <div class="slds-spinner__dot-b"></div>
+        </div>
+      </div>
+    </div>
+  </aura:if>
+  <aura:if isTrue="{! v.showCreateCase }">
+    <div aura:id="enclosingComponent">
+      <c:SMC_LC_Page_CreateCase selctedKindCase="{! v.kindCase }"
+                                chooseKindCase="false"
+                                chooseTypeCase="true"
+                                fromQuickAction="true"
+                                predefinedValues="{! v.predefinedValues }" />
+    </div>
+  </aura:if>
+	
+</aura:component>

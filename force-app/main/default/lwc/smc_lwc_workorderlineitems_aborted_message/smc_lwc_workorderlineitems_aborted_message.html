@@ -1,0 +1,22 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 07-06-2020
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   07-06-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <template if:true={woliAbortedExist}>
+    <div class="slds-card">
+      <h2>{woliAbortedTitle.WOLI_ABORTED}</h2>
+      <ul>
+        <template for:each={woliAborted} for:item="oneWoli">
+          <li key={oneWoli}>{oneWoli}</li>
+        </template>
+      </ul>
+    </div>
+  </template>
+</template>

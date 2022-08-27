@@ -1,0 +1,41 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 07-29-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   01-20-2021   Vincent RECASENS (Modis)   Initial Version
+-->
+<aura:component
+  implements="forceCommunity:availableForAllPageTypes"
+  access="global"
+  controller="SMC_AC_WarrantyRegistration"
+>
+  <aura:attribute name="recaptchaValidated" type="Boolean" default="false" />
+
+  <aura:attribute name="caseId" type="String" default="" />
+  <aura:attribute name="documentId" type="String" default="" />
+  <aura:attribute name="refreshView" type="Boolean" default="true" />
+
+  <aura:handler
+    event="c:SMC_LC_EVT_Recaptcha_v2Checkbox"
+    action="{! c.recaptchaValidation }"
+  />
+  <aura:handler event="c:SMC_LC_EVT_UploadStatus" action="{! c.updateIds }" />
+
+  <aura:if isTrue="{!v.refreshView}">
+    <c:smc_lwc_guest_warranty_asset
+      aura:id="warrantyForm"
+      onrefreshview="{!c.getRefreshView}"
+    ></c:smc_lwc_guest_warranty_asset>
+    <br />
+    <p><strong>{!$Label.c.SMC_Invoice_warranty}</strong></p>
+    <c:SMC_LC_UploadFileContainer></c:SMC_LC_UploadFileContainer>
+    <div class="slds-float- -right">
+      <c:LC_Recaptcha_v2Checkbox />
+    </div>
+    <!-- <lightning:button aura:id="myButton" label="Submit" onclick="{!c.doSubmit}" disabled="false" /> -->
+  </aura:if>
+</aura:component>

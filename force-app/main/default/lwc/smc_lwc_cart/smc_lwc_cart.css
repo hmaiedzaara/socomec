@@ -1,0 +1,12 @@
+.bacart{
+    margin-bottom: 10px;
+}
+
+.addtowhichlist{
+    float : left ;
+    /*margin-left:10%;*/
+}
+.clearall{
+    float : right ;
+   /* margin-right:10%;*/
+}

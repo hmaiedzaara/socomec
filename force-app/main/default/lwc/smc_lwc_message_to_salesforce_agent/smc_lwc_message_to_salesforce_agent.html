@@ -1,0 +1,123 @@
+<!--
+  @File Name          : smc_lwc_message_to_salesforce_agent.html
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 08/06/2020 à 09:31:33
+  @Modification Log   : 
+  Ver       Date      Author  Modification
+  1.0    06/01/2020   VRE     Initial Version
+-->
+<template>
+  <template if:false={booleanFromAccount}>
+    <div class="margin-top-20">
+      <lightning-button
+        variant="brand"
+        label={messageToAccountOwner.MESSAGE_TO_ACCOUNT_OWNER}
+        onclick={showModal}
+        class="slds-m-left_x-small"
+      >
+      </lightning-button>
+    </div>
+  </template>
+  <template if:true={modalIsDisplay}>
+    <div class="obscur-background"></div>
+    <section
+      role="dialog"
+      tabindex="-1"
+      class="slds-modal slds-fade-in-open slds-modal_medium"
+      aria-labelledby="modal-heading-01"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+    >
+      <div
+        role="dialog"
+        tabindex="-1"
+        aria-labelledby="header43"
+        class="slds-modal slds-fade-in-open"
+      >
+        <div class="slds-modal__container">
+          <div class="slds-modal__header">
+            <h2 class="slds-text-heading--medium">
+              {messageToAccountOwner.MESSAGE_TO_ACCOUNT_OWNER}
+            </h2>
+          </div>
+          <div class="slds-modal__content slds-p-around--medium">
+            <!-- Body of modal -->
+            <template if:true={isWriting}>
+              <lightning-input
+                type="text"
+                label="Title"
+                value={titleMessage}
+                onchange={titleChange}
+              ></lightning-input>
+              <lightning-textarea
+                name="bodyMessage"
+                label="Message"
+                max-length="40000"
+              ></lightning-textarea>
+            </template>
+            <!-- Spinner during message insertion -->
+            <template if:true={inWaitingDuringCreation}>
+              <p>
+                <lightning-icon
+                  icon-name="action:share"
+                  alternative-text="Waiting the sending"
+                  size="x-small"
+                >
+                </lightning-icon>
+                <label class="padding-left-10"
+                  >{waitCreation.WAIT_CREATION}</label
+                >
+              </p>
+            </template>
+            <!-- Good Result of insertion -->
+            <!-- <template if:true={isCreated}>
+              <p>
+                <lightning-icon
+                  icon-name="action:approval"
+                  alternative-text="Created"
+                  size="x-small"
+                >
+                </lightning-icon>
+                <label class="padding-left-10"
+                  >{messageCreated.MESSAGE_CREATED}</label
+                >
+              </p>
+            </template> -->
+            <!-- Bad Result of insertion -->
+            <!-- <template if:true={isNotCreated}>
+              <p>
+                <lightning-icon
+                  icon-name="action:close"
+                  alternative-text="Not created"
+                  size="x-small"
+                >
+                </lightning-icon>
+                <label class="padding-left-10"
+                  >{messageNotCreated.MESSAGE_NOT_CREATED}</label
+                >
+              </p>
+            </template> -->
+          </div>
+          <div class="slds-modal__footer">
+            <template if:true={isWriting}>
+              <lightning-button
+                class="padding-rigth-5"
+                variant="destructive"
+                label={cancel.CANCEL}
+                onclick={onCancel}
+              ></lightning-button>
+              <lightning-button
+                variant="brand"
+                label={send.SEND}
+                onclick={onSend}
+              ></lightning-button>
+            </template>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+</template>

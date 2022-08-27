@@ -1,0 +1,115 @@
+<!--
+  @File Name          : smc_lwc_report_summary_community.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 08/06/2020 à 11:33:10
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    19/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+  <div class="slds-card">
+    <template if:true={isLoading}>
+      <div role="status" class="slds-spinner slds-spinner--small">
+        <span class="slds-assistive-text">Loading</span>
+        <div class="slds-spinner__dot-a"></div>
+        <div class="slds-spinner__dot-b"></div>
+      </div>
+    </template>
+    <div class="slds-card__header">
+      <div class="slds-media slds-media_center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <a href={link}>
+            <span class="slds-icon_container king-blue" title={title}>
+              <i class={titleIcon}></i>
+            </span>
+          </a>
+        </div>
+        <div class="slds-media__body">
+          <h2 class="slds-card__header-title slds-align_center slds-truncate">
+            <a
+              href={link}
+              class="slds-card__header-link slds-truncate"
+              title={title}
+            >
+              <span>{title}</span>
+            </a>
+          </h2>
+        </div>
+        <div class="slds-no-flex">
+          <span class="light-grey">⋮</span>
+        </div>
+      </div>
+    </div>
+    <template if:false={isLoading}>
+      <div
+        class="slds-card__body slds-card__body_inner slds-border_top slds-border_bottom sizing-body"
+      >
+        <template if:false={resultIsNull}>
+          <div class={scrollableY}>
+            <ul class="slds-p-horizontal_x-small slds-m-top_medium">
+              <template if:true={rows}>
+                <template for:each={rows} for:item="rowIdx">
+                  <li
+                    key={rowIdx.key}
+                    class="slds-item slds-border_bottom slds-p-around_x-small"
+                  >
+                    <div class="slds-grid">
+                      <div class="slds-size_12-of-12 grey-color">
+                        <h3 class="slds-tile__title slds-truncate">
+                          {rowIdx.value.recordName}
+                        </h3>
+                      </div>
+                    </div>
+                    <div class="slds-grid">
+                      <div class="slds-size_5-of-12 grey-color">
+                        <template
+                          for:each={rowIdx.value.columns1}
+                          for:item="elmt1"
+                        >
+                          <span key={elmt1} class="slds-text-heading_x-small"
+                            >{elmt1}</span
+                          ><br key={elmt1} />
+                        </template>
+                      </div>
+                      <div class="slds-size_5-of-12 grey-color">
+                        <template
+                          for:each={rowIdx.value.columns2}
+                          for:item="elmt2"
+                        >
+                          <span key={elmt2} class="slds-text-heading_x-small"
+                            >{elmt2}</span
+                          ><br key={elmt2} />
+                        </template>
+                      </div>
+                      <div class="slds-size_2-of-12 slds-text-align_right">
+                        <a href={rowIdx.urlToRecord} class="slds-has-blur-focus"
+                          ><i
+                            class="fa fa-2x fa-arrow-circle-right king-blue"
+                          ></i
+                        ></a>
+                      </div>
+                    </div>
+                  </li>
+                </template>
+              </template>
+            </ul>
+          </div>
+        </template>
+        <template if:true={resultIsNull}>
+          <div class="grey-color margin-picture">
+            <c-smc_lwc_desert_illustration
+              noresultlabel={noData.NO_DATA}
+              class="max-width-no-result-picture"
+            ></c-smc_lwc_desert_illustration>
+          </div>
+        </template>
+      </div>
+      <div class="slds-card__footer slds-m-bottom_small">
+        <a class="slds-card__footer-action" href={link}>{footer}</a>
+      </div>
+    </template>
+  </div>
+</template>

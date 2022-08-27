@@ -1,0 +1,52 @@
+.warningIcon{
+    --sds-c-icon-color-foreground-default:orange !important;
+}  
+.validIcon{
+    --sds-c-icon-color-foreground-default:green !important;
+}
+.invalidIcon{
+    --sds-c-icon-color-foreground-default:red;
+}
+
+input::-ms-clear{
+    display: none;
+}
+.filters-container{
+    margin-right: 40px;
+}
+.filters-checkboxes-container > div{
+    margin-right: 20px;
+}
+.input-search-container{
+    margin-right: 40px;
+}
+.searchBar{    
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.searchTools{  
+    margin-left: 10px;
+    float: right;
+    /* border: 1px solid grey; */
+}
+.searchInput{
+    width: 20%;
+}
+.chartLegend{
+    width: fit-content;
+    margin-left: 35%;
+}
+.chartLegend > p > span{
+    margin-right: 5px;
+}
+
+.filtersCheckbox {
+    display: flex;
+    align-items: flex-end;
+}
+
+.unsaved{
+    color : red;
+    margin-top: 10px;
+}

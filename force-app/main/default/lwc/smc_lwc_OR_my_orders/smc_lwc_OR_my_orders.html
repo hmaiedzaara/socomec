@@ -1,0 +1,92 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 05-19-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   07-22-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <div class="slds-grid slds-wrap slds-gutters">
+    <div class="slds-col slds-size_6-of-12">
+      <template if:true={haveOnlyOneAccount}>
+        <h3>{accountLabel.ACCOUNT}</h3>
+        <lightning-formatted-text
+          value={specificAccount}
+        ></lightning-formatted-text>
+      </template>
+      <template if:false={haveOnlyOneAccount}>
+        <h3>{selectAccountLabel.SELECT_ACCOUNT} :</h3>
+        <select class="slds-select" onchange={handleAccountSelector}>
+          <option value="" selected disabled hidden
+            >{chooseHereLabel.CHOOSE_HERE}</option
+          >
+          <template if:true={accountFromCache}>
+            <option value={specificAccount.COMPANYNAME} selected>
+              {specificAccount.COMPANYNAME}
+            </option>
+          </template>
+          <template for:each={accounts} for:item="oneAcc">
+            <option key={oneAcc.CDCLI} value={oneAcc.CDCLI}
+              >{oneAcc.COMPANYNAME}</option
+            >
+          </template>
+        </select>
+      </template>
+      <div>
+        <lightning-input
+          type="text"
+          label={filterOrdersLabel.FILTER_ORDERS}
+          placeholder={filterOrdersLabel.FILTER_ORDERS}
+          onchange={handleFilterOrder}
+        ></lightning-input>
+      </div>
+    </div>
+  </div>
+
+  <!-- Columns -->
+  <template if:true={orderListFilled}>
+    <ul class="margin-top-bottom-15">
+      <li class="slds-border_bottom slds-border_top">
+        <div class="slds-grid slds-wrap slds-gutters">
+          <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+            <strong>{orderCodeLabel.ORDER_CODE}</strong>
+          </div>
+          <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+            <strong>{orderDateLabel.ORDER_DATE}</strong>
+          </div>
+          <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+            <strong>{statusLabel.STATUS}</strong>
+          </div>
+          <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+            <strong>{amountLabel.AMOUNT}</strong>
+          </div>
+          <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+            <strong>{actionsLabel.ACTIONS}</strong>
+          </div>
+        </div>
+      </li>
+
+      <!-- Table datas -->
+      <template for:each={allOrders} for:item="oneOrder">
+        <li key={oneOrder.CDORD} class={checkBackground}>
+          <c-smc_lwc_my_orders_orderline
+            line={oneOrder}
+            cdcli={specificAccount.CDCLI}
+            ccy={specificAccount.CCY}
+          ></c-smc_lwc_my_orders_orderline>
+        </li>
+      </template>
+    </ul>
+    <c-smc_lwc_pagination
+      reachmin={reachMin}
+      reachmax={reachMax}
+      onnext={handleNextPage}
+      onlastpage={handleLastPage}
+      onprevious={handlePreviousPage}
+      onfirstpage={handleFirstPage}
+    ></c-smc_lwc_pagination>
+  </template>
+</template>

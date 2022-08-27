@@ -1,0 +1,32 @@
+.THIS
+{
+    padding: .75rem;
+    background-color:white;
+    margin-bottom: -0.35rem;
+}
+
+.THIS .smlthmb
+{
+    width:56px;
+    border-radius:4px;
+}
+
+.THIS .tnthmb-x
+{
+    width:1.4rem;
+}
+
+.THIS .mrg-rt-1
+{
+    margin-right: 0.5rem;
+}
+
+.THIS .bg-2
+{
+    background-color: #F0006F;
+}
+
+.THIS .sld-badge-fix 
+{
+    padding-top: .343rem;
+}

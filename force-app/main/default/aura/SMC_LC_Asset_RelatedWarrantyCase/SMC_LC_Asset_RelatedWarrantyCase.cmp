@@ -1,0 +1,61 @@
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes"
+  access="global"
+  controller="SMC_AC_Asset_RelatedWarrantyCase"
+>
+  <!-- Errors -->
+  <aura:attribute name="errors" type="String" />
+  <aura:attribute name="badFilterSelected" type="String" />
+
+  <!-- Attributes to select record -->
+  <aura:attribute name="assetSelected" type="Id" />
+  <aura:attribute name="allAsset" type="List" />
+
+  <!-- Attributes fill by Apex after parameters selected -->
+  <aura:attribute name="caseList" type="Object" />
+  <aura:attribute name="mycolumns" type="List" />
+  <aura:attribute name="displayTableBool" type="Boolean" default="false" />
+
+  <!-- Design attributes -->
+  <aura:attribute name="filterWhereClause" type="String" />
+
+  <!-- Event -->
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+  <aura:handler
+    name="change"
+    value="{! v.filterWhereClause }"
+    action="{! c.handleCheckFilterSelected }"
+  />
+
+  <lightning:card title="{! $Label.c.SMC_CaseRelatedList }">
+    <!-- Error -->
+    <aura:if isTrue="{! v.errors }">
+      <ui:message title="Error" severity="error" closable="true">
+        {! v.errors }
+      </ui:message>
+    </aura:if>
+
+    <aura:if isTrue="{! v.displayTableBool }">
+      <aura:if isTrue="{! !v.badFilterSelected }">
+        <div class="margin-10px"
+          ><strong>{! $Label.c.SMC_Filter_By }</strong> {! v.filterWhereClause
+          }</div
+        >
+      </aura:if>
+
+      <!-- Bad filter -->
+      <aura:if isTrue="{! v.badFilterSelected }">
+        <ui:message title="Warning" severity="warning" closable="true">
+          {! v.badFilterSelected }
+        </ui:message>
+      </aura:if>
+      <lightning:datatable
+        data="{!v.caseList}"
+        hideCheckboxColumn="true"
+        columns="{! v.mycolumns }"
+        keyField="CaseNumber"
+        onrowaction="{! c.redirectToCase }"
+      />
+    </aura:if>
+  </lightning:card>
+</aura:component>

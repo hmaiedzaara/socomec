@@ -1,0 +1,92 @@
+.THIS {
+    height:auto;
+    padding: 0px .75rem 0px .75rem;
+    background-color:white;
+}
+
+.THIS .list-ele :first-child {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.THIS .cardspace {
+    height:auto;
+    border-bottom-left-radius:4px;
+    border-bottom-right-radius:4px;
+}
+
+.THIS .cardspace-center {
+    text-align:center;
+}
+
+.THIS .right-radius
+{
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: .3rem .75rem .3rem .75rem !important;
+}
+
+.THIS .left-radius
+{
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    margin-right:0px;
+    border-right:none;
+    color: rgba(255, 255, 255, 0);
+}
+
+.THIS .pill
+{
+    padding: .3rem;
+    border: solid 1px;
+    background-color: #FFFFFF;
+}
+
+.THIS .lead
+{
+    color: #F88962;
+}
+
+.THIS .account
+{
+    color: #7F8DE1;
+}
+
+.THIS .opportunity
+{
+    color: #FCB95B;
+}
+
+.THIS .lead-icon
+{
+    background-color: #F88962;
+}
+
+.THIS .account-icon
+{
+    background-color: #7F8DE1;
+}
+
+.THIS .opportunity-icon
+{
+    background-color: #FCB95B;
+}
+
+.THIS .amount
+{
+    color: #AAA;
+    font-size: .6em;
+    border-radius: 3px;
+    border: solid 1px rgba(47, 177, 91, 0.16);;
+    padding: 1px 5px;
+}
+
+.THIS .color-white
+{
+    background-color:white;
+}
+
+.THIS .fix-width
+{
+    width:475px;
+}

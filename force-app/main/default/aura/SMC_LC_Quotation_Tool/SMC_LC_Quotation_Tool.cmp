@@ -1,0 +1,110 @@
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"
+  access="global"
+  controller="SMC_AC_QuotationTool"
+>
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+  <!-- Attribute to display errors -->
+  <aura:attribute name="errorInformations" type="String[]" />
+  <!-- Attribute to display errors -->
+  <aura:attribute name="errors" type="String" />
+  <!-- Attribute to display warning informations -->
+  <aura:attribute
+    name="warningMissingFields"
+    type="SMC_DTO_QuotationTool_MissingFields"
+  />
+
+  <!-- In progress -->
+  <aura:if isTrue="{! and(v.warningMissingFields == null, v.errors == null) }">
+    <ui:message title="In progress" severity="info" closable="false">
+      {!$Label.c.SMC_QuotationToolAccess}
+    </ui:message>
+  </aura:if>
+
+  <!-- Error/Warning Informations -->
+  <aura:if isTrue="{! v.warningMissingFields.fieldMiss }">
+    <ui:message title="Error" severity="error" closable="false">
+      {!$Label.c.SMC_Restriction_QuotationTool}
+      <br />
+      <!-- Account -->
+      <aura:if isTrue="{! v.warningMissingFields.accountFieldsMiss }">
+        <aura:if isTrue="{! v.warningMissingFields.account != null}">
+          <br /> Account
+          <a
+            onclick="{! c.redirectionToCorrection }"
+            data-id="{! v.warningMissingFields.account.Id }"
+            target="_blank"
+          >
+            {! v.warningMissingFields.account.Name }
+          </a>
+          :
+          <aura:iteration
+            items="{! v.warningMissingFields.accountFields }"
+            var="oneField"
+          >
+            {!oneField}
+          </aura:iteration>
+        </aura:if>
+        <aura:if isTrue="{! v.warningMissingFields.account == null}">
+          <br /> {! v.warningMissingFields.accountFields[0] }
+        </aura:if>
+      </aura:if>
+
+      <!-- Contact -->
+      <aura:if isTrue="{! v.warningMissingFields.contactFieldsMiss }">
+        <aura:if isTrue="{! v.warningMissingFields.contact != null}">
+          <br /> Contact
+          <a
+            onclick="{! c.redirectionToCorrection }"
+            data-id="{! v.warningMissingFields.contact.Id }"
+            target="_blank"
+          >
+            {! v.warningMissingFields.contact.Name }
+          </a>
+          :
+          <aura:iteration
+            items="{! v.warningMissingFields.contactFields }"
+            var="oneField"
+          >
+            {!oneField}
+          </aura:iteration>
+        </aura:if>
+        <aura:if isTrue="{! v.warningMissingFields.contact == null}">
+          <br /> {! v.warningMissingFields.contactFields[0] }
+        </aura:if>
+      </aura:if>
+
+      <!-- Quote -->
+      <aura:if isTrue="{! v.warningMissingFields.quoteFieldsMiss }">
+        <aura:if isTrue="{! v.warningMissingFields.quote != null}">
+          <br /> Quote
+          <a
+            onclick="{! c.redirectionToCorrection }"
+            data-id="{! v.warningMissingFields.quote.Id }"
+            target="_blank"
+          >
+            {! v.warningMissingFields.quote.Name }
+          </a>
+          :
+          <aura:iteration
+            items="{! v.warningMissingFields.quoteFieldsMiss }"
+            var="oneField"
+          >
+            {!oneField}
+          </aura:iteration>
+        </aura:if>
+        <aura:if isTrue="{! v.warningMissingFields.quote == null}">
+          <br /> {! v.warningMissingFields.quoteFieldsMiss[0] }
+        </aura:if>
+      </aura:if>
+    </ui:message>
+  </aura:if>
+
+  <!-- Error -->
+  <aura:if isTrue="{!v.errors}">
+    <ui:message title="Error" severity="error" closable="true">
+      {!v.errors}
+    </ui:message>
+  </aura:if>
+</aura:component>

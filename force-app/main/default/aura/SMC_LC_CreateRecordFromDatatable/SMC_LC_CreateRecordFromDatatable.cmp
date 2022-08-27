@@ -1,0 +1,117 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 09-14-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   06-15-2021   Vincent RECASENS (Modis)   Initial Version
+-->
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"
+  access="global"
+  controller="SMC_AC_CreateRecordFromDatatable"
+>
+  <ltng:require styles="{!$Resource.SMC_Modal_with_expand + '/main.css'}" />
+  <!-- Attributes -->
+  <aura:attribute name="dataType" type="String" />
+  <aura:attribute name="data" type="Object" />
+  <!-- To display list -->
+  <aura:attribute name="dataIsNotEmpty" type="Boolean" default="false" />
+  <aura:attribute name="columns" type="List" default="[]" />
+  <aura:attribute name="onlyBattery" type="Boolean" default="false" />
+  <aura:attribute name="factorOffset" type="Integer" default="0"/>
+  <aura:attribute name="searchSparePartCode" type="String" />
+  <aura:attribute name="timeoutid" type="Integer" />
+  <aura:attribute name="errorsData" type="Object" default="[]" />
+
+  <!-- Attribute to display errors -->
+  <aura:attribute name="infoTitle" type="String" />
+  <aura:attribute name="infos" type="String" />
+
+  <!-- Attribute to display errors -->
+  <aura:attribute name="errors" type="String" />
+  <aura:attribute name="isLoading" type="Boolean" default="false" />
+
+  <!-- Event -->
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+  <!-- Spinner for waiting -->
+  <aura:if isTrue="{! v.isLoading }">
+    <div class="spinner-sizing">
+      <lightning:spinner
+        alternativeText="{!$Label.c.SMC_Loading}"
+        size="medium"
+      />
+    </div>
+  </aura:if>
+
+  <lightning:layout>
+    <lightning:layoutItem size="2">
+      <lightning:input type="checkbox"
+                        label="{!$Label.c.SMC_Only_Battery}"
+                        value="{!v.onlyBattery}"
+                        onchange="{! c.handleOnlyBattery }" >
+      </lightning:input>
+    </lightning:layoutItem>
+  </lightning:layout>
+  <!-- Error -->
+  <aura:if isTrue="{! v.errors }">
+    <ui:message title="Error" severity="error" closable="true">
+      {! v.errors }
+    </ui:message>
+  </aura:if>
+  
+  <aura:if isTrue="{! !v.errors }">
+    <!-- Informations -->
+    <aura:if isTrue="{! v.infos }">
+      <ui:message title="{! v.infoTitle }" severity="info" closable="false">
+        {! v.infos }
+      </ui:message>
+    </aura:if>
+
+    <aura:if isTrue="{! v.dataIsNotEmpty }">
+      <lightning:layout>
+        <lightning:layoutItem size="3">
+          <lightning:input
+            label="{!$Label.c.SMC_Spare_Part_Filter}"
+            onkeyup="{! c.handleSearchSparePartCode }"
+            value="{!v.searchSparePartCode}"
+          />
+        </lightning:layoutItem>
+        <lightning:layoutItem size="3">
+          <lightning:button
+            class="button-position"
+            label="{!$Label.c.SMC_Load_More}"
+            iconName="utility:add"
+            onclick="{! c.handleLoadMore }"
+          />
+        </lightning:layoutItem>
+        <lightning:layoutItem size="5"></lightning:layoutItem>
+        <lightning:layoutItem size="1">
+          <lightning:button
+            label="{! $Label.c.SMC_Save }"
+            onclick="{! c.handleSave }"
+            variant="brand"
+            class="button-position"
+          />
+        </lightning:layoutItem>
+      </lightning:layout>
+      <!-- the container element determine the height of the datatable -->
+      <div class="slds-card__body slds-card__body_inner">
+        <div class="data-table">
+          <lightning:datatable
+            aura:id="dataTable"
+            keyField="key"
+            data="{! v.data }"
+            columns="{! v.columns }"
+            errors="{! v.errorsData }"
+            suppressBottomBar="true"
+            hideCheckboxColumn="false"
+          />
+        </div>
+      </div>
+    </aura:if>
+  </aura:if>
+</aura:component>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="smc_lwc_report_summarize_display">
+    <apiVersion>47.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Report Summarize Display</masterLabel>
+    <description>Display summarize from a report</description>
+    <targets>
+        <target>lightning__HomePage</target>
+    </targets>
+    <!-- Configuring the design attributes --><targetConfigs>
+        <targetConfig targets="lightning__HomePage">
+            <property name="title" type="String" label="Component title" description="Define a title for the component."/>
+            <property name="reportDeveloperName" type="String" label="Report developer name" description="Write the developer name of the report you want to display."/>
+            <property name="aggregateColumn1" type="String" label="Report column aggregation (1)" description="The value you want to display from the summary (values above the report)."/>
+            <property name="typeData1" type="String" label="Data type (1)" description="Choose the type of the data to display." datasource="currency, percent, decimal"/>
+            <property name="numberOfDecimal1" type="String" label="Number of decimal (1)" description="Number of decimal to display."/>
+            <property name="aggregateColumn2" type="String" label="Report column aggregation (2)" description="The value you want to display from the summary (values above the report)."/>
+            <property name="typeData2" type="String" label="Data type (2)" description="Choose the type of the data to display." datasource="currency, percent, decimal"/>
+            <property name="numberOfDecimal2" type="String" label="Number of decimal (2)" description="Number of decimal to display."/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

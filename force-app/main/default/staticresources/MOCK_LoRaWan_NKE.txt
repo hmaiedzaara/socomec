@@ -1,0 +1,37 @@
+{
+	"take":1000,
+   "total":4,
+   "format":"CLIENT",
+   "result":[
+      {
+         "devEUI": "00174aca0000f015",
+         "appEUI": "00174aca00010000",
+         "appKey": "e16d89a4591d7fcf95beb3b22f49c55d",
+         "serialNumber": "2040201000948290900*",
+         "manufacturerSN": null,
+         "firmwareVersion": "1.0.0.0",
+         "abpDevAddr": null,
+         "abpNwkSKey": null,
+         "abpAppSKey": null,
+         "codeFamille": null,
+         "unconfirmed": null,
+         "synchro": null,
+         "adr": null
+      },
+      {
+         "devEUI": "00174aca0000f01d",
+         "appEUI": "00174aca00010000",
+         "appKey": "e16d89a4591d7fcf95beb3b22f49c55d",
+         "serialNumber": "2040201000948290900*",
+         "manufacturerSN": null,
+         "firmwareVersion": "1.0.0.0",
+         "abpDevAddr": null,
+         "abpNwkSKey": null,
+         "abpAppSKey": null,
+         "codeFamille": null,
+         "unconfirmed": null,
+         "synchro": null,
+         "adr": null
+      }
+   ]
+}

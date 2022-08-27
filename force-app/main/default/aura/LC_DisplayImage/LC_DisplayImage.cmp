@@ -1,0 +1,60 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+  <!-- Define components attributes -->
+  <aura:attribute
+    name="title"
+    type="String"
+    access="global"
+    description="Title to display on the card top"
+  />
+  <aura:attribute
+    name="isFromStaticResources"
+    type="Boolean"
+    access="global"
+    default="false"
+    description="Choose if the image come from internet or salesforce static resources"
+  />
+  <aura:attribute
+    name="url"
+    type="String"
+    access="global"
+    required="true"
+    description="Image URL - if from static resources is ticked fill just the resources name"
+  />
+  <aura:attribute
+    name="legend"
+    type="String"
+    access="global"
+    description="Text to display on the footer top"
+  />
+
+  <article
+    class="slds-card forceBaseCard forceCard flexipageCard flexipageReportChart"
+  >
+    <aura:if isTrue="{!not(empty(v.title))}">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          <div class="slds-media__body">
+            <h2 class="header-title-container" id="header">
+              <span
+                class="slds-text-heading--small slds-truncate"
+                title="{!v.title}"
+                >{!v.title}</span
+              >
+            </h2>
+          </div>
+        </header>
+      </div>
+    </aura:if>
+    <div class="slds-card__body slds-card__body--inner">
+      <aura:if isTrue="{!v.isFromStaticResources}">
+        <img src="{!'/resource/' + v.url}" />
+        <aura:set attribute="else">
+          <img src="{!v.url}" />
+        </aura:set>
+      </aura:if>
+    </div>
+    <aura:if isTrue="{!not(empty(!v.legend))}">
+      <div class="slds-text-body_small">{!v.legend}</div>
+    </aura:if>
+  </article>
+</aura:component>

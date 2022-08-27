@@ -1,0 +1,61 @@
+<template>
+  <lightning-card>
+    <!-- Spinner during loading -->
+    <template if:true={searching}>
+      <lightning-spinner
+        alternative-text="Loading"
+        size="large"
+      ></lightning-spinner>
+    </template>
+    <!-- Header/Title -->
+    <h2 slot="title">
+      <lightning-icon
+        icon-name={iconName}
+        size="small"
+        class="position-icon"
+      ></lightning-icon>
+      <strong>{erpLineTitle}</strong>
+    </h2>
+    <!-- Body -->
+    <div id="cardBody">
+      <template if:false={error}>
+        <template if:true={thereAreData}>
+          <ul>
+            <template for:each={datas} for:item="oneData">
+              <div key={oneData.descRef} class="style-element-list">
+                <li><strong>{oneData.descRef}</strong></li>
+                <li>
+                  <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-large-size_1-of-2 grey-color">
+                      {productReference.PRODUCT_REFERENCE}
+                    </div>
+                    <div class="slds-col slds-large-size_1-of-2">
+                      {oneData.productReference}
+                    </div>
+                  </div>
+                </li>
+                <c-smc_lwc_erp_line_unit
+                  isinvoice={isInvoice}
+                  isorder={isOrder}
+                  isquote={isQuote}
+                  elementcurrency={elementCurrency}
+                  thedata={oneData}
+                ></c-smc_lwc_erp_line_unit>
+              </div>
+            </template>
+          </ul>
+        </template>
+        <template if:false={thereAreData}>
+          <c-smc_lwc_desert_illustration
+            noresultlabel={noResultLabel.NO_RESULT}
+          ></c-smc_lwc_desert_illustration>
+        </template>
+      </template>
+      <template if:true={error}>
+        <c-smc_lwc_walkthrough_not_available_illustration
+          errormessage={errorMessage}
+        ></c-smc_lwc_walkthrough_not_available_illustration>
+      </template>
+    </div>
+  </lightning-card>
+</template>

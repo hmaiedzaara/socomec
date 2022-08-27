@@ -1,0 +1,9 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+  <lightning:quickActionAPI aura:id="quickActionAPI" />
+  <div>
+    <lightning:button
+      label="Select Update Case Action"
+      onclick="{!c.selectUpdateCaseAction}"
+    />
+  </div>
+</aura:component>

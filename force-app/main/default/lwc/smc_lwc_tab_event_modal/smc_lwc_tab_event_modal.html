@@ -1,0 +1,84 @@
+<!--
+  @File Name          : smc_lwc_tab_event_modal.html
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 12-03-2020
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    26/06/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<template>
+  <div class="modal">
+    <div class="obscur-background"></div>
+    <section
+      role="dialog"
+      tabindex="-1"
+      class="slds-modal slds-fade-in-open slds-modal_medium"
+      aria-labelledby="modal-heading-01"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+    >
+      <div
+        role="dialog"
+        tabindex="-1"
+        aria-labelledby="header43"
+        class="slds-modal slds-fade-in-open"
+      >
+        <div class="slds-modal__container">
+          <div class="slds-modal__header">
+            <h2 class="slds-text-heading--medium">
+              {editSd.EDIT_SD}
+            </h2>
+          </div>
+          <div class="slds-modal__content slds-p-around--medium">
+            <template if:true={largefactor}>
+              <!-- Body of modal -->
+              <lightning-input
+                type="datetime"
+                name="startDatetime"
+                label="Select a new start datetime"
+                onchange={datetimeSelector}
+              ></lightning-input>
+            </template>
+            <template if:false={largefactor}>
+              <div>
+                <!-- Body of modal -->
+                <lightning-input
+                  type="date"
+                  name="startDate"
+                  label="Select a new start date"
+                  onchange={dateSelector}
+                ></lightning-input>
+              </div>
+              <div class="padding-top-5">
+                <!-- Body of modal -->
+                <lightning-input
+                  type="time"
+                  name="startTime"
+                  label="Select a new start time"
+                  onchange={timeSelector}
+                ></lightning-input>
+              </div>
+            </template>
+          </div>
+
+          <div class="slds-modal__footer">
+            <lightning-button
+              class="padding-rigth-5"
+              variant="destructive"
+              label={cancel.CANCEL}
+              onclick={onCancel}
+            ></lightning-button>
+            <lightning-button
+              variant="brand"
+              label={save.SAVE}
+              onclick={onSave}
+            ></lightning-button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>

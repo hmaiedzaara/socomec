@@ -1,0 +1,24 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 11-04-2020
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   10-22-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<aura:component
+  implements="forceCommunity:availableForAllPageTypes"
+  access="global"
+>
+  <aura:attribute name="tooglerefresh" type="Boolean" default="true" />
+  <aura:if isTrue="{!v.tooglerefresh}">
+    <c:smc_lwc_OR_neworder
+      aura:id="refreshNewOrder"
+      onrefreshview="{!c.handleRefreshView}"
+      onproductadded="{!c.getGAInformationsProductAdded}"
+      onordersending="{!c.getGAInformationsSendOrder}"
+    ></c:smc_lwc_OR_neworder>
+  </aura:if>
+</aura:component>

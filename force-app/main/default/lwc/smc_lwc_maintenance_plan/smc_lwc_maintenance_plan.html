@@ -1,0 +1,38 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 04-13-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   04-06-2021   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <!-- Spinner during loading -->
+  <template if:true={initMaintenancePlanIsWorking}>
+    <lightning-spinner
+      alternative-text="Loading"
+      size="small"
+    ></lightning-spinner>
+  </template>
+  <template if:false={initMaintenancePlanIsWorking}>
+    <!-- <lightning-input type="checkbox" value={allMonths} label={customLabels.ALL_MONTHS} name={customLabels.ALL_MONTHS} onchange={handleSelectAllMonths}></lightning-input>
+    <br/> -->
+    <p>{customLabels.MONTH_SELECTOR}</p><br/>
+    <lightning-input type="checkbox" value={JANUARYCheckbox} label={customLabels.JANUARY} name={customLabels.JANUARY} onchange={handleJANUARYCheckbox}></lightning-input>
+    <lightning-input type="checkbox" value={FEBURARYCheckbox} label={customLabels.FEBRUARY} name={customLabels.FEBURARY} onchange={handleFEBURARYCheckbox}></lightning-input>
+    <lightning-input type="checkbox" value={MARCHCheckbox} label={customLabels.MARCH} name={customLabels.MARCH} onchange={handleMARCHCheckbox}></lightning-input>
+    <lightning-input type="checkbox" value={APRILCheckbox} label={customLabels.APRIL} name={customLabels.APRIL} onchange={handleAPRILCheckbox}></lightning-input>
+    <lightning-input type="checkbox" value={MAYCheckbox} label={customLabels.MAY} name={customLabels.MAY} onchange={handleMAYCheckbox}></lightning-input>
+    <lightning-input type="checkbox" value={JUNECheckbox} label={customLabels.JUNE} name={customLabels.JUNE} onchange={handleJUNECheckbox}></lightning-input>
+    <lightning-input type="checkbox" value={JULYCheckbox} label={customLabels.JULY} name={customLabels.JULY} onchange={handleJULYCheckbox}></lightning-input>
+    <lightning-input type="checkbox" value={AUGUSTCheckbox} label={customLabels.AUGUST} name={customLabels.AUGUST} onchange={handleAUGUSTCheckbox}></lightning-input>
+    <lightning-input type="checkbox" value={SEPTEMBERCheckbox} label={customLabels.SEPTEMBER} name={customLabels.SEPTEMBER} onchange={handleSEPTEMBERCheckbox}></lightning-input>
+    <lightning-input type="checkbox" value={OCTOBERCheckbox} label={customLabels.OCTOBER} name={customLabels.OCTOBER} onchange={handleOCTOBERCheckbox}></lightning-input>
+    <lightning-input type="checkbox" value={NOVEMBERCheckbox} label={customLabels.NOVEMBER} name={customLabels.NOVEMBER} onchange={handleNOVEMBERCheckbox}></lightning-input>
+    <lightning-input type="checkbox" value={DECEMBERCheckbox} label={customLabels.DECEMBER} name={customLabels.DECEMBER} onchange={handleDECEMBERCheckbox}></lightning-input>
+    <br/>
+    <lightning-button variant="brand" label={customLabels.SAVE} title={customLabels.SAVE} onclick={handleSaveFrequency} class="slds-m-left_x-small"></lightning-button>
+  </template>
+</template>

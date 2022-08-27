@@ -1,0 +1,53 @@
+<aura:component
+  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes"
+  access="global"
+>
+  <lighten:SldsStuff />
+
+  <aura:attribute
+    access="global"
+    name="Status"
+    type="String"
+    default="Status Text..."
+  />
+  <aura:attribute access="global" name="Remain" type="Integer" default="0" />
+  <aura:attribute
+    access="global"
+    name="bgcolor"
+    type="String"
+    default="green"
+  />
+  <aura:attribute name="max" type="Double" default="99.9" />
+  <aura:attribute access="global" name="progress" type="Integer" default="20" />
+
+  <div class="slds">
+    <div class="slds-grid">
+      <div class="slds-tabs--path" role="application">
+        <ul class="slds-tabs--path__nav " role="tablist">
+          <li
+            class="slds-tabs--path__item slds-is-complete align"
+            role="presentation"
+          >
+            <div
+              class="{!'slds-tabs--path__link no-padding '+v.bgcolor}"
+              style="{!'width: '+(v.progress>v.max?'':(v.progress+'%'))+'; background: '+v.bgcolor+';'}"
+              id="tabs-path-421"
+              aria-controls="content-path-1"
+              aria-selected="false"
+              tabindex="-1"
+              role="tab"
+              href="javascript:void(0);"
+              aria-live="assertive"
+            >
+              <span class="slds-tabs--path__stage" style="">
+                {!v.Status}
+                <span class="slds-assistive-text">Stage Complete</span>
+              </span>
+              <span class="slds-tabs--path__title status">{!v.Remain}%</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</aura:component>

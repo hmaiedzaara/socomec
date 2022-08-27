@@ -1,0 +1,28 @@
+[
+    {
+        "crm_account_code": "ACC_11913",
+        "scoring_family_l2_code": "SA08",
+        "scoring_family_l2_descr_en": "PCO DIRECT DELIVERY (WO BATT)",
+        "scoring_family_l1_descr_en": "PCO SERVICES OTHER",
+        "to_n_2": 0.318,
+        "to_n_1": 0,
+        "to_n": 0,
+        "target": 0,
+        "projected": 0,
+        "target_vs_projected": -1,
+        "projected_vs_ton1": -1
+    },
+    {
+        "crm_account_code": "ACC_11913",
+        "scoring_family_l2_code": "SA05",
+        "scoring_family_l2_descr_en": "PCO REPAIR",
+        "scoring_family_l1_descr_en": "PCO SERVICES OTHER",
+        "to_n_2": 0.612,
+        "to_n_1": 0,
+        "to_n": 0,
+        "target": 0,
+        "projected": 0,
+        "target_vs_projected": -1,
+        "projected_vs_ton1": -1
+    }
+]

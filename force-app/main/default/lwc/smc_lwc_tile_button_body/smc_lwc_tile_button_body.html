@@ -1,0 +1,35 @@
+<!--
+  @File Name          : smc_lwc_tile_button_body.html
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 01-29-2021
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    15/06/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<template>
+  <template if:false={isStandardPage}>
+    <a onclick={navigateto}>
+      <lightning-icon
+        icon-name={element.icon}
+        alternative-text={element.title}
+        title={element.title}
+        class={iconSizer}
+      ></lightning-icon>
+      <div>{element.title}</div>
+    </a>
+  </template>
+  <template if:true={isStandardPage}>
+    <a href={element.pageReference}>
+      <lightning-icon
+        icon-name={element.icon}
+        alternative-text={element.title}
+        title={element.title}
+        class={iconSizer}
+      ></lightning-icon>
+      <div>{element.title}</div>
+    </a>
+  </template>
+</template>

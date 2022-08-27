@@ -1,0 +1,90 @@
+<aura:component
+  implements="forceCommunity:availableForAllPageTypes"
+  access="global"
+>
+  <div>
+    <div class="program-partners-img-container">
+      <div class="text-container slds-grid slds-grid_align-end">
+        <div
+          class="slds-col slds-size_1-of-1  slds-large-size_2-of-3 slds-p-around_small"
+        >
+          <h1>{! $Label.c.SMC_PartnersCommunity_CL_AboutTheProgram }</h1>
+          <p class="slogan-partner"
+            >{! $Label.c.SMC_PartnersCommunity_CL_YourEnergy }</p
+          >
+          <p>{! $Label.c.SMC_PartnersCommunity_CL_JoinPartnerProgram }</p>
+          <p class="button-container">
+            <a href="#registration"
+              >{! $Label.c.SMC_PartnersCommunity_CL_Apply}</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <h1>{! $Label.c.SMC_PartnersCommunity_CL_AdvantageOfTheProgram }</h1>
+    <span class="separator"></span>
+
+    <div class="advantages-container slds-grid slds-wrap">
+      <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2">
+        <div class="advantageContent">
+          <lightning:icon
+            class="oneLogo"
+            iconName="utility:check"
+            alternativeText="check"
+          />
+          <div class="oneAdvantage">
+            <h2>{! $Label.c.SMC_PartnersCommunity_CL_MaketingTools }</h2>
+            <p>{! $Label.c.SMC_PartnersCommunity_CL_MaketingToolsSubtitle }</p>
+          </div>
+        </div>
+
+        <div class="advantageContent">
+          <lightning:icon
+            class="oneLogo"
+            iconName="utility:check"
+            alternativeText="check"
+          />
+          <div class="oneAdvantage">
+            <h2>{! $Label.c.SMC_PartnersCommunity_CL_BusinessReview }</h2>
+            <p>{! $Label.c.SMC_PartnersCommunity_CL_BusinessReviewSubtitle }</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-2">
+        <div class="advantageContent">
+          <lightning:icon
+            class="oneLogo"
+            iconName="utility:check"
+            alternativeText="check"
+          />
+          <div class="oneAdvantage">
+            <h2
+              >{! $Label.c.SMC_PartnersCommunity_CL_OpportunityManagement }</h2
+            >
+            <p
+              >{!
+              $Label.c.SMC_PartnersCommunity_CL_OpportunityManagementSubtitle
+              }</p
+            >
+          </div>
+        </div>
+
+        <div class="advantageContent">
+          <lightning:icon
+            class="oneLogo"
+            iconName="utility:check"
+            alternativeText="check"
+          />
+          <div class="oneAdvantage">
+            <h2>{! $Label.c.SMC_PartnersCommunity_CL_TrainingAndSupport }</h2>
+            <p
+              >{! $Label.c.SMC_PartnersCommunity_CL_TrainingAndSupportSubtitle
+              }</p
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</aura:component>

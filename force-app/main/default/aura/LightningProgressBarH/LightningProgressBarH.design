@@ -1,0 +1,6 @@
+<design:component >
+	<design:attribute name="bgcolor" datasource="Success,Warning,In-Complete,Error" label="Color of dynamic progress" description=""/>
+    <design:attribute name="Status" label="Status Text" description="Text to show during processing"/>
+    <design:attribute name="progress" label="Progress (%)" description="Percentage completed"/>
+    <design:attribute name="Remain" label="Remaining (%)" description="Remaining % left"/>
+</design:component>

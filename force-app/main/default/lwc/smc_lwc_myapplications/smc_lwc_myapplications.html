@@ -1,0 +1,107 @@
+<!--
+  @File Name          : smc_lwc_report_summary_community.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 09-21-2020
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    19/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+  <div class="slds-card">
+    <template if:true={isLoading}>
+      <div role="status" class="slds-spinner slds-spinner--small">
+        <span class="slds-assistive-text">Loading</span>
+        <div class="slds-spinner__dot-a"></div>
+        <div class="slds-spinner__dot-b"></div>
+      </div>
+    </template>
+    <div class="slds-card__header">
+      <div class="slds-media slds-media_center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <a href={link}>
+            <span class="slds-icon_container king-blue" title={title}>
+              <i class={titleIcon}></i>
+            </span>
+          </a>
+        </div>
+        <div class="slds-media__body">
+          <h2 class="slds-card__header-title slds-truncate custom-align-center">
+            <a
+              href={link}
+              class="slds-card__header-link slds-truncate"
+              title={title}
+            >
+              <span>{title}</span>
+            </a>
+          </h2>
+        </div>
+        <div class="slds-no-flex">
+          <span class="light-grey">⋮</span>
+        </div>
+      </div>
+    </div>
+    <template if:false={isLoading}>
+      <div
+        class="slds-card__body slds-card__body_inner slds-border_top slds-border_bottom sizing-body"
+      >
+        <template if:false={resultIsNull}>
+          <div class={scrollableY}>
+            <ul class="slds-var-p-horizontal_x-small slds-var-m-top_medium">
+              <template if:true={datas}>
+                <template for:each={datas} for:item="data">
+                  <li
+                    key={data.id}
+                    class="slds-item slds-border_bottom slds-var-p-around_x-small"
+                  >
+                    <div class="slds-grid slds-wrap">
+                      <div class="slds-col slds-size_4-of-12 col-picture">
+                        <template if:true={data.urlExist}>
+                          <a
+                            href={data.url}
+                            class="slds-has-blur-focus"
+                            target="_blank"
+                          >
+                            <img src={data.picture} />
+                          </a>
+                        </template>
+                        <template if:false={data.urlExist}>
+                          <img src={data.picture} />
+                        </template>
+                      </div>
+                      <div
+                        class="slds-col slds-size_8-of-12 slds-truncate col-text"
+                      >
+                        <a href={data.toTheRecord} class="slds-has-blur-focus ">
+                          {data.name}
+                        </a>
+                      </div>
+                      <!-- <div class="slds-col slds-size_1-of-12 col-to-the-record">
+                        <a href={data.toTheRecord} class="slds-has-blur-focus ">
+                          <i class="fa fa-2x fa-eye king-blue"></i>
+                        </a>
+                      </div> -->
+                    </div>
+                  </li>
+                </template>
+              </template>
+            </ul>
+          </div>
+        </template>
+        <template if:true={resultIsNull}>
+          <div class="grey-color margin-picture">
+            <c-smc_lwc_desert_illustration
+              noresultlabel={noData.NO_DATA}
+              class="picture max-width-no-result-picture"
+            ></c-smc_lwc_desert_illustration>
+          </div>
+        </template>
+      </div>
+      <div class="slds-card__footer slds-var-m-bottom_small">
+        <a class="slds-card__footer-action" href={link}>{footer}</a>
+      </div>
+    </template>
+  </div>
+</template>

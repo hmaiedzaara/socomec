@@ -1,0 +1,44 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 10-29-2020
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   10-09-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <h2>{actionAvailableLabel.ACTION_AVAILABLE}</h2>
+  <!-- <lightning-button
+    variant="brand"
+    label={buyActionLabel.BUY_ACTION}
+    onclick={handleBuyAgain}
+    class="space-beteween-btn"
+  ></lightning-button> -->
+  <!-- <lightning-button
+      variant="brand"
+      label={editLabel.EDIT}
+      onclick={handleEdit}
+      class="space-beteween-btn"
+    ></lightning-button> -->
+  <lightning-button
+    variant="brand"
+    label={cancelLabel.CANCEL}
+    onclick={handleCancel}
+    class="space-beteween-btn"
+  ></lightning-button>
+  <c-smc_lwc_confirmation_dialog
+    title={confirmationTitle}
+    message={confirmationMessage}
+    confirm-label={yesLabel.YES}
+    cancel-label={noLabel.NO}
+    visible={isDialogVisible}
+    original-message={originalMessage}
+    name="confirmModal"
+    from-dora-buy-again-order={buyagain}
+    input-date-label={reqDelDateLabelLabel.REQ_DEL_DATE}
+    onconfirmed={handleConfirmDialog}
+    oncancelled={handleCancelDialog}
+  ></c-smc_lwc_confirmation_dialog>
+</template>

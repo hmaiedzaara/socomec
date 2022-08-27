@@ -1,0 +1,32 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 01-15-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   01-15-2021   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <!-- Spinner during loading -->
+  <template if:true={spinner}>
+    <lightning-spinner
+      alternative-text="Loading"
+      size="large"
+    ></lightning-spinner>
+  </template>
+  <!-- <template if:true={refreshView}> -->
+  <lightning-card title={title} class="space-left">
+    <div class="slds-card__body_inner">
+      <template if:true={isRichText}>
+        <lightning-input-rich-text
+          value={fieldValue}
+        ></lightning-input-rich-text>
+      </template>
+      <template if:true={isImage}>
+        <img src={fieldValue} alt={altText} />
+      </template>
+    </div>
+  </lightning-card>
+</template>

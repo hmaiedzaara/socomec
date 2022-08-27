@@ -1,0 +1,3 @@
+<design:component>
+    <design:attribute name="selectApprovalByDesign" datasource="All Items to Approve, Items To Approve - Delegated" />
+</design:component>

@@ -1,0 +1,68 @@
+.slds-card {
+  height: 421px;
+  box-shadow: 0 2px 2px 0 rgba(35, 44, 119, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.07), 0 1px 5px 0 rgba(0, 0, 0, 0.14);
+}
+
+h2 {
+  color: #004f9f;
+}
+
+.king-blue {
+  color: #004f9f;
+}
+
+.slds-media {
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.slds-card__header-link {
+  pointer-events: none;
+}
+
+.font-sizing {
+  font-size: 8.5rem;
+}
+
+.light-grey {
+  color: #dfdfdf;
+}
+
+.sizing-body {
+  min-height: 364px;
+  max-height: 364px;
+  overflow: hidden;
+}
+
+.slds-grid {
+  font-family: Poppins;
+  font-size: 16px;
+  color: #004f9f;
+}
+
+.slds-col {
+  text-align: center;
+  background-color: #fff;
+}
+
+.help {
+  /* width: 222.8px !important; */
+  height: 170px !important;
+  padding: 5px !important;
+  padding: 5px !important;
+  padding-top: 50px !important;
+  /* margin-left: 10px !important; */
+}
+
+/* 115px by element for 3 elements in a tile */
+.maintenance-service {
+  height: 185px !important;
+  padding-top: 100px !important;
+}
+
+.products-connectivity {
+  height: 185px !important;
+  padding-top: 30px !important;
+}

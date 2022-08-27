@@ -1,0 +1,10 @@
+.figure-value {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #00A1E0;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}

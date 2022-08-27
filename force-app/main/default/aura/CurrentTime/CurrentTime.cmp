@@ -1,0 +1,40 @@
+<aura:component access="global" controller="lighten.AuraDashboardController" implements="force:appHostable,flexipage:availableForAllPageTypes">
+   <aura:attribute name="dt" type="String"/>
+   <aura:attribute name="fd" type="String"/>
+   <aura:attribute name="day" type="String"/>
+   <aura:attribute name="date" type="String"/>
+   <aura:attribute name="month" type="String"/>
+   <aura:attribute name="year" type="String"/>
+   <aura:attribute name="time" type="String"/>
+   <aura:attribute name="timezone" type="String"/>
+   <aura:attribute name="timezoneR" type="String"/>
+    
+   <aura:attribute name="daycolor" type="String" default="darkgreen"/>
+   <aura:attribute name="datecolor" type="String" default="darkred"/>
+   <aura:handler name="init" value="{!this}" action="{!c.getDateNTime}"/>
+    
+   <lighten:SldsStuff />
+   <div>Component depricated</div>
+   <div class="slds" style="display:none;">
+       <ul class="slds-list--vertical slds-has-cards">
+          <li class="slds-list__item">
+            <div class="slds-tile slds-tile--board">
+              <p class="slds-tile__title slds-truncate"><a href="#"></a></p>
+              <div class="slds-tile__detail">
+                <p class="slds-text-heading--medium level-2" style="{!'color:'+v.daycolor+';'}">{!v.day}</p>
+                <p class="slds-text-heading--medium level-1 bold" style="{!'color:'+v.datecolor+';'}">{!v.date}&nbsp;{!v.month},&nbsp;{!v.year}</p>
+                <p class="slds-text-heading--medium level-3">{!v.time}&nbsp;{!v.timezoneR}</p>
+                <p class="slds-truncate"><a href="#">{!v.dt}</a></p>
+                <p class="slds-truncate"></p>
+                <span class="slds-icon__container slds-tile--board__icon" style="display:none;">
+                   <p aria-hidden="true" class="slds-icon slds-icon-text-warning slds-icon--x-small"> 
+                    <img src="/resource/lighten__SLDS090/assets/icons/utility/warning_60.png"></img>
+                  </p>
+                  <span class="slds-assistive-text">Warning Icon</span>
+                </span>
+              </div>
+            </div>
+          </li>
+        </ul>
+    </div>
+</aura:component>

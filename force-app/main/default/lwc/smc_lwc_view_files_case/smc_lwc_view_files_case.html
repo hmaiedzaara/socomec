@@ -1,0 +1,23 @@
+<template>
+  <template if:true={filesExist}>
+    <lightning-card
+      title="Case package's files"
+      icon-name="standard:case_transcript"
+    >
+      <lightning-button
+        label={buttonShowList}
+        onclick={toggleShowList}
+        class="slds-m-left_xx-small button-position"
+      ></lightning-button>
+      <template if:true={showList}>
+        <template for:each={caseNumberOfTheFile} for:item="oneResult">
+          <c-smc_lwc_view_file_case_unit
+            key={oneResult.Id}
+            thefile={oneResult}
+            class="push-to-bottom"
+          ></c-smc_lwc_view_file_case_unit>
+        </template>
+      </template>
+    </lightning-card>
+  </template>
+</template>

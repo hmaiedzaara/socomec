@@ -1,0 +1,53 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 07-09-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   10-22-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <label class="slds-form-element__label" for="input">
+    <template if:true={required}>
+      <abbr class="slds-required" title="required">* </abbr>
+    </template>
+    {label}
+  </label>
+  <template if:false={isEdge}>
+    <div class="slds-form-element__control">
+      <input
+        id="input"
+        name="input"
+        list="valueList"
+        value={value}
+        placeholder={placeholder}
+        required={required}
+        class="slds-input"
+        type="text"
+        onchange={handleChange}
+      />
+      <datalist id="valueList" class="">
+          <template for:each={listvalues} for:item="item">
+            <option key={item.CDPAR} value={item.CDPAR}>{item.DESCRIPTION}</option>
+          </template>
+      </datalist>
+    </div>
+  </template>
+  <template if:true={isEdge}>
+    <select
+      class="slds-select"
+      onchange={handleChange}
+    >
+      <option value="" selected disabled hidden
+        >{customLabels.SELECT}</option
+      >
+      <template for:each={listvalues} for:item="oneValue">
+        <option key={oneValue.CDPAR} value={oneValue.CDPAR}
+          >{oneValue.DESCRIPTION}</option
+        >
+      </template>
+    </select>
+  </template>
+</template>

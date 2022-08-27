@@ -1,0 +1,36 @@
+.THIS .map-title {
+  height: 50px;
+  width: 100%;
+  line-height: 40px;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+  background-color: #005fb2;
+  border-bottom: 1px solid lightgrey;
+  z-index: 89;
+  touch-action: none;
+}
+
+.THIS h1:after {
+  content: "";
+  display: inline-block;
+  width: 33px;
+  height: 100%;
+  margin: 0 0 -15px -30px;
+  border-bottom: 2px solid rgb(255, 204, 0);
+}
+
+@media only screen and (max-width: 767px) {
+  .THIS h1:after {
+    display: none;
+  }
+
+  .THIS .yellow-border-bottom {
+    position: fixed;
+    content: "";
+    display: inline-block;
+    width: 35px;
+    margin: 0 0 0 -17px;
+    border-bottom: 2px solid rgb(255, 204, 0);
+  }
+}

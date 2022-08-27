@@ -1,0 +1,131 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 01-05-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   12-03-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <div class="slds-card">
+    <template if:true={searchOrSave}>
+      <lightning-spinner
+        alternative-text="Loading"
+        size="large"
+      ></lightning-spinner>
+    </template>
+    <!-- HEADER -->
+    <!-- DESKTOP -->
+    <template if:true={largeFactor}>
+      <!-- Title -->
+      <div class="slds-card__header">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          <div class="slds-media__figure">
+            <lightning-icon
+              icon-name="standard:date_input"
+              style="fill:#eb7092 !important"
+            ></lightning-icon>
+          </div>
+          <div class="slds-media__body">
+            <h2 class="slds-card__header-title">
+              {calendar.CALENDAR} : {selectedCalendar}
+            </h2>
+          </div>
+          <!-- Filters -->
+          <div class="slds-no-flex">
+            <c-smc_lwc_tab_event_filters
+              calendars={calendars}
+              oncalendarselected={handleCalendarSelected}
+              onopeneditstartdate={toogleModal}
+              onqueryaccountname={handleQueryAccountName}
+              onquerycontactname={handleQueryContactName}
+              onquerystartdate={handleQueryStartDate}
+              onqueryenddate={handleQueryEndDate}
+            ></c-smc_lwc_tab_event_filters>
+          </div>
+          <!--  -->
+        </header>
+      </div>
+    </template>
+    <!-- MOBILE -->
+    <template if:false={largeFactor}>
+      <div class="slds-grid slds-wrap">
+        <!-- Title -->
+        <div class="slds-col slds-small-size_1-of-1">
+          <lightning-icon
+            icon-name="standard:date_input"
+            style="fill:#eb7092 !important"
+          >
+          </lightning-icon>
+          <strong>
+            <label class="mobileTitle">
+              {calendar.CALENDAR} : {selectedCalendar}
+            </label>
+          </strong>
+        </div>
+        <!-- Filters -->
+        <div class="slds-col slds-small-size_1-of-1">
+          <c-smc_lwc_tab_event_filters
+            calendars={calendars}
+            oncalendarselected={handleCalendarSelected}
+            onopeneditstartdate={toogleModal}
+            onqueryaccountname={handleQueryAccountName}
+            onquerycontactname={handleQueryContactName}
+            onquerystartdate={handleQueryStartDate}
+            onqueryenddate={handleQueryEndDate}
+          ></c-smc_lwc_tab_event_filters>
+        </div>
+      </div>
+    </template>
+    <!-- BODY -->
+    <!-- datatable -->
+    <div class="slds-card__body slds-card__body_inner">
+      <lightning-datatable
+        id="datatable"
+        key-field="id"
+        data={datas}
+        columns={columns}
+        column-widths-mode="auto"
+        default-sort-direction={defaultSortDirection}
+        sorted-direction={sortDirection}
+        sorted-by={sortedBy}
+        onsort={onHandleSort}
+        class={responsiveDatable}
+      >
+        >
+      </lightning-datatable>
+    </div>
+    <!-- FOOTER -->
+    <template if:true={showMoreOrLess}>
+      <div class="slds-card__footer slds-m-bottom_small">
+        <template if:false={reachMax}>
+          <button
+            class="slds-button slds-button_outline-brand"
+            onclick={showMore}
+          >
+            Show More
+          </button>
+        </template>
+        <template if:false={reachMin}>
+          <button
+            class="slds-button slds-button_outline-brand outline-destructive"
+            onclick={showLess}
+          >
+            Show Less
+          </button>
+        </template>
+      </div>
+    </template>
+
+    <!-- MODAL -->
+    <template if:true={modalIsDisplay}>
+      <c-smc_lwc_tab_event_modal
+        largefactor={largeFactor}
+        onclosemodal={toogleModal}
+        onsavenewdate={handleSave}
+      ></c-smc_lwc_tab_event_modal>
+    </template>
+  </div>
+</template>

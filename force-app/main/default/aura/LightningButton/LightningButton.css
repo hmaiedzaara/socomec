@@ -1,0 +1,163 @@
+.THIS .container-btn {
+    margin-top:.2em;
+    text-align: center;
+    vertical-align: middle;
+}
+.THIS .btn {
+    border: solid 1px;
+    text-align:center;
+    margin-top:.2em;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.THIS .btn:hover {
+    filter:brightness(90%);
+    -webkit-filter:brightness(90%);
+    text-decoration: none;
+}
+
+.THIS .Napilli-Blue:hover {
+    background-color: #135f90;
+    text-decoration: none;
+}
+
+.THIS .Napilli-Green:hover {
+    background-color: #52941f;
+    text-decoration: none;
+}
+
+.THIS .btn:active {
+    filter:brightness(80%);
+    -webkit-filter:brightness(80%);
+    text-decoration: none;
+}
+
+.THIS .Round {
+    border-radius: .3em;
+}
+
+.THIS .Round2x {
+    border-radius: .6em;
+}
+
+.THIS .Square {
+    border-radius: 0px;
+}
+
+.THIS .Small {
+    height: 2em;
+    width: 3.5em;
+    padding:.3em 1.3em .3em 1.3em;
+    font-size:.6em;
+}
+
+.THIS .Medium {
+    height: 3em;
+    width: 5.5em;
+    padding: .5em 1.6em .5em 1.6em;
+    font-size:.9em;
+}
+
+.THIS .Large {
+    height: 4em;
+    width: 6em;
+    padding: .8em 1.9em .8em 1.9em;
+    font-size:1.1em;
+}
+
+.THIS .Free {
+    width: 100%;
+    padding: 1em 1.6em 1em 1.6em;
+}
+
+.THIS .Orange {
+	color:#EE9A00;
+}
+
+.THIS .White {
+	color:#FFFFFF;
+}
+
+.THIS .OrangeRed {
+	color:#CD3700;
+}
+
+.THIS .DodgerBlue {
+	background-color:#1E90FF;
+}
+
+.THIS .SpringGreen {
+	background-color:#008B45;
+}
+
+.THIS .DarkGreen {
+	background-color:#006400;
+}
+
+.THIS .Black {
+	background-color:#000000;
+}
+
+.THIS .Grey {
+	background-color:grey;
+}
+
+.THIS .BlueViolet {
+	background-color:blueviolet;
+}
+
+.THIS .Napilli-Blue {
+    font-family: Lato,'Salesforce Sans',Arial,sans-serif;
+    border-radius: 2px;
+    background-color: #2574a9;
+    border: none;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 1em;
+    width: 100%;
+    -webkit-transition: background .8s ease;
+    transition: background .8s ease;
+}
+
+.THIS .Napilli-Green {
+    font-family: Lato,'Salesforce Sans',Arial,sans-serif;
+    border-radius: 2px;
+    background-color: #52941f;
+    border: none;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 1em;
+    width: 100%;
+    -webkit-transition: background .8s ease;
+    transition: background .8s ease;
+}
+
+.THIS .Napilli-Blue-2 {
+    font-family: Lato,'Salesforce Sans',Arial,sans-serif;
+    border-radius: 2px;
+    background-color: #2574a9;
+    border: none;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 1em;
+    width: 100%;
+    -webkit-transition: background .8s ease;
+    transition: background .8s ease;
+    text-transform: uppercase;
+}
+
+
+.THIS .DeepSkyBlue {
+	border-color:#009ACD;
+}
+
+.THIS .IndianRed {
+	border-color:#B0171F;
+}
+
+.THIS .SapGreen {
+	border-color:#308014;
+}

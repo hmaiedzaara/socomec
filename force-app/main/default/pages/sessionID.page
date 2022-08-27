@@ -1,0 +1,5 @@
+<apex:page contentType="text/plain" >{!$Api.Session_Id}</apex:page>
+<!-- do not delete this VFpage as long as it is used by SMC_AP_FutureCallout -> Method calloutAssignTerritories()
+It is used to get a sessionID from an asynchronous/future method.
+This future method is used by an account trigger.
+-->

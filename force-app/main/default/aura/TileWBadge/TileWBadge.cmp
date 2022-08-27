@@ -1,0 +1,134 @@
+<aura:component>
+  <aura:attribute
+    name="name"
+    type="String"
+    description="Name of the user"
+    default="*Name not Specified*"
+  />
+  <aura:attribute
+    name="logintime"
+    type="String"
+    description="Login Time of the user"
+    default="*Time not Specified*"
+  />
+  <aura:attribute
+    name="status"
+    type="String"
+    description="Login Status"
+    default="-"
+  />
+  <aura:attribute
+    name="profile"
+    type="String"
+    description="User Profile"
+    default="-"
+  />
+  <aura:attribute
+    name="application"
+    type="String"
+    description="Login by Application"
+    default="Unknown"
+  />
+  <aura:attribute
+    name="ip"
+    type="String"
+    description="Login Source IP"
+    default="-"
+  />
+  <aura:attribute
+    name="platform"
+    type="String"
+    description="Login platfrom"
+    default="-"
+  />
+  <aura:attribute
+    name="email"
+    type="String"
+    description="email id of user"
+    default="-"
+  />
+  <aura:attribute
+    name="usertype"
+    type="String"
+    description="User Type"
+    default="-"
+  />
+  <aura:attribute
+    name="photourl"
+    type="String"
+    description="User Chatter Photo"
+    default="/resource/lighten__SLDS090/assets/icons/standard/avatar_60.png"
+  />
+  <div class="slds-tile color-white">
+    <div class="slds-media slds-tile color-white">
+      <div class="slds-media__figure">
+        <p
+          aria-hidden="true"
+          class="slds-icon__container slds-icon-standard-user"
+        >
+          <img class="smlthmb" src="{!v.photourl}"></img>
+        </p>
+      </div>
+      <div class="slds-media__body">
+        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+          <p class="slds-tile__title slds-truncate"
+            ><a href="#">{!v.name}</a></p
+          >
+          <p><!-- Top Right --></p>
+        </div>
+        <div class="slds-tile__detail slds-text-body--small">
+          <p class="slds-truncate">{!v.profile}</p>
+        </div>
+        <div class="slds-tile__detail slds-text-body--small">
+          <p class="slds-truncate">{!v.email}</p>
+        </div>
+      </div>
+    </div>
+    <div class="slds-media slds-tile"></div>
+    <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+      <p class="slds-tile__title slds-truncate">
+        <a href="#">
+          <p aria-hidden="true" class="slds-icon__container bg-2 mrg-rt-1">
+            <img
+              class="tnthmb-x"
+              src="../resource/lighten__SLDS090/assets/icons/standard/today_120.png"
+            ></img>
+          </p>
+          {!v.logintime}
+        </a>
+      </p>
+      <span
+        class="slds-badge slds-theme--success sld-badge-fix"
+        style="{!v.status == 'Success' ? '' : 'display:none;'}"
+        >{!v.status}</span
+      >
+      <span
+        class="slds-badge slds-theme--error sld-badge-fix"
+        style="{!v.status == 'Invalid Password' ? '' : 'display:none;'}"
+        >{!v.status}</span
+      >
+      <span
+        class="slds-badge slds-theme--warning sld-badge-fix"
+        style="{!v.status == 'Failed: Computer activation required' ? '' : 'display:none;'}"
+        >{!v.status}</span
+      >
+      <span
+        class="slds-badge slds-theme--shade sld-badge-fix"
+        style="{!v.status == 'Failed: Computer activation pending' ? '' : 'display:none;'}"
+        >{!v.status}</span
+      >
+      <span
+        class="slds-badge slds-theme--offline sld-badge-fix"
+        style="{!v.status == 'Failed: API security token required' ? '' : 'display:none;'}"
+        >{!v.status}</span
+      >
+    </div>
+    <ul
+      class="slds-tile__detail slds-list--horizontal slds-has-dividers slds-text-body--small"
+    >
+      <li class="slds-truncate slds-list__item">{!v.platform}</li>
+      <li class="slds-truncate slds-list__item">{!v.ip}</li>
+      <li class="slds-truncate slds-list__item">{!v.application}</li>
+    </ul>
+  </div>
+</aura:component>

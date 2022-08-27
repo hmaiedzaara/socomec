@@ -1,0 +1,31 @@
+[
+    {
+        "id": "8715642879",
+        "company": "17",
+        "invoiceCode": "IN PCS-2018/181230025",
+        "accountCode": "ACC_257181",
+        "productCode": "21PV5102",
+        "productDescription": "SIRCO MC PV 2+2P AR 30A 600VDC",
+        "businessApplication": "PCS",
+        "productFamily": "DC_PV LOAD BREAK SWITCH",
+        "amount": 784,
+        "invoiceDate": "2018-02-18T23:00:00.000Z",
+        "initials": "MHW",
+        "orderCode": "OR PCS-2018/181210008"
+    },
+    {
+        "id": "8715642860",
+        "company": "17",
+        "invoiceCode": "IN PCS-2018/181230025",
+        "accountCode": "ACC_257181",
+        "productCode": "21191412",
+        "productDescription": "POIGNEE DIR MC01 B",
+        "businessApplication": "PCS",
+        "productFamily": "COMMON ACCESSORIES",
+        "amount": 94.5,
+        "orderDate": "2018-02-04T23:00:00.000Z",
+        "invoiceDate": "2018-02-18T23:00:00.000Z",
+        "initials": "MHW",
+        "orderCode": "OR PCS-2018/181210008"
+    }
+]

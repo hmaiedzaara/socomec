@@ -1,0 +1,40 @@
+<template>
+  <template if:true={displayPortfolioOrProjectPortfolio}>
+    <article
+      class="slds-card forceBaseCard forceCard flexipageCard flexipageReportChart"
+    >
+      <template if:true={title}>
+        <div class="slds-card__header slds-grid">
+          <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__body">
+              <h2 class="header-title-container" id="header">
+                <span
+                  class="slds-text-heading--small slds-truncate"
+                  title={title}
+                  >{title}</span
+                >
+              </h2>
+            </div>
+          </header>
+        </div>
+      </template>
+      <div class="slds-card__body slds-card__body--inner no-margin-bottom">
+        <div class="slds-grid slds-wrap">
+          <div class="slds-size_1-of-2 figure-value">
+            <lightning-formatted-number
+              value={amount}
+              format-style="currency"
+              currency-code={userCurrency}
+            ></lightning-formatted-number>
+          </div>
+          <div class="slds-size_1-of-2 figure-value">
+            <lightning-formatted-number
+              value={elementNbs}
+              format-style="decimal"
+            ></lightning-formatted-number>
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
+</template>

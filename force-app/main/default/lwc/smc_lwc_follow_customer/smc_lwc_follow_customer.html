@@ -1,0 +1,125 @@
+<!--
+  @File Name          : smc_lwc_follow_customer.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 09-06-2021
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    07/01/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+  <template if:true={searching}>
+    <lightning-spinner
+      alternative-text="Loading"
+      size="large"
+    ></lightning-spinner>
+  </template>
+  <template if:true={record}>
+    <template if:true={showStat}>
+      <lightning-card title={statistics.STATISTICS}>
+        <c-smc_lwc_customer_informations
+          informationtoget={statistics.STATISTICS}
+          account={record}
+          keyfield="scoring_family_l2_code"
+          onstat={handleStat}
+        >
+        </c-smc_lwc_customer_informations>
+      </lightning-card>
+    </template>
+    <template if:true={showDiscount}>
+      <!-- Old Discount -->
+      <lightning-card title={discountPerFamily.DISCOUNT_PER_FAMILY}>
+        <c-smc_lwc_customer_informations
+          informationtoget={discountPerFamily.DISCOUNT_PER_FAMILY}
+          account={record}
+          keyfield="priceGroup"
+          ondiscount={handleDiscount}
+        >
+        </c-smc_lwc_customer_informations>
+      </lightning-card>
+    </template>
+    <template if:true={showPrice}>
+      <!-- Old PL -->
+      <lightning-card title={priceList.PRICE_LIST}>
+        <c-smc_lwc_customer_informations
+          informationtoget={priceList.PRICE_LIST}
+          account={record}
+          keyfield="item"
+          onprice={handlePrice}
+        >
+        </c-smc_lwc_customer_informations>
+      </lightning-card>
+    </template>
+    <template if:true={showDiscountNew}>
+      <!-- New Discount -->
+      <lightning-card title={discount.DISCOUNT}>
+        <c-smc_lwc_customer_informations
+          informationtoget="Discount_New"
+          account={record}
+          keyfield="priceGroup"
+          ondiscountnew={handleDiscountNew}
+        >
+        </c-smc_lwc_customer_informations>
+      </lightning-card>
+    </template>
+    <template if:true={showPriceNew}>
+      <!-- New PL -->
+      <lightning-card title={priceList.PRICE_LIST}>
+        <c-smc_lwc_customer_informations
+          informationtoget="Price_List_New"
+          account={record}
+          keyfield="item"
+          onpricenew={handlePriceNew}
+        >
+        </c-smc_lwc_customer_informations>
+      </lightning-card>
+    </template>
+    <template if:true={showDiscountPI}>
+      <lightning-card title={discountPerItem.DISCOUNT_PER_ITEM}>
+        <c-smc_lwc_customer_informations
+          informationtoget={discountPerItem.DISCOUNT_PER_ITEM}
+          account={record}
+          keyfield="item"
+          ondiscountperitem={handleDiscountPerItem}
+        >
+        </c-smc_lwc_customer_informations>
+      </lightning-card>
+    </template>
+    <!-- DPHA - Add Discount per product line -->
+    <template if:true={showDiscountPerProductLine}>
+      <lightning-card title={dicountPerProductLine.DISCOUNT_PER_PRODUCT_LINE}>
+        <c-smc_lwc_customer_informations
+          informationtoget={dicountPerProductLine.DISCOUNT_PER_PRODUCT_LINE}
+          account={record}
+          keyfield="item"
+          ondiscountperproductline={handleDiscountPerProductLine}
+        >
+        </c-smc_lwc_customer_informations>
+      </lightning-card>
+    </template>
+
+
+    <!--xlsx component calling-->
+    <div class="export-button-pos">
+      <template if:false={smallFactor}>
+        <template if:true={toExport}>
+          <lightning-button
+            variant="brand"
+            label={exportExcel.EXPORT_EXCEL}
+            title={exportExcel.EXPORT_EXCEL}
+            onclick={download}
+          ></lightning-button>
+        </template>
+        <c-smc_lwc_utils_export_to_excel
+          header-list={xlsHeaderGetter}
+          filename={filenameGetter}
+          worksheet-name-list={workSheetNameListGetter}
+          sheet-data={xlsDataGetter}
+          onloadxlsx={handleLoadXlsx}
+        ></c-smc_lwc_utils_export_to_excel>
+      </template>
+    </div>
+  </template>
+</template>

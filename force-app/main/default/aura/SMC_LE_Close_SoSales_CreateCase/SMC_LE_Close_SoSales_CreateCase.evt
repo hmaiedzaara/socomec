@@ -1,0 +1,1 @@
+<aura:event type="APPLICATION" description="Event to close the modal SoSales Create Case" />

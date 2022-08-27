@@ -1,0 +1,180 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 02-22-2022
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   05-10-2021   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+    <template if:true={isError}>
+        <strong><label class="error-message">{errorMessage}</label></strong>
+    </template>
+    <template if:true={orderNotFound}>
+        <strong><label class="order-not-found">Order not found</label></strong>
+    </template>
+    <template if:true={isLoad}>
+        <div class='body'>
+            <template if:true={thereAreSalesOrder}>
+                <div class="view tabadjusted">
+                    <strong><h1>Sales {salesOrder.salesOrderHeader.id}</h1></strong>
+                    <div class="header header-left">
+                        <p class="title">Order information</p>
+                        <p class="text">Date : {salesOrder.salesOrderHeader.orderDateString} (Europe/Paris)</p>
+                        <p class="text">Reference : {salesOrder.salesOrderHeader.customerOrder}</p>
+                        <p class="text">Invoice no : {salesOrder.salesOrderHeader.invoiceNumber}</p>
+                    </div>
+                    <div class="header header-right">
+                        <p class="title">Billing address</p>
+                        <template if:true={thereIsSalesOrderAddress}>
+                            <p class="text">{salesOrder.salesOrderHeader.invoiceToAddress.name}</p>
+                            <!-- <p class="text">%value orderHeader/invoiceAddress/name2%</p> -->
+                            <p class="text">{salesOrder.salesOrderHeader.invoiceToAddress.street}</p>
+                            <p class="text">{salesOrder.salesOrderHeader.invoiceToAddress.zipCode} {salesOrder.salesOrderHeader.invoiceToAddress.city}</p>
+                            <p class="text">{salesOrder.salesOrderHeader.invoiceToAddress.country}</p>
+                        </template>
+                    </div>
+                    <table class="slds-scrollable--x">
+                        <tbody>
+                            <tr>
+                                <th>Line</th>
+                                <th>Request date</th>
+                                <th>Confirm date</th>
+                                <th>Review date</th>
+                                <th>Item</th>
+                                <th>Description</th>
+                                <th>Warehouse</th>
+                                <th>Ordered</th>
+                                <th>Tranferred</th>
+                                <th>Shipped</th>
+                                <!-- <th>Remaining</th> -->
+                            </tr>
+                            <template for:each={salesOrder.salesOrderLines} for:item="oneOrder">
+                                <tr key={oneOrder.dataId} data-id={oneOrder.dataId}>
+                                    <td>{oneOrder.line}</td>
+                                    <td>{oneOrder.requestedDateString}</td>
+                                    <td>{oneOrder.confirmedDateString}</td>
+                                    <td>{oneOrder.reviewedDateString}</td>
+                                    <td>{oneOrder.item}</td>
+                                    <td>{oneOrder.itemDescription}</td>
+                                    <td>{oneOrder.warehouse}</td>
+                                    <td>{oneOrder.orderedQuantityString}</td>
+                                    <td>{oneOrder.transferredQuantityString}</td>
+                                    <td>{oneOrder.shippedQuantityString}</td>
+                                    <!-- <td>{oneOrder.remainingQuantityString}</td> -->
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </template>
+            <template if:true={thereAreWarehouseOrder}>
+                <div class="view">
+                    <template for:each={warehouseOrder} for:item="oneOrder">
+                        <strong key={oneOrder.warehousingOrder.shipToCode}><h1>Warehousing {oneOrder.warehousingOrder.orderOrigin} {oneOrder.warehousingOrder.order} {oneOrder.warehousingOrder.set}</h1></strong>
+                        <div key={oneOrder.warehousingOrder.shipToCode} class="header header-left">
+                            <p class="title">Order information</p>
+                            <p class="text">Order date : {oneOrder.warehousingOrder.orderDateString} (Europe/Paris)</p>
+                            <p class="text">Delivery date : {oneOrder.warehousingOrder.plannedDeliveryDateString}</p>
+                            <p class="text">Ship-to code : {oneOrder.warehousingOrder.shipToCode}</p>
+                        </div>
+                        <div key={oneOrder.warehousingOrder.shipToCode} class="header header-right">
+                            <p class="title">Shipping address</p>
+                            <template if:true={thereIsWarehouseOrderAddress}>
+                                <p class="text">{oneOrder.warehousingOrder.shipToAddress.name}</p>
+                                <p class="text">{oneOrder.warehousingOrder.shipToAddress.name2}</p>
+                                <p class="text">{oneOrder.warehousingOrder.shipToAddress.street}</p>
+                                <p class="text">{oneOrder.warehousingOrder.shipToAddress.zipCode} {oneOrder.warehousingOrder.shipToAddress.city}</p>
+                            </template>
+                        </div>
+                        <table key={oneOrder.warehousingOrder.shipToCode} class="slds-scrollable--x">
+                            <tbody>
+                                <tr>
+                                    <th>Line</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Item</th>
+                                    <th>Description</th>
+                                    <th>Ordered</th>
+                                    <th></th>
+                                    <th>Shipped</th>
+                                </tr>
+                                <template for:each={oneOrder.outboundOrderLines} for:item="oneOrderLine">
+                                    <tr key={oneOrderLine.dataId} data-id={oneOrderLine.dataId}>
+                                        <td>{oneOrderLine.line}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{oneOrderLine.item}</td>
+                                        <td>{oneOrderLine.itemDescription}</td>
+                                        <td>{oneOrderLine.orderedQuantityString}</td>
+                                        <td></td>
+                                        <td>{oneOrderLine.shippedQuantityString}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </template>
+                </div>
+            </template>
+            <template if:true={thereAreShipments}>
+                <template for:each={shipments} for:item="oneShipment">
+                    <div key={oneShipment.shipmentHeader.id}  class="view">
+                        <strong><h1>Shipment {oneShipment.shipmentHeader.id}</h1></strong>
+                        <div class="header header-left">
+                            <p class="title">Shipment information</p>
+                            <p class="text">Date: {oneShipment.shipmentHeader.confirmedDateString} (Europe/Paris)</p>
+                            <p class="text">Tracking number : {oneShipment.shipmentHeader.trackingNumber}</p>
+                            <p class="text">Carrier : {oneShipment.shipmentHeader.carrierDescription}</p>
+                        </div>
+                        <div class="header header-right">
+                            <p class="title">Shipping address</p>
+                            <template if:true={oneShipment.hasAnAddress}>
+                                <p class="text">{oneShipment.shipmentHeader.shipToAddress.name}</p>
+                                <!-- <p class="text">%value shipmentHeader/shipToAddress/name2%</p> -->
+                                <p class="text">{oneShipment.shipmentHeader.shipToAddress.street}</p>
+                                <p class="text">{oneShipment.shipmentHeader.shipToAddress.zipCode} {oneShipment.shipmentHeader.shipToAddress.city}</p>
+                                <p class="text">{oneShipment.shipmentHeader.shipToAddress.country}</p>
+                            </template>
+                        </div>
+                        <div class="tabadjusted">
+                            <table class="slds-scrollable_y">
+                                <tbody>
+                                    <tr>
+                                        <th>Line</th>
+                                        <th>Sales order</th>
+                                        <th>Order line</th>
+                                        <th></th>
+                                        <th>Item</th>
+                                        <th>Description</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Shipped</th>
+                                    </tr>
+                                    <template for:each={oneShipment.shipmentLines} for:item="shipment">
+                                        <tr key={shipment.dataId} data-id={shipment.dataId}>
+                                            <td>{shipment.line}</td>
+                                            <td>{shipment.order}</td>
+                                            <td>{shipment.orderLine}</td>
+                                            <td></td>
+                                            <td>{shipment.item}</td>
+                                            <td>{shipment.itemDescription}</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>{shipment.shippedQuantityString}</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </template>
+</template>

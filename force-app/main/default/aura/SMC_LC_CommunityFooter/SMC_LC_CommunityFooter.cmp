@@ -1,0 +1,88 @@
+<!--
+  @File Name          : SMC_LC_CommunityFooter.cmp
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 04/06/2020 à 10:09:26
+  @Modification Log   : 
+  Ver       Date            Author      		             Modification
+  1.0       04/06/2020      Vincent RECASENS (Modis)     Initial Version
+  2.0       25/05/2022      Denis PHAM (Modis)           Dynamic URL Footer
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="SMC_AC_CommunityFooter">
+  <aura:attribute name="backgroundColor" type="String" default="#eee" />
+  <aura:attribute name="yearOfToday" type="String" />
+
+  <aura:attribute name="customersLinks" type="SMC_Community_Footer_Links__mdt" />
+  <aura:attribute name="customerPortalLinks" type="SMC_Community_Footer_Links__mdt" />
+  <aura:attribute name="supplierPortalLinks" type="SMC_Community_Footer_Links__mdt" />
+
+  <aura:attribute name="displayCustomersLinks" type="Boolean" default="false"/>
+  <aura:attribute name="displayCustomerPortalLinks" type="Boolean" default="false"/>
+  <aura:attribute name="displaySupplierPortalLinks" type="Boolean" default="false"/>
+  
+
+  <aura:handler name="init" value="this" action="{!c.doInit}" />
+
+  <div class="footer-image"></div>
+
+  <div class="slds-m-top_xx-large slds-p-around_x-large" style="{! 'background-color:' + v.backgroundColor + ';'}">
+    <div class="slds-grid slds-gutters slds-wrap center">
+      <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-3 slds-large-size_2-of-3">
+        <p>
+          <a href="https://www.facebook.com/Socomec-Group-532682573414003/" target="_blank" class="icon-style"><i
+              class="fa fa-facebook"></i></a>&nbsp;
+          <a href="https://twitter.com/socomec_group" target="_blank" class="icon-style"><i
+              class="fa fa-twitter"></i></a>
+          &nbsp;
+          <a href="http://www.youtube.com/socomeccorporate" target="_blank" class="icon-style"><i
+              class="fa fa-youtube"></i></a>&nbsp;
+          <a href="https://www.linkedin.com/company/socomec" target="_blank" class="icon-style"><i
+              class="fa fa-linkedin"></i></a>
+        </p>
+
+        <p class="p-style">{!$Label.c.SMC_CommunityFooter_Copyright}&thinsp;{! v.yearOfToday }&thinsp;{!$Label.c.SMC_CommunityFooter_All_rights_reserved}</p>
+
+        <aura:if isTrue="{! v.displayCustomersLinks }">
+          <p>
+            <a href="{! v.customersLinks.Legal_Notice_Link__c}" target="_blank">{!$Label.c.SMC_CommunityFooter_Legal_Notice}</a>&nbsp;&nbsp;&nbsp;
+            <a href="{! v.customersLinks.Terms_of_Use_Link__c}" target="_blank">{!$Label.c.SMC_CommunityFooter_TOS}</a>&nbsp;&nbsp;&nbsp;
+            <a href="{! v.customersLinks.Privacy_Notice_Link__c}" target="_blank">{!$Label.c.SMC_CommunityFooter_Privacy_Policy}</a>&nbsp;&nbsp;&nbsp;
+            <a href="{! v.customersLinks.Addresses_Link__c}" target="_blank">{!$Label.c.SMC_CommunityFooter_Addresses}</a>
+          </p>
+        </aura:if>
+
+        <aura:if isTrue="{! v.displayCustomerPortalLinks }">
+          <p>
+            <a href="{! v.customerPortalLinks.Legal_Notice_Link__c}" target="_blank">{!$Label.c.SMC_CommunityFooter_Legal_Notice}</a>&nbsp;&nbsp;&nbsp;
+            <a href="{! v.customerPortalLinks.Terms_of_Use_Link__c}" target="_blank">{!$Label.c.SMC_CommunityFooter_TOS}</a>&nbsp;&nbsp;&nbsp;
+            <a href="{! v.customerPortalLinks.Privacy_Notice_Link__c}" target="_blank">{!$Label.c.SMC_CommunityFooter_Privacy_Policy}</a>&nbsp;&nbsp;&nbsp;
+            <a href="{! v.customerPortalLinks.Addresses_Link__c}" target="_blank">{!$Label.c.SMC_CommunityFooter_Addresses}</a>
+          </p>        
+        </aura:if>
+
+        <aura:if isTrue="{! v.displaySupplierPortalLinks }">
+          <p>
+            <a href="{! v.supplierPortalLinks.Legal_Notice_Link__c}" target="_blank">{!$Label.c.SMC_CommunityFooter_Legal_Notice}</a>&nbsp;&nbsp;&nbsp;
+            <a href="{! v.supplierPortalLinks.Terms_of_Use_Link__c}" target="_blank">{!$Label.c.SMC_CommunityFooter_TOS}</a>&nbsp;&nbsp;&nbsp;
+            <a href="{! v.supplierPortalLinks.Privacy_Notice_Link__c}" target="_blank">{!$Label.c.SMC_CommunityFooter_Privacy_Policy}</a>&nbsp;&nbsp;&nbsp;
+            <a href="{! v.supplierPortalLinks.Addresses_Link__c}" target="_blank">{!$Label.c.SMC_CommunityFooter_Addresses}</a>
+          </p>
+        </aura:if>
+
+
+      </div>
+
+      <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3">
+        <i class="fa fa-fw fa-map-marker text-bold"></i><b>{!$Label.c.SMC_CommunityFooter_Head_Office}</b><br />
+        <i class="fa fa-fw"></i>{!$Label.c.SMC_CommunityFooter_Street}<br />
+        <i class="fa fa-fw"></i>{!$Label.c.SMC_CommunityFooter_Additional_Information}<br />
+        <i class="fa fa-fw"></i>{!$Label.c.SMC_CommunityFooter_Postal_Code}<br />
+        <i class="fa fa-fw"></i>{!$Label.c.SMC_CommunityFooter_Country}<br />
+        <i class="fa fa-fw fa-phone"></i>{!$Label.c.SMC_CommunityFooter_Phone}<br />
+        <i class="fa fa-fw fa-fax"></i>{!$Label.c.SMC_CommunityFooter_Fax}<br />
+      </div>
+    </div>
+  </div>
+</aura:component>

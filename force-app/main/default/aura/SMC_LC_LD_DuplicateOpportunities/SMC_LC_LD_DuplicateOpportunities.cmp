@@ -1,0 +1,149 @@
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId"
+  access="global"
+  controller="SMC_AC_LC_LeadController"
+>
+  <!-- Define components attributes -->
+  <aura:attribute
+    name="opps"
+    type="List"
+    access="global"
+    description="List of opportunities potentially duplicates"
+  />
+  <aura:attribute
+    name="oppFieldsLabel"
+    type="Map"
+    access="global"
+    description="List of opportunity fields label"
+  />
+  <aura:attribute name="isSpinner" type="boolean" default="false" />
+  <aura:attribute
+    name="record"
+    type="Object"
+    description="The record object to be displayed"
+  />
+  <aura:attribute
+    name="simpleRecord"
+    type="Object"
+    description="A simplified view record object to be displayed"
+  />
+  <aura:attribute
+    name="recordError"
+    type="String"
+    description="An error message bound to force:recordData"
+  />
+
+  <!-- Handle record attributes -->
+  <force:recordData
+    aura:id="record"
+    layoutType="FULL"
+    recordId="{!v.recordId}"
+    targetError="{!v.recordError}"
+    targetRecord="{!v.record}"
+    targetFields="{!v.simpleRecord}"
+    recordUpdated="{!c.recordUpdate}"
+    mode="VIEW"
+  />
+
+  <!-- Content's lightning component -->
+  <lightning:card
+    title="{!$Label.c.SMC_Duplicates_Opportunity_Helper}"
+    iconName="standard:opportunity"
+  >
+    <p class="slds-p-horizontal_small">
+      <aura:if isTrue="{!v.isSpinner}">
+        <lightning:spinner
+          alternativeText="{!$Label.c.SMC_Loading}"
+          size="medium"
+        />
+        <aura:set attribute="else">
+          <aura:if isTrue="{!empty(v.opps)}">
+            {!$Label.c.SMC_NoResultFound}
+            <aura:set attribute="else">
+              <!-- <ul class="slds-has-dividers_bottom-space slds-scrollable smc-container-content"> -->
+              <ul class="slds-has-dividers_bottom-space slds-scrollable">
+                <aura:iteration items="{!v.opps}" var="opp">
+                  <li class="slds-item">
+                    <lightning:recordViewForm
+                      recordId="{!opp.Id}"
+                      objectApiName="Opportunity"
+                    >
+                      <lightning:tile
+                        label="{!opp.Name}"
+                        href="{!'/one/one.app?#/sObject/'+ opp.Id + '/view'}"
+                      >
+                        <dl class="slds-dl_horizontal">
+                          <dt class="slds-dl_horizontal__label">
+                            <p class="slds-truncate"
+                              >{!v.oppFieldsLabel.stagename} :</p
+                            >
+                          </dt>
+                          <dd
+                            class="slds-dl_horizontal__detail slds-tile__meta"
+                          >
+                            <p class="slds-truncate">
+                              <lightning:outputField
+                                variant="label-hidden"
+                                fieldName="StageName"
+                              />
+                            </p>
+                          </dd>
+                          <dt class="slds-dl_horizontal__label">
+                            <p class="slds-truncate"
+                              >{!v.oppFieldsLabel.ownerid} :</p
+                            >
+                          </dt>
+                          <dd
+                            class="slds-dl_horizontal__detail slds-tile__meta"
+                          >
+                            <p class="slds-truncate">
+                              <lightning:outputField
+                                variant="label-hidden"
+                                fieldName="OwnerId"
+                              />
+                            </p>
+                          </dd>
+                          <dt class="slds-dl_horizontal__label">
+                            <p class="slds-truncate"
+                              >{!v.oppFieldsLabel.accountid} :</p
+                            >
+                          </dt>
+                          <dd
+                            class="slds-dl_horizontal__detail slds-tile__meta"
+                          >
+                            <p class="slds-truncate">
+                              <lightning:outputField
+                                variant="label-hidden"
+                                class="force-small-size"
+                                fieldName="AccountId"
+                              />
+                            </p>
+                          </dd>
+                          <dt class="slds-dl_horizontal__label">
+                            <p class="slds-truncate"
+                              >{!v.oppFieldsLabel.rvpe_projectlocation__c} :</p
+                            >
+                          </dt>
+                          <dd
+                            class="slds-dl_horizontal__detail slds-tile__meta"
+                          >
+                            <p class="slds-truncate">
+                              <lightning:outputField
+                                variant="label-hidden"
+                                fieldName="rvpe_projectlocation__c"
+                              />
+                            </p>
+                          </dd>
+                        </dl>
+                      </lightning:tile>
+                    </lightning:recordViewForm>
+                  </li>
+                </aura:iteration>
+              </ul>
+            </aura:set>
+          </aura:if>
+        </aura:set>
+      </aura:if>
+    </p>
+  </lightning:card>
+</aura:component>

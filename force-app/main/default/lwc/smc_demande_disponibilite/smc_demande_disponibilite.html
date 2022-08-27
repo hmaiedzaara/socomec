@@ -1,0 +1,36 @@
+<template>
+   
+    <div  class="slds-grid slds-gutters">
+        
+        <div class="slds-grid slds-wrap" id="parentElement">
+
+            <div class="slds-col slds-size_7-of-12 divstyle">
+                <span>{label.smc_cl_Product}</span>
+            </div>
+
+            <div class="slds-col slds-size_4-of-12 divstyle">
+                <span>{label.smc_cl_Quantity}</span>
+            </div>
+           
+            <template for:each={l_Element} for:item="item">
+                <div class="slds-grid slds-wrap"  key={item.id}>
+                    <div  class="slds-col slds-size_7-of-12 divstyle">
+                        <input type="text" id={productSkuId}  placeholder="Item SKU"  class="slds-input" />
+                    </div>
+                    <div class="slds-col slds-size_4-of-12 divstyle">
+                        <input type="Number"  id={quantityId}  placeholder="Quantity"  class="slds-input" />
+                    </div>
+                </div>
+            </template>
+            
+            <div class="slds-col slds-size_7-of-12 divstyle">
+                <button class="slds-button" onclick={createElement}>{label.smc_cl_demandeDisponibilite_AddLine}</button>
+            </div>
+            
+            <div class="slds-col slds-size_9-of-12 divstyle">
+                <button  title="Calculer" class="slds-button slds-button_brand slds-p-vertical_xx-small slds-p-horizontal_medium"  style="border-radius: 0px; margin: 0; width: 100%">{label.smc_cl_DemandeDisponibilite_Calculer}</button>
+            </div>
+
+        </div>
+     </div>
+</template>

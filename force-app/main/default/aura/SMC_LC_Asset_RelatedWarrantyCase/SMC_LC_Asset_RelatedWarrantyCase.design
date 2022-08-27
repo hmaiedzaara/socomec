@@ -1,0 +1,3 @@
+<design:component>
+    <design:attribute name="filterWhereClause" label="Filter" datasource="apex://SMC_UTIL_LCDesign_AssetRelatedCase" />
+</design:component>

@@ -1,0 +1,16 @@
+.sizing-img {
+  width: 110px;
+  height: 156px;
+  background: white;
+  margin: 5px;
+  border: 1px solid lightgrey;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2) !important;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1199px) {
+  .sizing-img {
+    width: 95px;
+    height: ‭134px;
+  }
+}

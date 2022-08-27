@@ -1,0 +1,78 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 09-02-2020
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   09-01-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<aura:component
+  implements="force:lightningQuickAction,force:hasRecordId"
+  controller="SMC_AC_NewQuote"
+>
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+  <aura:attribute name="newQuote" type="Quote" />
+  <aura:attribute name="newOpportunity" type="Opportunity" />
+  <aura:attribute name="defaultOwner" type="String" />
+  <aura:attribute name="defaultReminderPilot" type="String" />
+  <aura:attribute name="users" type="User[]" />
+
+  <aura:attribute name="isSync" type="Boolean" default="true" />
+  <aura:attribute name="hasSyncQuote" type="Boolean" />
+  <aura:attribute name="isLoading" type="Boolean" default="true" />
+
+  <aura:attribute name="allInformations" type="SMC_DTO_NewQuoteForProject" />
+  <aura:attribute name="contactListNone" type="Contact[]" />
+  <aura:attribute name="defaultAccount" type="String" />
+  <aura:attribute name="defaultContact" type="String" />
+
+  <!-- Attribute to display errors -->
+  <aura:attribute name="errors" type="String" />
+
+  <!-- Spinner for waiting -->
+  <aura:if isTrue="{! v.isLoading }">
+    <lightning:spinner
+      alternativeText="{!$Label.c.SMC_Loading}"
+      size="medium"
+    />
+  </aura:if>
+
+  <aura:if isTrue="{! !v.isLoading }">
+    <!-- Error -->
+    <aura:if isTrue="{!v.errors}">
+      <ui:message title="Error" severity="error" closable="true">
+        {!v.errors}
+      </ui:message>
+    </aura:if>
+
+    <aura:if isTrue="{! !v.errors}">
+      <div class="slds-form_stacked">
+        <!-- Name -->
+        <lightning:input
+          aura:id="quoteName"
+          name="Name"
+          label="{!$Label.c.SMC_NewQuoteMultipleActor_QuoteName}"
+          value="{!v.newQuote.Name}"
+          placeholder="{!v.newQuote.Name}"
+          required="true"
+        />
+        <!-- Description -->
+        <lightning:textarea
+          aura:id="description"
+          label="Description"
+          value="{! v.newQuote.Description }"
+          class="quote-description"
+        />
+        <lightning:button
+          label="{!$Label.c.SMC_Save}"
+          onclick="{!c.handleSaveQuote}"
+          variant="brand"
+          class="slds-var-m-top_medium slds-float_right"
+        />
+      </div>
+    </aura:if>
+  </aura:if>
+</aura:component>

@@ -1,0 +1,93 @@
+<!--
+  @File Name          : SMC_LC_SoSales_CreateCase.cmp
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 26/02/2020 à 12:13:16
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    26/02/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId"
+  access="global"
+  controller="SMC_AC_SoSales_CreateCase"
+>
+  <aura:attribute name="showCreateCase" type="Boolean" default="false" />
+  <aura:attribute name="currentCase" type="Case" />
+  <aura:attribute name="errors" type="String" />
+
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:handler
+    event="c:SMC_LE_Close_SoSales_CreateCase"
+    action="{! c.toggleToCreateCase }"
+  />
+  
+  <ltng:require styles="{!$Resource.SMC_ModalWidthCSS}"/>
+
+
+  <force:recordData
+    aura:id="service"
+    recordId="{!v.recordId}"
+    fields="Id"
+    targetFields="{! v.currentCase }"
+    targetError="{!v.recordLoadError}"
+    recordUpdated="{!c.onRecordUpdated }"
+  />
+
+  <article class="slds-card-blue-background">
+    <lightning:button
+      class="max-width"
+      variant="brand"
+      label="{!$Label.c.SMC_Open_SoSales_CraeteCase}"
+      title="Create Case"
+      onclick="{! c.toggleToCreateCase }"
+    />
+  </article>
+
+  <aura:if isTrue="{! v.showCreateCase }">
+    <div class="modalContainer">
+      <section
+        role="dialog"
+        tabindex="-1"
+        aria-labelledby="modal-heading-01"
+        aria-modal="true"
+        aria-describedby="modal-content-id-1"
+        class="slds-modal slds-fade-in-open"
+      >
+        <div class="slds-modal__container">
+          <header class="slds-modal__header">
+            <button
+              class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+              title="Close"
+              onclick="{! c.toggleToCreateCase }"
+            >
+              <lightning:icon
+                class="greyColor"
+                iconName="utility:close"
+                size="small"
+                alternativeText="Close"
+                title="Close"
+              />
+            </button>
+            <h2
+              id="modal-heading-01"
+              class="slds-text-heading_medium slds-hyphenate"
+              >{!$Label.c.SMC_Create_Case}</h2
+            >
+          </header>
+          <div
+            class="slds-modal__content slds-p-around_medium"
+            id="modal-content-id-1"
+          >
+            <div aura:id="enclosingComponent">
+              <c:SMC_LC_Page_CreateCase parentCase="{! v.currentCase }" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+  </aura:if>
+</aura:component>

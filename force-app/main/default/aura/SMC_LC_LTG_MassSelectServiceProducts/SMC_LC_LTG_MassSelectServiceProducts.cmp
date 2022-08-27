@@ -1,0 +1,121 @@
+<!--
+  @File Name          : SMC_LC_LTG_MassSelectServiceProducts.cmp
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 10-22-2021
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    03/06/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId"
+  access="global"
+  controller="SMC_AC_LTG_MassSelectSP"
+>
+  <aura:attribute
+    name="serverData"
+    type="SMC_AC_LTG_MassSelectSP.GTLDefinitionStruct"
+  />
+  <aura:attribute name="debugString" type="String" />
+  <aura:attribute name="searchKey" type="String" />
+  <aura:attribute name="factorOffset" type="Integer" default="0"/>
+  <aura:attribute name="options" type="List" default="[]" />
+  <aura:attribute name="values" type="List" default="[]" />
+  <aura:attribute name="tmpValues" type="List" default="[]" />
+  <aura:attribute name="moreThanHundred" type="Boolean" default="false" />
+  <aura:attribute name="initOrSave" type="Boolean" default="true" /> <!-- "init" for initialization and "save" for LoadMore and Save -->
+  <aura:attribute name="modificationSaved" type="Boolean" default="true" />
+
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+  <!-- Attribute to display loader -->
+  <aura:attribute name="isLoading" type="Boolean" default="true" />
+  <!-- Attribute to control search bar  -->
+  <aura:attribute name="timeoutid" type="Integer" />
+  <!-- Attribute to display errors -->
+  <aura:attribute name="errors" type="String" />
+  <!--HOP {!v.debugString} -->
+  <!-- Spinner for waiting -->
+
+  <!-- Error -->
+  <aura:if isTrue="{!v.errors}">
+    <ui:message title="Error" severity="error" closable="true">
+      {!v.errors}
+    </ui:message>
+  </aura:if>
+  <div onkeyup="{! c.handleKeyUp }">
+    <lightning:layout verticalAlign="end">
+      <lightning:layoutItem size="10">
+        <lightning:input
+          aura:id="enter-search"
+          name="enter-search"
+          label="Search when user hits the 'enter' key"
+          type="search"
+          value="{!v.searchKey}"
+        />
+      </lightning:layoutItem>
+      <lightning:layoutItem size="2">
+        <lightning:button
+          label="Search"
+          iconName="utility:search"
+          onclick="{! c.handleButtonSearch }"
+        />
+      </lightning:layoutItem>
+    </lightning:layout>
+  </div>
+  <!--  -->
+  <br/>
+  <!-- <lightning:layout>
+    <lightning:layoutItem size="12">
+      <lightning:button
+        label="Save"
+        iconName="utility:save"
+        onclick="{! c.handleSaveClick }"
+      />
+    </lightning:layoutItem>
+  </lightning:layout> -->
+  <lightning:layout>
+    <lightning:layoutItem size="12">
+      <lightning:dualListbox
+        aura:id="dualListBoxElmt"
+        name="Mass select Service Products"
+        label="Select Service Products"
+        sourceLabel="Available"
+        selectedLabel="Selected"
+        fieldLevelHelp="Component for massive select Service Product"
+        size="20"
+        class="slds-text-heading_large"
+        options="{!v.options}"
+        value="{!v.values}"
+        onchange="{! c.handleChange }"
+        showActivityIndicator="{!v.isLoading}"
+      />
+    </lightning:layoutItem>
+  </lightning:layout>
+  <br/>
+  <lightning:layout>
+    <aura:if isTrue="{!v.moreThanHundred}">
+      <lightning:layoutItem size="2">
+        <lightning:button
+          label="Load more"
+          iconName="utility:add"
+          onclick="{! c.handleLoadMore }"
+        />
+      </lightning:layoutItem>
+    </aura:if>
+    <lightning:layoutItem size="10">
+      <lightning:button
+        label="Save"
+        iconName="utility:save"
+        onclick="{! c.handleSaveClick }"
+      />
+    </lightning:layoutItem>
+  </lightning:layout>
+  <br />
+  <aura:if isTrue="{! v.modificationSaved }">
+    <c:smc_lwc_gtl_serviceproductmanagement_historic
+      recordid="{!v.recordId}"
+    ></c:smc_lwc_gtl_serviceproductmanagement_historic>
+  </aura:if>
+</aura:component>

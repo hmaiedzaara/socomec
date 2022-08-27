@@ -1,0 +1,22 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" controller="lighten.AuraDashboardController" >
+    <lighten:SldsStuff />
+    <aura:attribute access="global" name="text" type="String" default=""/>
+	<aura:attribute access="global" name="url" type="String" default="Button"/>
+    <aura:attribute access="global" name="bordercolor" type="String" default="DeepSkyBlue"/>
+    <aura:attribute access="global" name="textcolor" type="String" default="White"/>
+    <aura:attribute access="global" name="backgroundcolor" type="String" default="DodgerBlue"/>
+    <aura:attribute access="global" name="size" type="String" default="Small"/>
+    <aura:attribute access="global" name="shape" type="String" default="Round"/>
+    
+    <aura:attribute access="global" name="bordercolorCustom" type="String" default=""/>
+    <aura:attribute access="global" name="textcolorCustom" type="String" default=""/>
+    <aura:attribute access="global" name="backgroundcolorCustom" type="String" default=""/>
+    
+    <aura:attribute access="global" name="isRecord" type="Boolean" default="false"/>
+        
+    <div id="container" class="container-btn" onclick="{!c.navTo}">
+        <button href="javascript:void();" 
+           style="{!'background-color:'+v.backgroundcolorCustom+';color:'+v.textcolorCustom+';border-color:'+v.bordercolorCustom+';'}"
+           class="{!'btn '+ v.size+' '+(v.shape == 'Round 2x' ? 'Round2x' : v.shape)+' '+v.bordercolor+' '+v.textcolor+' '+v.backgroundcolor+' '+v.url }">{!v.text}</button>
+    </div>
+</aura:component>

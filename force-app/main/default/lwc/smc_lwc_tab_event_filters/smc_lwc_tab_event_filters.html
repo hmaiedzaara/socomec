@@ -1,0 +1,76 @@
+<!--
+  @File Name          : smc_lwc_tab_event_filters.html
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 01-05-2021
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    26/06/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<template>
+  <div class="slds-grid slds-wrap slds-gutters">
+    <div class="slds-col slds-large-size_1-of-3 slds-smal-size_1-of-1">
+      <h3>Select a calendar :</h3>
+      <select class="slds-select" onchange={calendarSelector}>
+        <template for:each={calendars} for:item="oneCalendar">
+          <option key={oneCalendar.value} value={oneCalendar.value}
+            >{oneCalendar.label}</option
+          >
+        </template>
+      </select>
+      <div class="padding-top-18">
+        <button class="slds-button slds-button_brand" onclick={editStartDate}>
+          {customLabels.EDIT} {customLabels.START_DATE}
+        </button>
+      </div>
+    </div>
+    <div class="slds-col slds-large-size_1-of-3 slds-smal-size_1-of-1">
+      <h3>{customLabels.SEARCH_BY} {customLabels.ACCOUNT_NAME} :</h3>
+      <div class="padding-bottom-5">
+        <lightning-input
+          name="enter-search-accountname"
+          type="search"
+          placeholder={customLabels.ACCOUNT_NAME}
+          onchange={handleAccountNameKeyUp}
+          variant="label-hidden"
+        ></lightning-input>
+      </div>
+      <div>
+        <h3>{customLabels.SEARCH_BY} {customLabels.CONTACT_NAME} :</h3>
+        <div class="padding-bottom-5">
+          <lightning-input
+            name="enter-search-contactname"
+            type="search"
+            placeholder={customLabels.CONTACT_NAME}
+            onchange={handleContactNameKeyUp}
+            variant="label-hidden"
+          ></lightning-input>
+        </div>
+      </div>
+    </div>
+    <div class="slds-col slds-large-size_1-of-3 slds-smal-size_1-of-1">
+      <h3>{customLabels.SEARCH_BY} {customLabels.START_DATE} :</h3>
+      <div class="padding-bottom-5">
+        <lightning-input
+          name="enter-search-startdate"
+          type="date"
+          placeholder={customLabels.START_DATE}
+          onchange={handleStartDateSelected}
+          variant="label-hidden"
+        ></lightning-input>
+      </div>
+      <h3>{customLabels.SEARCH_BY} {customLabels.END_DATE} :</h3>
+      <div class="padding-bottom-5">
+        <lightning-input
+          name="enter-search-enddate"
+          type="date"
+          placeholder={customLabels.END_DATE}
+          onchange={handleEndDateSelected}
+          variant="label-hidden"
+        ></lightning-input>
+      </div>
+    </div>
+  </div>
+</template>

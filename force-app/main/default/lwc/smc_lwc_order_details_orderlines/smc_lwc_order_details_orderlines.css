@@ -1,0 +1,15 @@
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.slds-col {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  min-height: 40px;
+}
+.ligth-background {
+  background-color: #ffffff !important;
+}
+.alternative-ligth-background {
+  background-color: #f3f8fc !important;
+}

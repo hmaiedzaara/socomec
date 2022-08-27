@@ -1,0 +1,92 @@
+<!-- 
+.....................................................................
+.. . Name          : LC_QuotePipeSummarize
+.. . Author        : Guillaume BONNET
+.. . Description   : This is a copy and slight adaptation of the  component  LC_ProjectPipeSummarize     
+.. Maintenance History:
+..
+.. Date          Name  Version  Remarks
+.. ............. ....  .......  .......................................................
+.. xx.Avril.2018 DOS    1.0     Initial version
+...................................................................................... 
+-->
+
+<aura:component
+  description="LC_QuotePipeSummarize"
+  controller="SMC_AC_QuotePipeSummarize"
+  implements="flexipage:availableForAllPageTypes"
+  access="global"
+>
+  <!-- Define components attributes -->
+  <aura:attribute
+    name="title"
+    type="String"
+    access="global"
+    description="Title to display on the card top"
+  />
+  <aura:attribute
+    name="amount"
+    type="Decimal"
+    access="global"
+    description="Amount of project pipe populate by controller"
+  />
+  <aura:attribute
+    name="quoteNbs"
+    type="Integer"
+    access="global"
+    description="Number of project pipe populate by controller"
+  />
+  <aura:attribute
+    name="userDefaultCurrency"
+    type="String"
+    access="global"
+    description="User Default Currency populate by controller"
+  />
+
+  <!-- Handle component initialization in a client-side controller -->
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <article
+    class="slds-card forceBaseCard forceCard flexipageCard flexipageReportChart"
+  >
+    <aura:if isTrue="{!not(empty(v.title))}">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          <div class="slds-media__body">
+            <h2 class="header-title-container" id="header">
+              <span
+                class="slds-text-heading_small slds-truncate"
+                title="{!v.title}"
+                >{!v.title}</span
+              >
+            </h2>
+          </div>
+        </header>
+      </div>
+    </aura:if>
+    <div class="slds-card__body slds-card__body--inner slds-m-bottom_none">
+      <div class="slds-grid slds-wrap">
+        <div class="slds-size_1-of-2 figure-value slds-text-align_center">
+          <!-- <Dui:outputCurrency
+            aura:id="curr"
+            currencyCode="{!v.userDefaultCurrency}"
+            value="{!v.amount}"
+            format="{!v.userDefaultCurrency + ' ###,##0.00'}"
+          /> -->
+          <lightning:formattedNumber
+            style="currency"
+            currencyCode="{!v.userDefaultCurrency}"
+            value="{!v.amount}"
+            minimumFractionDigits="2"
+            maximumFractionDigits="2"
+            format="{!v.userDefaultCurrency + ' ###,##0.00'}"
+          />
+        </div>
+        <div class="slds-size_1-of-2 figure-value">
+          <!-- <Dui:outputNumber format="#" value="{!v.quoteNbs}" /> -->
+          <lightning:formattedNumber value="{!v.quoteNbs}" />
+        </div>
+      </div>
+    </div>
+  </article>
+</aura:component>

@@ -1,0 +1,1422 @@
+[
+    {
+        "customer": "101032",
+        "item": "1830005",
+        "description": "ETIQ.D'IDENT.98X70 SOCOMEC",
+        "quantity": 9999999.0,
+        "netPrice": 0.0057,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-17T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "1902405",
+        "description": "VIS C S M 4 35 4.8",
+        "quantity": 9999999.0,
+        "netPrice": 0.0068,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "520890",
+        "description": "ETIQUETTE VIERGE 51.5 x 21.5",
+        "quantity": 10000.0,
+        "netPrice": 0.0294,
+        "discount": 0.0,
+        "effectiveDate": "2006-03-31T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "522236",
+        "description": "SUPPORT DE C.A.",
+        "quantity": 10000.0,
+        "netPrice": 0.1024,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-12T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "522237",
+        "description": "CIRCUIT IMPRIME",
+        "quantity": 10000.0,
+        "netPrice": 0.31,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-12T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "522247",
+        "description": "MINIRUP.831709IX2 B.CHAMPIGNON",
+        "quantity": 5000.0,
+        "netPrice": 0.48,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-12T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "522248",
+        "description": "BORNIER 9x13 3PTS PAS 5,08",
+        "quantity": 500.0,
+        "netPrice": 0.36,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-12T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "523195",
+        "description": "BTE CARTON DIM. 230X170X99",
+        "quantity": 10000.0,
+        "netPrice": 0.28,
+        "discount": 0.0,
+        "effectiveDate": "2005-09-23T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "523331",
+        "description": "NMO C.A. SIRCO VM1/VM2",
+        "quantity": 10000.0,
+        "netPrice": 0.083,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-12T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "526830",
+        "description": "VIS CBL H 3.9 19 C",
+        "quantity": 10000.0,
+        "netPrice": 0.0101,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-12T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "527075",
+        "description": "MINIRUPTEUR V4 BOUT.CHAMPIGNON",
+        "quantity": 1000.0,
+        "netPrice": 0.48,
+        "discount": 0.0,
+        "effectiveDate": "2005-05-09T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "527295",
+        "description": "BOITIER OPTION",
+        "quantity": 9999999.0,
+        "netPrice": 0.189,
+        "discount": 0.0,
+        "effectiveDate": "2004-12-31T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "527296",
+        "description": "COUVERCLE",
+        "quantity": 9999999.0,
+        "netPrice": 0.103,
+        "discount": 0.0,
+        "effectiveDate": "2004-12-31T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "527298",
+        "description": "CACHE OPTION",
+        "quantity": 9999999.0,
+        "netPrice": 0.03,
+        "discount": 0.0,
+        "effectiveDate": "2004-12-31T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "527323",
+        "description": "NMO CA",
+        "quantity": 9999999.0,
+        "netPrice": 0.083,
+        "discount": 0.0,
+        "effectiveDate": "2005-10-13T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "527331",
+        "description": "ETIQUETTE CA1 COMMUT. VM1",
+        "quantity": 10000.0,
+        "netPrice": 0.1582,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-12T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "527332",
+        "description": "ETIQUETTE CA2 COMMUT. VM1",
+        "quantity": 10000.0,
+        "netPrice": 0.1582,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-12T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "527425",
+        "description": "RIVET TUB. 2,5x10 CA VM1/VM2",
+        "quantity": 10000.0,
+        "netPrice": 0.0241,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-12T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "531610",
+        "description": "CIRCUIT IMPRIME SPECIFIQUE",
+        "quantity": 10000.0,
+        "netPrice": 0.31,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-12T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "531781",
+        "description": "BORNIER 9X13 3PTS PAS 5.08",
+        "quantity": 10000.0,
+        "netPrice": 0.36,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-12T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "532233",
+        "description": "ETIQUETTE D'IDENT. A20 RS485",
+        "quantity": 9999999.0,
+        "netPrice": 0.03,
+        "discount": 0.0,
+        "effectiveDate": "2005-03-03T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "532234",
+        "description": "ETIQUETTE D'IDENT. A20 1sortie",
+        "quantity": 9999999.0,
+        "netPrice": 0.03,
+        "discount": 0.0,
+        "effectiveDate": "2005-03-03T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "532243",
+        "description": "ETIQUETTE A40/A41 RS485 PROFIB",
+        "quantity": 9999999.0,
+        "netPrice": 0.03,
+        "discount": 0.0,
+        "effectiveDate": "2005-05-31T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "532245",
+        "description": "ETIQUETTE A40/A41 PROFIBUS-DP",
+        "quantity": 9999999.0,
+        "netPrice": 0.0539,
+        "discount": 0.0,
+        "effectiveDate": "2005-03-22T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875001",
+        "description": "CAP CERA 1n 50V X7R 0805",
+        "quantity": 9999999.0,
+        "netPrice": 0.0027,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875002",
+        "description": "CAP CERA 100n 50V X7R 0805",
+        "quantity": 9999999.0,
+        "netPrice": 0.0044,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875005",
+        "description": "CAP CHIM 47µ 25V 105° 2000H *",
+        "quantity": 9999999.0,
+        "netPrice": 0.078,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875014",
+        "description": "RES 10K 0805 1%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.0011,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875016",
+        "description": "RES 100K 0805 1%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.001,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875018",
+        "description": "RES 0R 0805 5%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.00080,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875023",
+        "description": "SWITCH POUSSOIR 1 PICOT TRAD *",
+        "quantity": 9999999.0,
+        "netPrice": 0.042,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875027",
+        "description": "RELAIS REED 1T (NO)",
+        "quantity": 9999999.0,
+        "netPrice": 0.806,
+        "discount": 0.0,
+        "effectiveDate": "2005-03-03T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875038",
+        "description": "TRANSISTOR BC847B SOT23",
+        "quantity": 9999999.0,
+        "netPrice": 0.006,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875039",
+        "description": "LANGUETTE POUR BORNE 16A",
+        "quantity": 9999999.0,
+        "netPrice": 0.0216,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875041",
+        "description": "RES 360R 0805 1%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.002,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875043",
+        "description": "RES 2K2 0805 1%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.001,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875143",
+        "description": "RES 4K75 0805 1% 1/8W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.001,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875144",
+        "description": "RES 100R 0805 1% 1/8W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.001,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875145",
+        "description": "RES 475R 0805 1% 1/8W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.001,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875146",
+        "description": "RES 22K1 0805 1%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.001,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875150",
+        "description": "RES 475K 0805 1%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.0016,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875151",
+        "description": "RES 15R 0805 1%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.001,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875159",
+        "description": "CAP CERA 10n 50V X7R 0805",
+        "quantity": 9999999.0,
+        "netPrice": 0.0027,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875168",
+        "description": "RES 220R 0805 1%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.0011,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875175",
+        "description": "CIRCUIT INTEGRE 74HC14",
+        "quantity": 9999999.0,
+        "netPrice": 0.033,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875176",
+        "description": "CI RESET/WATCHDOG",
+        "quantity": 9999999.0,
+        "netPrice": 0.34,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875201",
+        "description": "DIO SIGN SOT23 90V 250mA",
+        "quantity": 9999999.0,
+        "netPrice": 0.011,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875229",
+        "description": "RES 1K 0805 1%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.001,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875236",
+        "description": "RES 150K MMLF 1% 1/4 W 200V *",
+        "quantity": 9999999.0,
+        "netPrice": 0.0065,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875237",
+        "description": "CI RS 485",
+        "quantity": 9999999.0,
+        "netPrice": 0.3656,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875291",
+        "description": "DRIVER AFFICHEUR",
+        "quantity": 9999999.0,
+        "netPrice": 1.484,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875292",
+        "description": "AFFICHEUR LCD 256 SEG MUX 1/8",
+        "quantity": 9999999.0,
+        "netPrice": 2.576,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875293",
+        "description": "DRIVER RETROECLAIRAGE",
+        "quantity": 9999999.0,
+        "netPrice": 0.67,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875300",
+        "description": "CIN CARTE 200 AFFICHEUR D15-2",
+        "quantity": 9999999.0,
+        "netPrice": 2.038,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875304",
+        "description": "QUARTZ 16 MHZ",
+        "quantity": 9999999.0,
+        "netPrice": 0.1935,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875305",
+        "description": "SELF RETROECLAIRAGE 4.7MH*",
+        "quantity": 9999999.0,
+        "netPrice": 0.236,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875328",
+        "description": "RES 6R81 0805 1%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.001,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875330",
+        "description": "CAP CERA 22p 50V NPO 0805 *",
+        "quantity": 9999999.0,
+        "netPrice": 0.0035,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875331",
+        "description": "CAP CERA 100p 50V NPO 0805 *",
+        "quantity": 9999999.0,
+        "netPrice": 0.003,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875342",
+        "description": "CIN CARTE 100 BASE D15-2",
+        "quantity": 9999999.0,
+        "netPrice": 8.003,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875343",
+        "description": "CIN CARTE 300 ALIM 100/440VAC",
+        "quantity": 9999999.0,
+        "netPrice": 1.259,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875344",
+        "description": "CIN CARTE 400 OPTION RS485",
+        "quantity": 9999999.0,
+        "netPrice": 1.7532,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875352",
+        "description": "CAP CHIM 330µ 25V 105° 4000H *",
+        "quantity": 9999999.0,
+        "netPrice": 0.102,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875354",
+        "description": "EEPROM SERIE 4K",
+        "quantity": 9999999.0,
+        "netPrice": 0.135,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875363",
+        "description": "RES 120R 0805 1%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.002,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875364",
+        "description": "RES 330K 0805 1% 1/8W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.001,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875366",
+        "description": "INDUCTANCE 4.7MH 0.1A",
+        "quantity": 9999999.0,
+        "netPrice": 0.0505,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875367",
+        "description": "CAP CHIM 4700µ 16V 85° 1500H *",
+        "quantity": 9999999.0,
+        "netPrice": 0.227,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875368",
+        "description": "AMPLI OPERATIONNEL MONO",
+        "quantity": 9999999.0,
+        "netPrice": 0.448,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875371",
+        "description": "RES 10R 1206 1% 1/4 W 200V",
+        "quantity": 9999999.0,
+        "netPrice": 0.002,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875372",
+        "description": "RES 4K75 1206 1% 1/4 W 200V",
+        "quantity": 9999999.0,
+        "netPrice": 0.0016,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875373",
+        "description": "RES 221K 1206 1% 1/4 W 200V",
+        "quantity": 9999999.0,
+        "netPrice": 0.0025,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875374",
+        "description": "RES 51R1 1206 1% 1/4 W 200V",
+        "quantity": 9999999.0,
+        "netPrice": 0.0032,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875378",
+        "description": "EMBASE MALE COUDE HE14 2X5PTS",
+        "quantity": 9999999.0,
+        "netPrice": 0.042,
+        "discount": 0.0,
+        "effectiveDate": "2006-03-31T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875379",
+        "description": "REFERENCE DE TENSION 5V",
+        "quantity": 9999999.0,
+        "netPrice": 0.192,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875380",
+        "description": "MONO SWITCH ANALOGIQUE",
+        "quantity": 9999999.0,
+        "netPrice": 0.1357,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875384",
+        "description": "TRANSFORMATEUR CONVERTISSEUR",
+        "quantity": 9999999.0,
+        "netPrice": 1.4445,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875387",
+        "description": "DRIVER DE TRANSFORMATEUR",
+        "quantity": 9999999.0,
+        "netPrice": 1.0,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875388",
+        "description": "OPTOCOUPLEUR RAPIDE",
+        "quantity": 9999999.0,
+        "netPrice": 0.48,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875389",
+        "description": "PONT DFS 1000V 1A",
+        "quantity": 9999999.0,
+        "netPrice": 0.08,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875393",
+        "description": "DIO SIGN DO213AA 100V 150mA *",
+        "quantity": 9999999.0,
+        "netPrice": 0.007,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875394",
+        "description": "CAP CHIM 10µ 16V 85° 1500H *",
+        "quantity": 9999999.0,
+        "netPrice": 0.028,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875395",
+        "description": "DIO PROT DO15 440V 600W*",
+        "quantity": 9999999.0,
+        "netPrice": 0.095,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875396",
+        "description": "DIO PROT DO15 220V 600W*",
+        "quantity": 9999999.0,
+        "netPrice": 0.061,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875397",
+        "description": "DIO SIGN DO41 1000V 1A *",
+        "quantity": 9999999.0,
+        "netPrice": 0.035,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875398",
+        "description": "DIO SCHO DO41 100V 1A",
+        "quantity": 9999999.0,
+        "netPrice": 0.04,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875399",
+        "description": "TINYSWITCH TNY256",
+        "quantity": 9999999.0,
+        "netPrice": 0.98,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875402",
+        "description": "TRANSFORMATEUR ALIM DECOUPAGE",
+        "quantity": 9999999.0,
+        "netPrice": 1.115,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875403",
+        "description": "CAP CERA 330n 16V X7R 0805 *",
+        "quantity": 9999999.0,
+        "netPrice": 0.01,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875408",
+        "description": "RES 1M 0805 1%  1/8 W 150V",
+        "quantity": 9999999.0,
+        "netPrice": 0.002,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875409",
+        "description": "CAPTEUR DE COURANT 5A",
+        "quantity": 9999999.0,
+        "netPrice": 1.4,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875410",
+        "description": "EMBASE MALE COUDEE HE14 1X4PTS",
+        "quantity": 9999999.0,
+        "netPrice": 0.033,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875411",
+        "description": "EMBASE MALE COUDE HE14 1X3PTS",
+        "quantity": 9999999.0,
+        "netPrice": 0.022,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875414",
+        "description": "BARETTE 2x5PTS COUDEE",
+        "quantity": 9999999.0,
+        "netPrice": 0.779,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875417",
+        "description": "OPTOCOUPLEUR",
+        "quantity": 9999999.0,
+        "netPrice": 0.2401,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875419",
+        "description": "LIMANDE INTER CARTE 12PTS",
+        "quantity": 9999999.0,
+        "netPrice": 0.379,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875439",
+        "description": "TRANSISTOR MOSFET CMS",
+        "quantity": 9999999.0,
+        "netPrice": 0.583,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875457",
+        "description": "AOP 2 VOIES / TLC2272",
+        "quantity": 9999999.0,
+        "netPrice": 0.281,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875460",
+        "description": "FERRITE DE FILTRAGE EMI",
+        "quantity": 9999999.0,
+        "netPrice": 0.061,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875499",
+        "description": "DIP SWTICH DOUBLE POSITION",
+        "quantity": 9999999.0,
+        "netPrice": 0.7417,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875543",
+        "description": "LIMANDE INTER CARTE 4PTS",
+        "quantity": 9999999.0,
+        "netPrice": 0.2531,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875544",
+        "description": "FICHE VIS/FIL90° DEBRO. 3PTS",
+        "quantity": 9999999.0,
+        "netPrice": 0.242,
+        "discount": 0.0,
+        "effectiveDate": "2006-03-31T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875561",
+        "description": "AFFICHEUR LCD 256 SEG MUX 1/8",
+        "quantity": 9999999.0,
+        "netPrice": 2.279,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875580",
+        "description": "MICROCONTROLEUR D15-2 PROGRAM",
+        "quantity": 9999999.0,
+        "netPrice": 7.732,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875585",
+        "description": "FILM E.L. POUR RETROECLAIRAGE",
+        "quantity": 9999999.0,
+        "netPrice": 1.696,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875590",
+        "description": "EMBASE MALE COUDEE 3PTS",
+        "quantity": 9999999.0,
+        "netPrice": 0.096,
+        "discount": 0.0,
+        "effectiveDate": "2006-03-31T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875636",
+        "description": "ETIQ DIRIS AP SYMB RS485",
+        "quantity": 9999999.0,
+        "netPrice": 0.026,
+        "discount": 0.0,
+        "effectiveDate": "2005-03-03T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875637",
+        "description": "ETIQ DIRIS AP SYMB ENERGIE",
+        "quantity": 9999999.0,
+        "netPrice": 0.026,
+        "discount": 0.0,
+        "effectiveDate": "2005-03-03T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875814",
+        "description": "NOTICE MODULE PROFIBUS-DP",
+        "quantity": 9999999.0,
+        "netPrice": 0.1,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875815",
+        "description": "ETIQU.MODULE RS485 PROFIBUS-DP",
+        "quantity": 9999999.0,
+        "netPrice": 0.0294,
+        "discount": 0.0,
+        "effectiveDate": "2005-05-31T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875816",
+        "description": "ETIQU.MODULE PROFIBUS-DP",
+        "quantity": 9999999.0,
+        "netPrice": 0.054,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "875817",
+        "description": "ETIQU.SYMB.MODULE PROFIBUS-DP",
+        "quantity": 9999999.0,
+        "netPrice": 0.054,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "876284",
+        "description": "ETIQUETTE EMBALLAGE EC050",
+        "quantity": 9999.0,
+        "netPrice": 0.00010,
+        "discount": 0.0,
+        "effectiveDate": "2006-05-31T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "876340",
+        "description": "NOTICE A20 1 PULSE",
+        "quantity": 9999999.0,
+        "netPrice": 0.24,
+        "discount": 0.0,
+        "effectiveDate": "2005-03-03T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "876341",
+        "description": "NOTICE A20 RS485 JBUS/MODBUS",
+        "quantity": 9999999.0,
+        "netPrice": 0.62,
+        "discount": 0.0,
+        "effectiveDate": "2005-03-03T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "876428",
+        "description": "CAP CHIM 470µ 10V 105° 3000H *",
+        "quantity": 200.0,
+        "netPrice": 0.213,
+        "discount": 0.0,
+        "effectiveDate": "2006-10-19T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "87A151",
+        "description": "CIE CARTE 200 AFFICHEUR",
+        "quantity": 999999.0,
+        "netPrice": 13.0,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "87A165",
+        "description": "S/E CIE ENERGIE",
+        "quantity": 9999999.0,
+        "netPrice": 22.67,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "87A205",
+        "description": "S/E CIE BASE+ENERGIE RETROECL",
+        "quantity": 9999999.0,
+        "netPrice": 23.859,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "87A295",
+        "description": "S/E MODULE RS485(PROFIBUS-DP)",
+        "quantity": 9999999.0,
+        "netPrice": 13.931,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "87A481",
+        "description": "S/E MODULE RS485(PROFIBUS-DP)",
+        "quantity": 9999999.0,
+        "netPrice": 13.931,
+        "discount": 0.0,
+        "effectiveDate": "2005-03-22T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "9900063",
+        "description": "CAISSE DBLE CAN. 650X450X400MM",
+        "quantity": 9999999.0,
+        "netPrice": 1.3,
+        "discount": 0.0,
+        "effectiveDate": "2005-03-03T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "9901108",
+        "description": "SACHET POLY. 10/100 100X160",
+        "quantity": 10000.0,
+        "netPrice": 0.0094,
+        "discount": 0.0,
+        "effectiveDate": "2005-04-12T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "999132",
+        "description": "BOITE ETUI POSTAL 211X150X25",
+        "quantity": 9999999.0,
+        "netPrice": 0.27,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "CDR10021",
+        "description": "CD Rom RS 485 - Profibus DP",
+        "quantity": 1000.0,
+        "netPrice": 0.81,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "CDR10041",
+        "description": "CD RS485-PROFIBUS DP",
+        "quantity": 999999.0,
+        "netPrice": 0.81,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "CDR10051",
+        "description": "CD RS485-PROFIBUS DP",
+        "quantity": 9999999.0,
+        "netPrice": 1.094,
+        "discount": 0.0,
+        "effectiveDate": "2005-05-31T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "CDR18011",
+        "description": "CDrom PROFIBUS-DP DIRIS A40/A4",
+        "quantity": 999999.0,
+        "netPrice": 0.81,
+        "discount": 0.0,
+        "effectiveDate": "2005-03-22T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E052328",
+        "description": "DIP SWITCH PIANO 2 TOUCHES",
+        "quantity": 99999.0,
+        "netPrice": 0.586,
+        "discount": 0.0,
+        "effectiveDate": "2005-03-03T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E104288",
+        "description": "RES 0R TRAD 1% 1/4W 500V",
+        "quantity": 9999999.0,
+        "netPrice": 0.012,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E135068",
+        "description": "CAP CHIM 10µ 450V 85° 2000h *",
+        "quantity": 9999999.0,
+        "netPrice": 0.1798,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E135358",
+        "description": "CAP X1Y1 1,5n 440V *",
+        "quantity": 9999999.0,
+        "netPrice": 0.08,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E143268",
+        "description": "DIO ZENE DO41 15V 1,3W",
+        "quantity": 9999999.0,
+        "netPrice": 0.017,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E143478",
+        "description": "DIO ZENE DO41 8,2V 1,3W",
+        "quantity": 9999999.0,
+        "netPrice": 0.016,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E144958",
+        "description": "VARISTANCE 460V",
+        "quantity": 9999999.0,
+        "netPrice": 0.097,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E145188",
+        "description": "DIO SIGN SOT23 85V 0,215A *",
+        "quantity": 999999.0,
+        "netPrice": 0.0178,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E145188",
+        "description": "DIO SIGN SOT23 85V 0,215A *",
+        "quantity": 9999999.0,
+        "netPrice": 0.017,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E153288",
+        "description": "REGULAT LIN LOW DROP OUT 1A 5V",
+        "quantity": 9999999.0,
+        "netPrice": 0.25,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E154588",
+        "description": "OPTOCOUPLEUR SIMPLE",
+        "quantity": 9999999.0,
+        "netPrice": 0.081,
+        "discount": 0.0,
+        "effectiveDate": "2004-05-16T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E155148",
+        "description": "REGULATEUR LINEAIRE 5V",
+        "quantity": 9999999.0,
+        "netPrice": 0.09,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E249053",
+        "description": "CAPOT FUSIBLE DU520 PVC",
+        "quantity": 10000.0,
+        "netPrice": 0.9441,
+        "discount": 0.0,
+        "effectiveDate": "2004-11-21T23:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    },
+    {
+        "customer": "101032",
+        "item": "E285748",
+        "description": "SELF DE MODE COMMUN",
+        "quantity": 9999999.0,
+        "netPrice": 0.9193,
+        "discount": 0.0,
+        "effectiveDate": "2004-06-21T22:00:00.000Z",
+        "expirationDate": "9999-12-30T23:00:00.000Z"
+    }
+]

@@ -1,0 +1,102 @@
+.slds-card {
+  height: 421px;
+  box-shadow: 0 2px 2px 0 rgba(35, 44, 119, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.07), 0 1px 5px 0 rgba(0, 0, 0, 0.14);
+}
+
+.king-blue {
+  color: #004f9f;
+}
+
+h2 {
+  color: #004f9f;
+}
+
+.submit-btn {
+  letter-spacing: 1.5px;
+  background: #004f9f;
+}
+
+.font-sizing {
+  font-size: 8rem;
+}
+
+.light-grey {
+  color: #dfdfdf;
+}
+.grey-color {
+  color: #7d7d7d;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.sizing-body {
+  min-height: 320px;
+  max-height: 320px;
+  overflow: hidden;
+}
+
+@media (max-width: 1025px) {
+  .sizing-body {
+    min-height: 310px;
+    max-height: 310px;
+    overflow: hidden;
+  }
+}
+
+.margin-picture {
+  margin-top: 20%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1025px) {
+  .margin-picture {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 820px) and (max-width: 1025px) {
+  .margin-picture {
+    margin-top: 10px;
+    min-width: 650px;
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 414px) {
+  .margin-picture {
+    margin-top: 25%;
+    min-width: 0;
+    max-width: 650px;
+  }
+}
+
+/* Scrollbar Webkit */
+.slds-scrollable_y::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(212, 212, 212);
+}
+.slds-scrollable_y::-webkit-scrollbar-thumb {
+  background-color: #fc0;
+}
+/* Scrollbar FF */
+.slds-scrollable_y {
+  scrollbar-color: #fc0;
+  scrollbar-width: thin;
+  height: 320px;
+}
+
+.slds-scrollable_y > ul {
+  height: 320px;
+}
+
+.slds-card__body {
+  margin-bottom: 0;
+}
+
+.slds-card__footer {
+  margin: 0;
+}

@@ -1,0 +1,28 @@
+.obscur-background {
+  position: absolute;
+  height: 400%;
+  width: 200%;
+  background: rgba(119, 119, 119, 0.5);
+  z-index: 1000;
+  top: -150px;
+  left: -100px;
+  overflow: auto;
+}
+li{
+  margin-bottom: 5px;
+}
+.text-grey{
+  color: rgb(173, 173, 173) !important;
+}
+
+.padding-top-5 {
+  padding-top: 5px;
+}
+
+.padding-rigth-5 {
+  padding-right: 5px;
+}
+
+.slds-modal__container {
+  max-width: 20rem !important;
+}

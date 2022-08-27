@@ -1,0 +1,20 @@
+<!--
+  @File Name          : SMC_LC_Message_To_Customer.cmp
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 13/01/2020 à 16:44:22
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    13/01/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"
+  access="global"
+>
+  <c:smc_lwc_message_to_customer
+    recordid="{!v.recordId}"
+    onSMC_LCE_CloseQuickAction_From_LWC="{!c.closeQuickAction}"
+  ></c:smc_lwc_message_to_customer>
+</aura:component>

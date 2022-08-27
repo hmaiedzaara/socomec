@@ -1,0 +1,70 @@
+<template>
+    <!-- <template for:each={discountLine} for:item="oneline"> -->
+        <tr class="scoringTab" >
+            <td class="groupValue">
+                {oneline.priceGroup.label}
+            </td>
+            <td class="code">
+                {oneline.priceGroup.description}
+            </td>
+            <td class="textBlack">
+                <lightning-formatted-number value={oneline.min} maximum-fraction-digits="1"></lightning-formatted-number>
+            </td>
+            <td class="textBlack">
+                <lightning-formatted-number value={oneline.max} maximum-fraction-digits="1"></lightning-formatted-number>
+            </td>
+            <template if:true={isAuthorizeToSeeMaxSuggested}>
+                <template if:true={userSeeMaxSuggestedFilter}>
+                    <td class="textBlack">
+                        <input
+                        class="inputMaxSuggestedAndDiscount"
+                        type="number"
+                        name="maxSuggested"
+                        value={maxSuggested}
+                        step="0.1"
+                        onblur={onMaxSuggestedBlur}
+                        />
+                    </td>
+                </template>
+            </template>
+            <td class="textBlack">
+                <input
+                class="inputMaxSuggestedAndDiscount"
+                type="number"
+                id={oneline.id}
+                value={oneline.discount}
+                step="0.1"
+                onblur={onDiscountBlur}
+                />
+            </td>
+            <td class="discountIsValidValue">
+                <template if:true={toggleIconValidity}>
+                    <template if:true={maxSupDiscount}>
+                        <lightning-icon
+                            icon-name="utility:up"
+                            size="small"
+                            alternative-text={discountValid.DISCOUNT_VALID}
+                            title="Discount in corridor"
+                            id={oneline.id}
+                            class="validIcon icon">
+                        </lightning-icon>
+                    </template>
+                    <template if:true={notMaxSupDiscount}>
+                        <lightning-icon
+                            icon-name="utility:up"
+                            size="small"
+                            alternative-text={discountValid.DISCOUNT_VALID}
+                            title="Discount out corridor"
+                            id={oneline.id}
+                            class="warningIcon icon">
+                        </lightning-icon>
+                    </template>
+                </template>
+            </td> 
+            <td class="textBlack">
+                <lightning-formatted-date-time value={oneline.createDate} time-zone="UTC+2">
+                </lightning-formatted-date-time>                
+            </td>
+        </tr>
+    <!-- </template> -->
+</template>

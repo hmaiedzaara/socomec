@@ -1,0 +1,35 @@
+<aura:component
+  implements="force:lightningQuickActionWithoutHeader,force:hasRecordId"
+>
+  <ltng:require styles="{!$Resource.SMC_Modal_with_expand + '/main.css'}" />
+  <aura:attribute name="selectedRow" type="List" default="[]" />
+  <aura:attribute name="currentAsset" type="sObject" />
+  <aura:attribute name="recordLoadError" type="String" />
+  <force:recordData
+    aura:id="recordLoader"
+    recordId="{!v.recordId}"
+    fields="Id,Product2Id"
+    targetFields="{!v.currentAsset}"
+    mode="EDIT"
+    targetError="{!v.recordLoadError}"
+  />
+  <lightning:button variant="neutral" label="Cancel" onclick="{!c.close}" />
+  <lightning:button
+    variant="brand"
+    disabled="{!v.selectedRow[0]==undefined}"
+    label="Next"
+    onclick="{!c.save}"
+  />
+  <c:SMC_LC_ServiceProductList
+    selectionUniqueOrMultipleValue="true"
+    selectedRowId="{!v.selectedRow}"
+  />
+  <lightning:button variant="neutral" label="Cancel" onclick="{!c.close}" />
+  <lightning:button
+    variant="brand"
+    disabled="{!v.selectedRow[0]==undefined}"
+    label="Next"
+    onclick="{!c.save}"
+  />
+  {!v.recordLoadError}
+</aura:component>

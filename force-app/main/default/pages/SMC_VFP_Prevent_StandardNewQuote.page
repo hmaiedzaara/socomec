@@ -1,0 +1,5 @@
+<apex:page standardcontroller="Quote" lightningStylesheets="true">
+    <apex:messages title="{!$Label.SMC_StandardCreation}">
+        {!$Label.SMC_CantUseStandardNewButton_Quote}
+    </apex:messages>
+</apex:page>

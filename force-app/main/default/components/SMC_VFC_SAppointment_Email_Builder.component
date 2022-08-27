@@ -1,0 +1,29 @@
+<!-- 
+  @File Name          : SMC_VFC_SAppointment_Email_Builder.component
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 08-31-2020
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    24/04/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<apex:component controller="SMC_AC_SAppointment_Email_Builder" access="global">
+  
+    <!-- <apex:attribute type="Contact" name="recipientTypeContact" assignTo="{!theContact}" description="Recipient Contact" default="[]"/> -->
+    <apex:attribute type="String" name="relatedToServiceAppointmentId" assignTo="{!theServiceAppointmentId}" description="Related To Service Appointment"/>
+    <apex:attribute type="String" name="fieldToFind" assignTo="{!fieldToDisplay}" description="Field to display" default="WorkOrder#Address"/>
+    <!-- <apex:attribute type="List" name="allWorkOrders" assignTo="{!workOrders}" description="Work Orders" default="[]"/> -->
+    
+    <apex:repeat value="{!workOrders}" var="wo" id="theRepeat">
+      <!-- <apex:outputText  value="{!wo.Street + ', ' + wo.PostalCode + ' ' + wo.City + ' ' + wo.Country}"></apex:outputText> -->
+      <apex:outputText value="{!wo.Street}"></apex:outputText>
+      <apex:outputText value="{!wo.PostalCode}"></apex:outputText>
+      <apex:outputText value="{!wo.City}"></apex:outputText>
+      <apex:outputText value="{!wo.Country}"></apex:outputText>
+    </apex:repeat>
+    
+</apex:component>
+
+<!-- <c:SMC_VFC_SAppointment_Email_Builder recipientTypeContact="{!recipient}" relatedToServiceAppointment="{!relatedTo}" fieldToFind="WorkOrder#Address"></c:SMC_VFC_SAppointment_Email_Builder> -->

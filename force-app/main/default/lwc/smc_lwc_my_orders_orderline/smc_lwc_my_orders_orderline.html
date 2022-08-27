@@ -1,0 +1,61 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 10-29-2020
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   10-09-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <div class="slds-grid slds-wrap slds-gutters">
+    <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+      {line.CDORD}
+    </div>
+    <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+      {line.ORDERDATE}
+    </div>
+    <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+      {line.STATUS}
+    </div>
+    <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+      <lightning-formatted-number
+        value={line.AMOUNT}
+        format-style="currency"
+        currency-code={line.CCY}
+      >
+      </lightning-formatted-number>
+    </div>
+    <div class="slds-col slds-size_4-of-12">
+      <div class="slds-grid slds-wrap slds-gutters">
+        <div
+          class="slds-col slds-size_4-of-12 realign-button slds-text-align_center no-border"
+        ></div>
+        <!-- <div
+          class="slds-col slds-size_4-of-12 realign-button slds-text-align_center no-border"
+        ></div> -->
+        <div
+          class="slds-col slds-size_4-of-12 realign-button slds-text-align_center no-border"
+        >
+          <lightning-button
+            variant="brand"
+            label={details.DETAILS}
+            onclick={viewOrderDetail}
+            class="slds-var-m-left_xx-small uniform-size"
+          ></lightning-button>
+        </div>
+        <!-- <div
+          class="slds-col slds-size_4-of-12 realign-button slds-text-align_center no-border"
+        >
+          <lightning-button
+            variant="brand"
+            label={cancel.CANCEL}
+            onclick={cancelOrder}
+            class="slds-var-m-left_x-small uniform-size"
+          ></lightning-button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</template>

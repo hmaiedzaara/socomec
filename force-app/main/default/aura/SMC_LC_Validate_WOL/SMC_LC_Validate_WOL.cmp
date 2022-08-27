@@ -1,0 +1,56 @@
+<!--
+  @File Name          : SMC_LC_Validate_WOL.cmp
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 10/03/2020 à 15:30:50
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    10/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"
+  access="global"
+  controller="SMC_AC_Validate_WOL"
+>
+  <aura:attribute name="errors" type="String" />
+  <aura:attribute name="isValidated" type="String" />
+
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+  <aura:if isTrue="{! v.errors }">
+    <ui:message title="Error" severity="error" closable="false">
+      {! v.errors }
+    </ui:message>
+    <aura:set attribute="else">
+      <aura:if isTrue="{! v.isValidated == 'already validated' }">
+        <ui:message
+          title="{!$Label.c.SMC_Already_Validated}"
+          severity="confirm"
+          closable="false"
+        >
+          {!$Label.c.SMC_Already_Validated_WOL}
+        </ui:message>
+      </aura:if>
+      <aura:if isTrue="{! v.isValidated == 'validated' }">
+        <ui:message
+          title="{!$Label.c.SMC_Validated}"
+          severity="confirm"
+          closable="false"
+        >
+          {!$Label.c.SMC_Validate_WOL}
+        </ui:message>
+      </aura:if>
+      <aura:if isTrue="{! v.isValidated == 'not validated' }">
+        <ui:message
+          title="{!$Label.c.SMC_Not_Validated}"
+          severity="warning"
+          closable="false"
+        >
+          {!$Label.c.SMC_Not_Validated_WOL}
+        </ui:message>
+      </aura:if>
+    </aura:set>
+  </aura:if>
+</aura:component>

@@ -1,0 +1,41 @@
+<!--
+  @File Name          : smc_lwc_customer_informations.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 02-23-2021
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    07/01/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+  <template if:true={notSearching}>
+    <template if:true={noResult}>
+      {noResultLabel.NO_DATA_TO_SHOW}
+    </template>
+    <template if:false={noResult}>
+      <template if:true={smallFactor}>
+        <div class="absolute-div"></div>
+      </template>
+      <template if:true={smartConfIsEmpty}>
+        {emptySmartConf.EMPTY_SMART_CONF}
+      </template>
+      <div class={scroller}>
+        <lightning-datatable
+          data={datas}
+          columns={columns}
+          key-field={keyfield}
+          onsort={updateColumnSorting}
+          sorted-by={sortBy}
+          sorted-direction={sortDirection}
+          hide-checkbox-column="true"
+          resize-column-disabled="true"
+          column-widths-mode="auto"
+          class={responsiveDatable}
+        >
+        </lightning-datatable>
+      </div>
+    </template>
+  </template>
+</template>

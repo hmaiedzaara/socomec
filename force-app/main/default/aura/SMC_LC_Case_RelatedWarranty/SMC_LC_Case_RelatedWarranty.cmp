@@ -1,0 +1,20 @@
+<aura:component
+  implements="force:hasRecordId,forceCommunity:availableForAllPageTypes"
+  controller="SMC_AC_LC_CaseController"
+>
+  <aura:attribute name="caseList" type="Object" />
+  <aura:attribute name="mycolumns" type="List" />
+  <aura:attribute name="displayTableBool" type="Boolean" default="false" />
+
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+  <aura:if isTrue="{!v.displayTableBool}">
+    <h1><strong>{! $Label.c.SMC_CaseWarrantyList }</strong></h1>
+    <lightning:datatable
+      data="{!v.caseList}"
+      hideCheckboxColumn="true"
+      columns="{!v.mycolumns}"
+      keyField="CaseNumber"
+      onrowaction="{! c.redirectToCase }"
+    />
+  </aura:if>
+</aura:component>

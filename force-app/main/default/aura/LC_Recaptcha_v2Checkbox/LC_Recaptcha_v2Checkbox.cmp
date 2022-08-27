@@ -1,0 +1,11 @@
+<aura:component controller="Recaptcha" implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}" />
+    <aura:attribute name="recaptchaResponse" type="String" />
+    
+  <aura:registerevent name="Recaptcha_Validation" type="c:SMC_LC_EVT_Recaptcha_v2Checkbox" />
+    
+    <div id="recaptchaCheckbox"></div>
+    <br/>
+    <lightning:button aura:id="myButton" label="Submit" onclick="{!c.doSubmit}" disabled="true" />
+</aura:component>

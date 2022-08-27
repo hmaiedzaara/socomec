@@ -1,0 +1,118 @@
+<!--
+  @File Name          : smc_lwc_tile_util_application.html
+  @Description        : 
+  @Author             : Tanya SIBONI (Modis)
+  @Group              : 
+  @Last Modified By   : Tanya SIBONI (Modis)
+  @Last Modified On   : 
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    08/06/2021   Tanya SIBONI (Modis)     Initial Version
+-->
+<template>
+    <div class="slds-card">
+        <div class="slds-card__header">
+            <div class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__figure">
+                <span class="slds-icon_container king-blue" title={title}>
+                <i class={titleIcon}></i>
+                </span>
+            </div>
+            <div class="slds-media__body">
+                <h2 class="slds-card__header-title slds-align_center slds-truncate">
+                <a class="slds-card__header-link slds-truncate" title={title}>
+                    <span>{title}</span>
+                </a>
+                </h2>
+            </div>
+            </div>
+        </div>
+        <div class="slds-card__body slds-card__body_inner slds-border_top sizing-body">
+            <!-- BODY -->
+            <!-- <div class="slds-grid slds-wrap slds-gutters shadow-box"> -->
+            <div class="slds-grid slds-grid_vertical slds-wrap slds-gutters shadow-box">
+                <!-- plateform IOT-->
+                <div class="slds-col slds-size_1-of-1">
+                    <template if:false={isLoading}>
+                        <!-- <div
+                        class="slds-card__body slds-card__body_inner slds-border_top slds-border_bottom sizing-body"
+                        > -->
+                            <template if:false={resultIsNull}>
+                                <div class={scrollableY}>
+                                <ul class="slds-var-p-horizontal_x-small slds-var-m-top_medium">
+                                    <template if:true={datas}>
+                                    <template for:each={datas} for:item="data">
+                                        <li
+                                        key={data.id}
+                                        class="slds-item slds-border_bottom slds-var-p-around_x-small"
+                                        >
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-col slds-size_4-of-12 col-picture">
+                                            <template if:true={data.urlExist}>
+                                                <a
+                                                href={data.url}
+                                                class="slds-has-blur-focus"
+                                                target="_blank"
+                                                >
+                                                <img src={data.picture} />
+                                                </a>
+                                            </template>
+                                            <template if:false={data.urlExist}>
+                                                <img src={data.picture} />
+                                            </template>
+                                            </div>
+                                            <div
+                                            class="slds-col slds-size_8-of-12 slds-truncate col-text"
+                                            >
+                                            <a href={data.toTheRecord} class="slds-has-blur-focus ">
+                                                {data.name}
+                                            </a>
+                                            </div>
+                                            <!-- <div class="slds-col slds-size_1-of-12 col-to-the-record">
+                                            <a href={data.toTheRecord} class="slds-has-blur-focus ">
+                                                <i class="fa fa-2x fa-eye king-blue"></i>
+                                            </a>
+                                            </div> -->
+                                        </div>
+                                        </li>
+                                    </template>
+                                    </template>
+                                </ul>
+                                </div>
+                            </template>
+                            <template if:true={resultIsNull}>
+                                <div class="grey-color margin-picture ">
+                                    <c-smc_lwc_desert_illustration
+                                        noresultlabel={noData.NO_DATA}
+                                        class="max-width-no-result-picture"
+                                    ></c-smc_lwc_desert_illustration>
+                                </div>
+                            </template>
+                        <!-- </div> -->
+                    </template>
+                </div>
+                <!--appStore-->
+                <div class="slds-col slds-size_1-of-1 slds-is-absolute appBanner">
+                    <div class="slds-box appStore"><!--  style="background:rgba(0, 79, 159, 0.8); color: #fff;" -->
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_4-of-5 slds-text-align_center">
+                                <h2 class="appText">Try the mobile app <b>SoLive&nbsp;UPS</b></h2>
+                            </div>
+                            <div class="slds-col slds-text-align_right slds-p-left_small">
+                                    <img class='soLiveUPS' src={soLiveUPS}>
+                            </div>
+                        </div>
+                        <div class="slds-grid">
+                            <div class="slds-col">
+                                <a href="https://apps.apple.com/fr/app/solive-ups/id1441417626" target="_blank"><img class='app' src={appStoreLogo}></a>
+                            </div>
+                            <div class="slds-col">
+                                <a href="https://play.google.com/store/apps/details?id=com.socomec.soliveups&hl=fr&gl=US" target="_blank"><img class='app' src={googlePlayLogo}></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+</template>

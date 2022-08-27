@@ -1,0 +1,14 @@
+<design:component >
+    <design:attribute name="isRecord" label="Do not allow Back button" description="Check it if, it is a Salesforce record to be opend in Lightning Experience or redirection o back is not needed" />
+    
+	<design:attribute name="text" label="Enter Button Label" description="Text to render as Button Label" />
+    <design:attribute name="url" label="Enter Button URL" description="Url to navigate. Write protocol (HTTPS, FTP etc) for full address else it will be considered as relative address" />
+    <design:attribute name="size" label="Select Button Size" datasource="Small,Medium,Large,Free" description="Button Size" />
+    <design:attribute name="shape" label="Select Button Shape" datasource="Square, Round, Round 2x" description="Button Shape (Round or Square)" />
+    <design:attribute name="textcolor" label="Select Button Text Color" datasource="White,Orange,OrangeRed" description="Text color of button. This will not work if custom text color is defined." />
+    <design:attribute name="bordercolor" label="Select Button Border Color" datasource="DeepSkyBlue,IndianRed,SapGreen" description="Button's border color. This will not work if custom border color is defined." />
+    <design:attribute name="backgroundcolor" label="Select Button Background Color" datasource="Napilli-Blue,Napilli-Green,DodgerBlue,SpringGreen,DarkGreen,Black,Grey" description="Background color of button. This will not work if custom background color is defined." />
+    <design:attribute name="textcolorCustom" label="Enter HEX Button Text Color" description="Enter custom hexadecimal value of text color. For example #AEEFF8. This will override defined button text color." />
+    <design:attribute name="bordercolorCustom" label="Enter HEX Button Border Color" description="Enter custom hexadecimal value of border color. For example #441888. This will override defined button border color." />
+    <design:attribute name="backgroundcolorCustom" label="Enter HEX Button Background Color" description="Enter custom hexadecimal value of background color. For example #551888. This will override defined button background color." />
+</design:component>

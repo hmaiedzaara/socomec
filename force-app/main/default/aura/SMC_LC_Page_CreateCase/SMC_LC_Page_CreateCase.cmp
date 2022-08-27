@@ -1,0 +1,119 @@
+<!--
+  @File Name          : SMC_LC_Page_CreateCase.cmp
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 06-02-2021
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    26/02/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<aura:component
+  implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:lightningQuickAction,lightning:actionOverride,force:hasRecordId"
+  access="global"
+  controller="SMC_AC_Page_CreateCase"
+>
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <!-- Used for create a child case from SoSales application -->
+  <aura:attribute name="parentCase" type="Case" />
+  <!-- Used to create casse from another object (Opportunity, Contact, Quote...) -->
+  <aura:attribute name="anotherObject" type="String" />
+  <aura:attribute name="predefinedValues" type="String" />
+  <aura:attribute name="fromQuickAction" type="Boolean" default="false" />
+
+  <aura:attribute name="blockTitle" type="String" />
+  <aura:attribute name="chooseKindCase" type="Boolean" default="true" />
+  <aura:attribute name="chooseTypeCase" type="Boolean" default="false" />
+  <aura:attribute name="optionsKindCase" type="List" />
+  <aura:attribute name="selctedKindCase" type="String" />
+  <aura:attribute name="optionsTypeCase" type="Map" />
+  <aura:attribute name="selctedTypeCase" type="String" />
+  <aura:attribute name="fileUrl" type="String" />
+
+  <ltng:require styles="{!$Resource.SMC_ModalWidthCSS}"/>
+
+  <aura:registerevent
+    name="closeEvent"
+    type="c:SMC_LE_Close_SoSales_CreateCase"
+  />
+
+  <lightning:card title="{! v.blockTitle }">
+    <!-- SMC_Create_Case_BA_Service -->
+    <div class="align-radio-button">
+      <aura:if isTrue="{! v.chooseKindCase }">
+        <h2>{! $Label.c.SMC_Choose_Case }</h2>
+        <label class="legend-picture"
+          >{! $Label.c.SMC_Click_To_Be_Redirect_Case_Organization }</label
+        >
+        <div class="slds-grid slds-wrap slds-gutters">
+          <aura:iteration
+            items="{! v.optionsKindCase }"
+            var="oneKind"
+            indexVar="indexTab"
+          >
+            <div class="slds-col slds-large-size_1-of-4">
+              <div
+                id="{! oneKind.kindCase }"
+                onclick="{! c.kindIsChoose }"
+                class="styling-title-type"
+              >
+                <strong class="styling-label"
+                  >{! oneKind.kindCaseLabel }</strong
+                >
+                <img
+                  class="sizing-img"
+                  src="{! oneKind.kindCaseImg }"
+                  alt="{! oneKind.kindCaseLabel }"
+                />
+              </div>
+            </div>
+          </aura:iteration>
+        </div>
+      </aura:if>
+      <aura:if isTrue="{! v.chooseTypeCase }">
+        <label class="legend-picture"
+          >{! $Label.c.SMC_Click_To_Be_Redirect }</label
+        >
+        <div class="slds-grid slds-wrap slds-gutters">
+          <aura:iteration
+            items="{! v.optionsTypeCase }"
+            var="oneType"
+            indexVar="indexTab"
+          >
+            <div class="slds-col slds-large-size_1-of-4">
+              <div
+                id="{! oneType.value }"
+                onclick="{! c.typeIsChoose }"
+                class="styling-title-type"
+              >
+                <strong class="styling-label">{! oneType.label }</strong>
+                <img class="sizing-img" src="{! oneType.img }" alt="{! oneType.label }" />
+              </div>
+            </div>
+          </aura:iteration>
+        </div>
+      </aura:if>
+    </div>
+    <aura:if isTrue="{! !v.fromQuickAction }">
+      <div class="align-button">
+        <lightning:button
+          class="cancelCreateCaseBtn"
+          variant="destructive"
+          label="Cancel"
+          title="Cancel"
+          onclick="{! c.cancelStep }"
+        />
+        <aura:if isTrue="{! v.chooseTypeCase }">
+          <lightning:button
+            variant="neutral"
+            label="Back"
+            title="Back"
+            onclick="{! c.previousStep }"
+          />
+        </aura:if>
+      </div>
+    </aura:if>
+  </lightning:card>
+</aura:component>

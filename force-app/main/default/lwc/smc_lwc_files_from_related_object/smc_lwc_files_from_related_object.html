@@ -1,0 +1,47 @@
+<!--
+  @description       : Generic component to display related list from a related object
+  @author            : Denis PHAM 
+  @group             : Modis
+  @last modified on  : 
+  @last modified by  : Denis PHAM
+  Modifications Log 
+  Ver   Date          Author                     Modification
+  1.0   08-JUL-2022   Denis PHAM (Modis)   Initial Version
+-->
+<template>
+    <lightning-card variant="Narrow"  title={titleCard} icon-name="standard:related_list">
+        <div class="slds-p-around_large">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col">{label.TITLE}</th>
+                            <th scope="col">{label.OWNER}</th>
+                            <th scope="col">{label.LAST_MODIFIED_DATE}</th> 
+                            <th scope="col">{label.CONTENT_SIZE}</th>
+                        </tr>
+                    </thead>
+                <tbody> 
+                    <template for:each={data} for:item="items">
+                        <tr class="slds-hint-parent" key={items.Id}>
+                            <td>
+                                <a href={items.documentId}>
+                                {items.title}
+                                </a>
+                            </td>
+                            <td>
+                                {items.owner}
+                            </td>
+                            <td>
+                                {items.lastModifiedDate}
+                            </td>
+                            <td>
+                                {items.contentSize}
+                            </td>
+                        </tr>
+ 
+                    </template>
+                </tbody>
+                </table>
+        </div>
+    </lightning-card>
+</template>

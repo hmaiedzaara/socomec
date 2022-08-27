@@ -1,0 +1,15 @@
+.slds-card {
+  padding: 10px;
+  font-size: 110%;
+}
+
+h2 {
+  color: red;
+  font-weight: bold;
+}
+
+li {
+  margin-left: 25px;
+  color: red;
+  list-style-type: circle;
+}

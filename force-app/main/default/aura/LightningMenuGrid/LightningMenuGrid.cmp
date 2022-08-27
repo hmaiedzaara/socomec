@@ -1,0 +1,192 @@
+<aura:component
+  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes"
+  access="global"
+>
+  <lighten:SldsStuff />
+
+  <aura:attribute access="global" name="size" type="String" default="Small" />
+  <aura:attribute access="global" name="shape" type="String" default="Round" />
+
+  <aura:attribute access="global" name="icon1" type="String" default="" />
+  <aura:attribute
+    access="global"
+    name="iconURL1"
+    type="String"
+    default="account"
+  />
+
+  <aura:attribute access="global" name="url1" type="String" default="" />
+  <aura:attribute
+    access="global"
+    name="bordercolor1"
+    type="String"
+    default="DeepSkyBlue"
+  />
+  <aura:attribute
+    access="global"
+    name="textcolor1"
+    type="String"
+    default="White"
+  />
+  <aura:attribute
+    access="global"
+    name="backgroundcolor1"
+    type="String"
+    default="DodgerBlue"
+  />
+
+  <aura:attribute
+    access="global"
+    name="bordercolorCustom1"
+    type="String"
+    default="orchid"
+  />
+  <aura:attribute
+    access="global"
+    name="backgroundcolorCustom1"
+    type="String"
+    default="orchid"
+  />
+
+  <aura:attribute
+    access="global"
+    name="allowback1"
+    type="Boolean"
+    default="false"
+  />
+
+  <aura:attribute access="global" name="icon2" type="String" default="" />
+  <aura:attribute
+    access="global"
+    name="iconURL2"
+    type="String"
+    default="lead"
+  />
+  <aura:attribute access="global" name="url2" type="String" default="" />
+  <aura:attribute
+    access="global"
+    name="bordercolor2"
+    type="String"
+    default=""
+  />
+  <aura:attribute
+    access="global"
+    name="textcolor2"
+    type="String"
+    default="White"
+  />
+  <aura:attribute
+    access="global"
+    name="backgroundcolor2"
+    type="String"
+    default="DodgerBlue"
+  />
+
+  <aura:attribute
+    access="global"
+    name="bordercolorCustom2"
+    type="String"
+    default=""
+  />
+  <aura:attribute
+    access="global"
+    name="backgroundcolorCustom2"
+    type="String"
+    default="yellowgreen"
+  />
+
+  <aura:attribute
+    access="global"
+    name="allowback2"
+    type="Boolean"
+    default="false"
+  />
+
+  <aura:attribute access="global" name="icon3" type="String" default="" />
+  <aura:attribute
+    access="global"
+    name="iconURL3"
+    type="String"
+    default="case"
+  />
+  <aura:attribute access="global" name="url3" type="String" default="" />
+  <aura:attribute
+    access="global"
+    name="bordercolor3"
+    type="String"
+    default=""
+  />
+  <aura:attribute
+    access="global"
+    name="textcolor3"
+    type="String"
+    default="White"
+  />
+  <aura:attribute
+    access="global"
+    name="backgroundcolor3"
+    type="String"
+    default="DodgerBlue"
+  />
+
+  <aura:attribute
+    access="global"
+    name="bordercolorCustom3"
+    type="String"
+    default=""
+  />
+  <aura:attribute
+    access="global"
+    name="backgroundcolorCustom3"
+    type="String"
+    default="deepskyblue"
+  />
+
+  <aura:attribute
+    access="global"
+    name="allowback3"
+    type="Boolean"
+    default="false"
+  />
+
+  <table class="table1">
+    <tr>
+      <td>
+        <div id="container1" class="gridm" onclick="{!c.navTo1}">
+          <a href="javascript:void();">
+            <img
+              style="{!'background-color:'+v.backgroundcolorCustom1+';border-color:'+v.bordercolorCustom1+';'}"
+              class="{!'btn '+ v.size+' '+(v.shape == 'Round 2x' ? 'SquareRound' : v.shape)+' '+v.bordercolor1+' '+v.textcolor1+' '+v.backgroundcolor1+' '+v.url1 }"
+              src="{!( and(v.icon1 != '', v.icon1 != null) ? v.icon1 : ('../resource/lighten__SLDS090/assets/icons/standard/'+v.iconURL1+'_120.png'))}"
+              alt="image 1"
+            ></img>
+          </a>
+        </div>
+      </td>
+      <td>
+        <div id="container3" class="gridm" onclick="{!c.navTo2}">
+          <a href="javascript:void();">
+            <img
+              style="{!'background-color:'+v.backgroundcolorCustom2+';border-color:'+v.bordercolorCustom2+';'}"
+              class="{!'btn '+ v.size+' '+(v.shape == 'Round 2x' ? 'SquareRound' : v.shape)+' '+v.bordercolor2+' '+v.textcolor1+' '+v.backgroundcolor2+' '+v.url2 }"
+              src="{!( and(v.icon2 != '', v.icon2 != null) ? v.icon2 : ('../resource/lighten__SLDS090/assets/icons/standard/'+v.iconURL2+'_120.png'))}"
+              alt="image 2"
+            ></img>
+          </a>
+        </div>
+      </td>
+      <td>
+        <div id="container3" class="gridm" onclick="{!c.navTo3}">
+          <a href="javascript:void();">
+            <img
+              style="{!'background-color:'+v.backgroundcolorCustom3+';border-color:'+v.bordercolorCustom3+';'}"
+              class="{!'btn '+ v.size+' '+(v.shape == 'Round 2x' ? 'SquareRound' : v.shape)+' '+v.bordercolor3+' '+v.textcolor3+' '+v.backgroundcolor3+' '+v.url3 }"
+              src="{!( and(v.icon3 != '', v.icon3 != null) ? v.icon3 : ('../resource/lighten__SLDS090/assets/icons/standard/'+v.iconURL3+'_120.png'))}"
+              alt="image 3"
+            ></img>
+          </a>
+        </div>
+      </td>
+    </tr>
+  </table>
+</aura:component>

@@ -1,0 +1,274 @@
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"
+  access="global"
+  controller="SMC_AC_ServiceProductList"
+>
+  <!-- Attributes table -->
+  <aura:attribute name="data" type="Object" default="[]" />
+  <!-- To display list -->
+  <aura:attribute name="columns" type="List" />
+
+  <!-- Attributes filters -->
+  <aura:attribute name="displayFilters" type="Boolean" default="false" />
+  <aura:attribute
+    name="selectionUniqueOrMultipleValue"
+    type="Boolean"
+    default="false"
+  />
+
+  <aura:attribute name="inputName" type="String" default="" />
+  <aura:attribute name="inputCode" type="String" default="" />
+
+  <aura:attribute name="listManufacturer" type="List" />
+  <aura:attribute name="mapManufacturer" type="Map" />
+
+  <aura:attribute name="listRange" type="List" />
+  <aura:attribute name="mapRange" type="Map" />
+
+  <aura:attribute name="listModel" type="List" />
+  <aura:attribute name="mapModel" type="Map" />
+
+  <aura:attribute name="listConfiguration" type="List" />
+  <aura:attribute name="mapConfiguration" type="Map" />
+
+  <aura:attribute name="listPhase" type="List" />
+  <aura:attribute name="mapPhase" type="Map" />
+
+  <aura:attribute name="listPower" type="List" />
+  <aura:attribute name="timer" type="Integer" />
+
+  <aura:attribute name="selectedRowId" type="List" default="[]" />
+  <aura:attribute name="selectedProduct" type="Object" />
+
+  <!-- Attribute to display errors -->
+  <aura:attribute name="errors" type="String" />
+  <aura:attribute name="isLoading" type="Boolean" default="false" />
+
+  <!-- Handler -->
+  <aura:handler
+    name="change"
+    value="{! v.inputName }"
+    action="{! c.setProductNameAndCodeFilter }"
+  />
+  <aura:handler
+    name="change"
+    value="{! v.inputCode }"
+    action="{! c.setProductNameAndCodeFilter }"
+  />
+
+  <!-- Event -->
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+  <!-- Spinner for waiting -->
+  <aura:if isTrue="{! v.isLoading }">
+    <!-- <lightning:spinner alternativeText="{!$Label.c.SMC_Loading}" length="medium" /> -->
+    <div role="status" class="slds-spinner slds-spinner_medium">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </aura:if>
+
+  <!-- Error -->
+  <aura:if isTrue="{!v.errors}">
+    <ui:message title="Error" severity="error" closable="true">
+      {!v.errors}
+    </ui:message>
+  </aura:if>
+
+  <article class="slds-card">
+    <div class="slds-card__header slds-grid">
+      <header class="slds-media slds-media_center slds-has-flexi-truncate">
+        <!-- ICON -->
+        <!-- <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-standard-account" title="account">
+                        <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                        </svg>
+                        <span class="slds-assistive-text">account</span>
+                    </span>
+                </div> -->
+        <div class="slds-media__body">
+          <h2 class="slds-card__header-title">
+            <span class="slds-card__header-link slds-truncate"
+              >{! $Label.c.SMC_ServiceProducts }</span
+            >
+          </h2>
+        </div>
+      </header>
+    </div>
+    <div class="slds-card__body slds-card__body_inner">
+      <div class="searchBar">
+        <h3><strong>Filters</strong></h3>
+        <div class="input-search-container searchInput">
+          <div class="slds-grid slds-gutters">
+            <!-- FILTERS -->
+            <div class="slds-col">
+              <!-- PRODUCT NAME -->
+              <ui:inputText
+                value="{! v.inputName }"
+                aura:id="searchName"
+                label="{! $Label.c.SMC_Product_Name + ' ' + $Label.c.SMC_InputText_SOSL }"
+                placeholder="{! $Label.c.SMC_DefaultPicklistValue_None }"
+                updateOn="keyup"
+              />
+              <!-- MANUFACTURER -->
+              <aura:if
+                isTrue="{! and(not(empty(v.listManufacturer), v.inputName == null)) }"
+              >
+                <lightning:select
+                  aura:id="selectManufacturer"
+                  name="{! $Label.c.SMC_Manufacturer }"
+                  label="{! $Label.c.SMC_Manufacturer }"
+                  onchange="{! c.setRange }"
+                >
+                  <aura:iteration
+                    items="{! v.listManufacturer }"
+                    var="manufacturer"
+                    indexVar="indexLine"
+                  >
+                    <option
+                      value="{! manufacturer.value }"
+                      text="{! manufacturer.key }"
+                    />
+                  </aura:iteration>
+                </lightning:select>
+              </aura:if>
+              <!-- MODEL -->
+              <aura:if
+                isTrue="{! and(not(empty(v.listModel), v.inputName == null)) }"
+              >
+                <lightning:select
+                  aura:id="selectModel"
+                  name="{! $Label.c.SMC_Model }"
+                  label="{! $Label.c.SMC_Model }"
+                  onchange="{! c.setConfiguration }"
+                >
+                  <aura:iteration
+                    items="{! v.listModel }"
+                    var="model"
+                    indexVar="indexLine"
+                  >
+                    <option value="{! model.value }" text="{! model.key }" />
+                  </aura:iteration>
+                </lightning:select>
+              </aura:if>
+              <!-- PHASE -->
+              <aura:if
+                isTrue="{! and(not(empty(v.listPhase), v.inputName == null)) }"
+              >
+                <lightning:select
+                  aura:id="selectPhase"
+                  name="{! $Label.c.SMC_Phase }"
+                  label="{! $Label.c.SMC_Phase }"
+                  onchange="{! c.setPower }"
+                >
+                  <aura:iteration
+                    items="{! v.listPhase }"
+                    var="phase"
+                    indexVar="indexLine"
+                  >
+                    <option value="{! phase.value }" text="{! phase.key }" />
+                  </aura:iteration>
+                </lightning:select>
+              </aura:if>
+            </div>
+            <div class="slds-col">
+              <!-- PRODUCT CODE -->
+              <ui:inputText
+                value="{! v.inputCode }"
+                aura:id="searchCode"
+                label="{! $Label.c.SMC_ProductCode + ' ' + $Label.c.SMC_InputText_SOSL }"
+                placeholder="{! $Label.c.SMC_DefaultPicklistValue_None }"
+                updateOn="keyup"
+              />
+              <!-- RANGE -->
+              <aura:if
+                isTrue="{! and(not(empty(v.listRange), v.inputName == null)) }"
+              >
+                <lightning:select
+                  aura:id="selectRange"
+                  name="{! $Label.c.SMC_Range }"
+                  label="{! $Label.c.SMC_Range }"
+                  onchange="{! c.setModel }"
+                >
+                  <aura:iteration
+                    items="{! v.listRange }"
+                    var="range"
+                    indexVar="indexLine"
+                  >
+                    <option value="{! range.value }" text="{! range.key }" />
+                  </aura:iteration>
+                </lightning:select>
+              </aura:if>
+              <!-- CONFIGURATION -->
+              <aura:if
+                isTrue="{! and(not(empty(v.listConfiguration), v.inputName == null)) }"
+              >
+                <lightning:select
+                  aura:id="selectConfiguration"
+                  name="{! $Label.c.SMC_Configuration }"
+                  label="{! $Label.c.SMC_Configuration }"
+                  onchange="{! c.setPhase }"
+                >
+                  <aura:iteration
+                    items="{! v.listConfiguration }"
+                    var="configuration"
+                    indexVar="indexLine"
+                  >
+                    <option
+                      value="{! configuration.value }"
+                      text="{! configuration.key }"
+                    />
+                  </aura:iteration>
+                </lightning:select>
+              </aura:if>
+              <!-- POWER -->
+              <aura:if
+                isTrue="{! and(not(empty(v.listPower), v.inputName == null)) }"
+              >
+                <lightning:select
+                  aura:id="selectPower"
+                  name="{! $Label.c.SMC_Power }"
+                  label="{! $Label.c.SMC_Power }"
+                  onchange="{! c.setFinalFilter }"
+                >
+                  <aura:iteration
+                    items="{! v.listPower }"
+                    var="power"
+                    indexVar="indexLine"
+                  >
+                    <option value="{! power.value }" text="{! power.key }" />
+                  </aura:iteration>
+                </lightning:select>
+              </aura:if>
+            </div>
+          </div>
+
+          <div class="selectUniqueOrMultiple">
+            {! $Label.c.SMC_SelectServiceProductOneByOne }
+            <!-- SELECT UNQIUE OR MULTIPLE SERVICE PRODUCT -->
+            <ui:inputCheckbox
+              aura:id="selectionUniqueOrMultiple"
+              value="{! v.selectionUniqueOrMultipleValue }"
+              name="{! $Label.c.SMC_SelectServiceProductOneByOne }"
+              disabled="{! v.selectedRowId.length > 1 }"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- the container element determine the height of the datatable -->
+      <div class="data-table">
+        <lightning:datatable
+          aura:id="dataTable"
+          keyField="Id"
+          data="{! v.data }"
+          columns="{! v.columns }"
+          suppressBottomBar="true"
+          onrowselection="{! c.selectServiceProduct }"
+          selectedRows="{! v.selectedRowId }"
+        />
+      </div>
+    </div>
+  </article>
+</aura:component>

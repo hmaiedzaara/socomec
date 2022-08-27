@@ -1,0 +1,66 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 10-26-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   05-20-2021   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+    <div class="modal">
+      <div class="obscur-background"></div>
+      <section
+        role="dialog"
+        tabindex="-1"
+        class="slds-modal slds-fade-in-open slds-modal_medium"
+        aria-labelledby="modal-heading-01"
+        aria-modal="true"
+        aria-describedby="modal-content-id-1"
+      >
+        <div
+          role="dialog"
+          tabindex="-1"
+          aria-labelledby="header43"
+          class="slds-modal slds-fade-in-open"
+        >
+          <div class="slds-modal__container">
+            <div class="slds-modal__header">
+              <h2 class="slds-text-heading--medium">
+                {customLabels.ALTERNATIVE_PDT_MESSAGE}
+              </h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <!-- Body of modal -->
+                <!-- <p><strong>Initial product selected :</strong> {initPdt}</p> -->
+                <p><strong>List of alternative products :</strong></p>
+                <ul>
+                    <template for:each={altpdts} for:item="onePdt">
+                        <li key={onePdt.CDPAR}>
+                            <lightning-button value={onePdt.CDPAR} label={onePdt.DESCRIPTION} title={onePdt.CDPAR} onclick={handleClick} class="slds-m-left_x-small text-grey">
+                                <!-- <strong>{onePdt.CDPAR}</strong> {onePdt.DESCRIPTION} -->
+                            </lightning-button>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+            <div class="slds-modal__footer">
+              <lightning-button
+                class="padding-rigth-5"
+                variant="brand"
+                label={customLabels.KEEP_ORIGINAL}
+                onclick={handleKeepOriginal}
+              ></lightning-button>
+              <lightning-button
+                class="padding-rigth-5"
+                variant="destructive"
+                label={customLabels.NOT_INTERESTED}
+                onclick={handleNotInterested}
+              ></lightning-button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+</template>

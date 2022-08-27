@@ -1,0 +1,47 @@
+.default-color {
+  color: #000000cc !important;
+}
+.inline-block {
+  display: inline;
+}
+.slds-col {
+  padding: 5px 5px 5px 5px;
+}
+.style-label-blue {
+  padding-top: 5px;
+  padding-left: 1px;
+  color: #005fb2;
+}
+.width-100{
+  width: 100%;
+}
+.padding-top-5{
+  padding-top: 5px;
+}
+.pos-absolute{
+  position: absolute;
+}
+.absolute-position{
+  position: absolute;
+  top: 120px;
+}
+.absolute-position-required{
+  position: absolute;
+  top: 116px;
+}
+.styling-error-message{
+  font: 12px "Roboto", sans-serif;
+  padding-right: 3px;
+  color: rgb(194, 57, 52) !important;
+}
+.color-red {
+  padding-right: 2px;
+  color: rgb(194, 57, 52) !important;
+}
+.space-button {
+  margin-right: 10px;
+}
+
+.disabled-by-css {
+  pointer-events: none;
+}

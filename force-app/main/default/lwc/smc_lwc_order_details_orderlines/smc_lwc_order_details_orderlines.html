@@ -1,0 +1,129 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 10-28-2020
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   10-09-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <h2>{orderLinesLabel.ORDER_LINES}</h2>
+  <div class="slds-grid slds-wrap slds-gutters margin-top-30">
+    <div class="slds-col slds-size_12-of-12">
+      <ul>
+        <li class="slds-border_bottom slds-border_top">
+          <div class="slds-grid slds-wrap slds-gutters">
+            <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+              <span><strong>{lineNumberLabel.LINE_NUMBER}</strong></span>
+            </div>
+            <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+              <span><strong>{productCodeLabel.PRODUCT_CODE}</strong></span>
+            </div>
+            <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+              <span><strong>{carrierLabel.CARRIER}</strong></span>
+            </div>
+            <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+              <span
+                ><strong>{trackingNumberLabel.TRACKING_NUMBER}</strong></span
+              >
+            </div>
+            <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+              <span><strong>{deliveryDateLabel.DELIVERY_DATE}</strong></span>
+            </div>
+            <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+              <span><strong>{unitPriceLabel.UNIT_PRICE}</strong></span>
+            </div>
+            <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+              <span><strong>{quantityLabel.QUANTITY}</strong></span>
+            </div>
+            <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+              <span><strong>{netPriceLabel.NET_PRICE}</strong></span>
+            </div>
+          </div>
+        </li>
+
+        <template for:each={orderLinesToShow} for:item="oneLine">
+          <li key={oneLine.CDPAR} class={checkBackground}>
+            <div class="slds-grid slds-wrap slds-gutters">
+              <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                <span>{oneLine.LINENUMBER}</span>
+              </div>
+              <div class="slds-col slds-size_2-of-12  slds-text-align_center">
+                <span>{oneLine.CDPAR}</span>
+              </div>
+              <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                <span>{oneLine.COURIER}</span>
+              </div>
+              <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                <span>{oneLine.TRACKINGNUMBER}</span>
+              </div>
+              <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                <span><strong>{oneLine.DELIVERYDATE}</strong></span>
+              </div>
+              <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                <lightning-formatted-number
+                  value={oneLine.GROSSPRICE}
+                  format-style="currency"
+                  currency-code={oneLine.CCY}
+                ></lightning-formatted-number>
+              </div>
+              <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                <lightning-formatted-number
+                  value={oneLine.QUANTITY}
+                ></lightning-formatted-number>
+              </div>
+              <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                <lightning-formatted-number
+                  value={oneLine.UNITPRICE}
+                  format-style="currency"
+                  currency-code={oneLine.CCY}
+                ></lightning-formatted-number>
+              </div>
+            </div>
+          </li>
+        </template>
+        <li class="slds-border_bottom slds-border_top">
+          <div class="slds-grid slds-wrap slds-gutters">
+            <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+              <!-- Empty block -->
+            </div>
+            <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+              <span><strong>{totalLabel.TOTAL}</strong></span>
+            </div>
+            <!-- Empty block -->
+            <div
+              class="slds-col slds-size_2-of-12 slds-text-align_center"
+            ></div>
+            <!-- Empty block -->
+            <div
+              class="slds-col slds-size_2-of-12 slds-text-align_center"
+            ></div>
+            <!-- Empty block -->
+            <div
+              class="slds-col slds-size_2-of-12 slds-text-align_center"
+            ></div>
+            <!-- Empty block -->
+            <div
+              class="slds-col slds-size_1-of-12 slds-text-align_center"
+            ></div>
+            <!-- Empty block -->
+            <div
+              class="slds-col slds-size_1-of-12 slds-text-align_center"
+            ></div>
+            <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+              <strong>
+                <lightning-formatted-number
+                  value={total}
+                  format-style="currency"
+                  currency-code={ccy}
+                ></lightning-formatted-number
+              ></strong>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>

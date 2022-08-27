@@ -1,0 +1,12 @@
+<aura:component
+  access="global"
+  implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes"
+>
+  <aura:attribute access="global" name="title" type="String" default="My App" />
+  <lighten:SldsStuff />
+  <div class="slds">
+    <h3 class="main-header">
+      <span>{!v.title}</span>
+    </h3>
+  </div>
+</aura:component>

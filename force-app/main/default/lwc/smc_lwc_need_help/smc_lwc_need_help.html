@@ -1,0 +1,70 @@
+<!--
+  @File Name          : smc_lwc_need_help.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 30/03/2020 à 17:00:56
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    02/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+  <div class="fixed-to-bottom">
+    <template if:false={showNeedHelp}>
+      <div class="need-help-button" onclick={toogleNeedHelpScreen}>?</div>
+    </template>
+    <template if:true={showNeedHelp}>
+      <section
+        aria-describedby="dialog-body-id-98"
+        aria-labelledby="dialog-heading-id-5"
+        class="slds-popover slds-popover_prompt slds-popover_prompt_bottom-right"
+        rule="dialog"
+      >
+        <button
+          class="slds-button slds-button_icon slds-button_icon-small slds-float_right slds-popover__close padding-rigth-10"
+          title={closeHelp.CLOSE_HELP}
+          onclick={toogleNeedHelpScreen}
+        >
+          <lightning-icon
+            icon-name="utility:close"
+            size="x-small"
+          ></lightning-icon>
+          <span class="slds-assistive-text">{closeHelp.CLOSE_HELP}</span>
+        </button>
+        <div class="slds-popover__body" id="dialog-body-id-98">
+          <div class="slds-media">
+            <div class="slds-media__body">
+              <h2 id="dialog-heading-id-5" class="slds-popover_prompt__heading">
+                {needHelp.NEED_HELP}
+              </h2>
+              <ul>
+                <li>
+                  <a
+                    href="/myspace/s/create-new-standard-case"
+                    onclick={toogleNeedHelpScreen}
+                    >{createNewCase.CREATE_NEW_CASE}</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/myspace/s/contactsupport"
+                    onclick={toogleNeedHelpScreen}
+                    >{contactUs.CONTACT_US}</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/myspace/s/contentdocument/ContentDocument/All"
+                    onclick={toogleNeedHelpScreen}
+                    >{accessDoc.ACCESS_DOC}</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </template>
+  </div>
+</template>

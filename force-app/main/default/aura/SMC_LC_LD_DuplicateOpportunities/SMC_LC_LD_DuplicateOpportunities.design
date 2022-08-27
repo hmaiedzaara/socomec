@@ -1,0 +1,5 @@
+<design:component label="Duplicates Opportunity Helper">
+    <sfdc:objects>
+        <sfdc:object>Lead</sfdc:object>
+    </sfdc:objects>
+</design:component>

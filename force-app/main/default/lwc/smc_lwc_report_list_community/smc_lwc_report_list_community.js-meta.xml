@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Report List Community</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="titleIcon" type="String" label="Title Icon" description="A CSS class as [fa fa-tickets]" default="fa fa-ticket fa-2x"/>
+            <property name="title" type="String" label="Title" default="TITLE"/>
+            <property name="reportName" type="String" label="Report Name" default="IOT Demo - Contracts"/>
+            <property name="urlBaseToRecord" type="String" label="Replace [community-base-url] with the community url. The script will set [target-object-name] and [recordId] value." default="/[community-base-url]/s/[target-object-name]/[recordId]/detail"/>
+            <property name="body" type="String" label="Text body" default="Open Contracts"/>
+            <property name="footer" type="String" label="Footer" description="" default="View All My Contracts"/>
+            <property name="link" type="String" label="Link footer" default="/customerportal/s/contract/Contract/00B24000003GVBUEA4"/>
+            <property name="targetObject" type="String" label="Target object page" default="smc-business-plan"/>
+            <property name="nbOfColumns" type="Integer" label="Nb Of Columns" default="10"/>
+            <property name="nbOfRecords" type="Integer" label="Nb Of Records" default="20"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

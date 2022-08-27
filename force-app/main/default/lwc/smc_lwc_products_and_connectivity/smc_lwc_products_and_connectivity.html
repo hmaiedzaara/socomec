@@ -1,0 +1,60 @@
+<!--
+  @File Name          : smc_lwc_products_and_connectivity.html
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 15/06/2020 à 12:15:14
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    15/06/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<template>
+  <div class="slds-card">
+    <div class="slds-card__header">
+      <div class="slds-media slds-media_center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <span class="slds-icon_container king-blue" title={title}>
+            <i class="fa fa-microchip fa-2x"></i>
+          </span>
+        </div>
+        <div class="slds-media__body">
+          <h2 class="slds-card__header-title slds-align_center slds-truncate">
+            <a class="slds-card__header-link slds-truncate" title={title}>
+              <span>{title}</span>
+            </a>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div
+      class="slds-card__body slds-card__body_inner slds-border_top sizing-body"
+    >
+      <!-- BODY -->
+      <div class="slds-grid slds-wrap slds-gutters shadow-box">
+        <div class="slds-col slds-size_1-of-1">
+          <a href="/myspace/s/asset/Asset/00B9E000002YkXuUAK">
+            <lightning-icon
+              icon-name="utility:fulfillment_order"
+              alternative-text={products.PRODUCTS}
+              title={products.PRODUCTS}
+            ></lightning-icon>
+            <div>{products.PRODUCTS}</div>
+          </a>
+        </div>
+        <div class="slds-col slds-size_1-of-1">
+          <a
+            href="/myspace/s/smc-contract-subscription/SMC_Contract_Subscription__c/00B9E000002jV0xUAE"
+          >
+            <lightning-icon
+              icon-name="utility:connected_apps"
+              alternative-text={connectivity.CONNECTIVITY}
+              title={connectivity.CONNECTIVITY}
+            ></lightning-icon>
+            <div>{connectivity.CONNECTIVITY}</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

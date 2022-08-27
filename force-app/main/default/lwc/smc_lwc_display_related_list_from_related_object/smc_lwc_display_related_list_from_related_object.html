@@ -1,0 +1,29 @@
+<!--
+  @description       : Generic component to display related list from a related object
+  @author            : Denis PHAM 
+  @group             : Modis
+  @last modified on  : 
+  @last modified by  : Denis PHAM
+  Modifications Log 
+  Ver   Date          Author                     Modification
+  1.0   08-JUL-2022   Denis PHAM (Modis)   Initial Version
+-->
+<template>
+    <!-- Spinner during loading -->
+    <template if:true={spinner}>
+        <lightning-spinner
+        alternative-text="Loading"
+        size="large"
+        ></lightning-spinner>
+    </template>
+    <!-- RELATED LIST -->
+    <lightning-card  variant="Narrow"  title={title} icon-name="standard:related_list">
+        <lightning-datatable
+        key-field="id"
+        data={data}
+        columns={columns}
+        hide-checkbox-column="true">
+    </lightning-datatable>
+    </lightning-card>
+
+</template>

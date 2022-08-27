@@ -1,0 +1,83 @@
+<template>
+    <lightning-card  icon-name="standard:webcart" if:true={showComponenet}>
+       <div class="demo-only demo--inverse"  if:true={showspinner} >
+            <div class="slds-spinner_container">
+              <div role="status" class="slds-spinner slds-spinner_medium">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+              </div>
+            </div>
+          </div>
+
+        <h1 slot="title">{label.smc_cl_Cart_ba} {ba} <span if:true={displaybasubtotal}>({cartq})</span> </h1>
+        
+        <template for:each={l_product} for:item="item" >
+
+            <div  key={item.productId} class="slds-grid slds-gutters" style="margin-bottom : 50px ;">
+                
+                <div class="slds-col slds-size_2-of-12" if:true={displayimage}>
+                    
+                    <span> <a href={item.productUrl}> <img src={item.imageUrl}  alt="Product Image" /> </a>  </span>
+                </div>
+                <div class="slds-col slds-size_10-of-12"  >
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_12-of-12" style="font-weight: bold; font-size : 20px; margin-bottom : 8px;">
+                          <span>{item.name}</span>
+                        </div>
+
+                        <div class="slds-col slds-size_5-of-12" >
+                            
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col slds-size_4-of-12" if:true={displaysku}>
+                                    <span>SKU  : {item.sku} </span>
+                                </div>
+
+                                <div class="slds-col slds-size_4-of-12" >
+                                        <div class="slds-col slds-size_4-of-12" >
+                                            <span>Unit Price</span>
+                                        </div>
+                                        <div class="slds-col slds-size_4-of-12">
+                                           <!--<span>{item.listPrice}€</span>--> <span>{item.price}€</span>
+                                        </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="slds-col slds-size_3-of-12" >
+                            <div class="slds-form-element" >
+                                <div class="slds-form-element__control">
+                                    <button class="slds-button slds-button_icon slds-button_icon-small slds-input__button_decrement" title="Decrement counter">
+                                        <lightning-icon data-decrement={item.productId} icon-name="utility:ban" alternative-text="" size="xx-small" title="" variant="error" onclick={setDecrementCounter}></lightning-icon>
+                                        <span class="slds-assistive-text">{label.smc_cl_MyCartDecrementCounter}</span>
+                                    </button>
+                                    
+                                    <input onfocusout={setQuantityFromInput} type="number" step="1" min="1" data-quantity={item.productId} data-cartitemid ={item.cartitemid} placeholder="1" value={item.quantity} class="slds-input slds-input_counter"/>
+                                    
+                                    <button class="slds-button slds-button_icon slds-button_icon-small slds-input__button_increment" title="Increment counter">
+                                        <lightning-icon data-increment={item.productId} icon-name="utility:new" alternative-text="" size="xx-small" title="" variant="success" onclick={setIncrementCounter}></lightning-icon>
+                                        <span class="slds-assistive-text">{label.smc_cl_MyCartIncrementcounter}</span>
+                                    </button>
+                                </div>
+                            </div>
+                         </div>
+                         <div class="slds-col slds-size_2-of-12" >
+                            <span style="font-weight: bold; font-size : 15px;" data-productidtotalprice ={item.productId} >{item.totalAmount} €</span>
+                         </div>
+                        
+                        <div class="slds-col slds-size_1-of-12" >
+                            <button class="slds-button slds-button_icon slds-button_icon-small">
+                                <lightning-icon data-delete={item.cartitemid} icon-name="utility:delete" alternative-text="delete" title="Delete Item" onclick={deltetItem}></lightning-icon>
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+    </template>
+
+
+
+</lightning-card>
+
+</template>

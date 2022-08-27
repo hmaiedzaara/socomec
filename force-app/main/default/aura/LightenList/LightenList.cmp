@@ -1,0 +1,68 @@
+<aura:component>
+  <aura:attribute name="state" type="String" default="*unspecified*" />
+  <aura:attribute name="currency" type="String" default="$" />
+  <aura:attribute name="amount" type="Integer" default="0" />
+  <aura:attribute name="lead" type="Integer" default="0" />
+  <aura:attribute name="account" type="Integer" default="0" />
+  <aura:attribute name="opportunity" type="Integer" default="0" />
+
+  <div class="slds-page-header color-white" role="banner">
+    <div class="slds-grid">
+      <div class="slds-col slds-has-flexi-truncate">
+        <p class="slds-text-heading--label">{!v.state}</p>
+        <div class="slds-grid">
+          <div class="slds-grid slds-type-focus slds-no-space">
+            <h1
+              class="slds-text-heading--medium slds-truncate"
+              title="Total Amount"
+              >{!v.currency+' '+v.amount}</h1
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="slds-text-body--small slds-m-top--x-small fix-width">
+      <span
+        aria-hidden="true"
+        class="slds-button__icon lead-icon pill left-radius"
+      >
+        <img
+          src="../resource/lighten__SLDS090/assets/icons/standard/lead_60.png"
+          alt="Placeholder"
+          style="max-width: 25px;"
+        />
+      </span>
+      <span class="pill lead right-radius">
+        {!v.lead}
+      </span>
+      •
+      <span
+        aria-hidden="true"
+        class="slds-button__icon account-icon pill left-radius"
+      >
+        <img
+          src="../resource/lighten__SLDS090/assets/icons/standard/account_60.png"
+          alt="Placeholder"
+          style="max-width: 25px;"
+        />
+      </span>
+      <span class="pill account right-radius">
+        {!v.account}
+      </span>
+      •
+      <span
+        aria-hidden="true"
+        class="slds-button__icon opportunity-icon pill left-radius"
+      >
+        <img
+          src="../resource/lighten__SLDS090/assets/icons/standard/opportunity_60.png"
+          alt="Placeholder"
+          style="max-width: 25px;"
+        />
+      </span>
+      <span class="pill opportunity right-radius">
+        {!v.opportunity}
+      </span>
+    </p>
+  </div>
+</aura:component>

@@ -1,0 +1,376 @@
+<!--
+  @File Name          : sMC_LWC_Markenting_Library.html
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 02-22-2022
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    18/12/2019   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+  <!-- Spinner during loading -->
+  <template if:true={searching}>
+    <lightning-spinner
+      alternative-text="Loading"
+      size="large"
+    ></lightning-spinner>
+  </template>
+  <!-- menu here -->
+  <!-- Filter section -->
+  <div class="no-large-screen-display-filters">
+    <label class="no-large-device-filter">{filtersCapitalLetters}</label>
+    <div class="slds-grid slds-wrap slds-gutters navigation-filters">
+      <!-- Input -->
+      <div class="slds-col slds-size_1-of-6">
+        <label onclick={toggleFilterSearchName}
+          >{searchByName.SEARCH_BY_NAME}</label
+        >
+      </div>
+      <!-- Target -->
+      <div class="slds-col slds-size_1-of-6">
+        <label onclick={toggleFilterTarget}>{targetLabel.TARGET}</label>
+      </div>
+      <!-- Language -->
+      <div class="slds-col slds-size_1-of-6">
+        <label onclick={toggleFilterLanguage}>{language.LANGUAGE}</label>
+      </div>
+      <!-- BA -->
+      <div class="slds-col slds-size_1-of-6">
+        <label onclick={toggleFilterBA}>{ba.BA}</label>
+      </div>
+      <!-- Product Family -->
+      <div class="slds-col slds-size_1-of-5">
+        <label onclick={toggleFilterProductFamily}
+          >{productFamily.PRODUCT_FAMILY}</label
+        >
+      </div>
+      <!-- Document Type -->
+      <div class="slds-col slds-size_1-of-6">
+        <label onclick={toggleFilterDocumentType}
+          >{documentType.DOCUMENT_TYPE}</label
+        >
+      </div>
+    </div>
+  </div>
+  <div class="selectorSection">
+    <div class={searchNameSelector}>
+      <div class="filters-title">{searchByName.SEARCH_BY_NAME}</div>
+      <lightning-input
+        name="enter-search"
+        type="search"
+        placeholder="Enter name"
+        onchange={handleKeyUp}
+        variant="label-hidden"
+      ></lightning-input>
+    </div>
+    <div class={targetSelector}>
+      <select class="slds-select" onchange={handleSelectTarget}>
+        <template for:each={listTarget} for:item="oneTarget">
+          <option key={oneTarget} value={oneTarget}>{oneTarget}</option>
+        </template>
+      </select>
+    </div>
+    <div class={languageSelector}>
+      <div class="filters-title">{language.LANGUAGE}</div>
+      <select
+        class="slds-select"
+        onchange={handlePicklistLanguage}
+        title={language.LANGUAGE}
+      >
+        <option value={labelNone.LABEL_NONE} class="font-normal" selected
+          >{labelNone.LABEL_NONE}</option
+        >
+        <template for:each={mapPicklistLanguage} for:item="oneLang">
+          <option key={oneLang.value} value={oneLang.value}
+            >{oneLang.label}</option
+          >
+        </template>
+      </select>
+    </div>
+    <div class={baSelector}>
+      <div class="filters-title">{ba.BA}</div>
+      <select class="slds-select" onchange={handlePicklistBa} title={ba.BA}>
+        <template for:each={mapPicklistBA} for:item="oneData">
+          <option key={oneData.id} value={oneData.id}>{oneData.name}</option>
+        </template>
+      </select>
+    </div>
+    <div class={productFamilySelector}>
+      <div class="filters-title">{productFamily.PRODUCT_FAMILY}</div>
+      <select
+        class="slds-select"
+        onchange={handlePicklistProductFamily}
+        title={productFamily.PRODUCT_FAMILY}
+      >
+        <option value={labelNone.LABEL_NONE} class="font-normal" selected
+          >{labelNone.LABEL_NONE}</option
+        >
+        <template
+          for:each={mapPicklistProductFamily}
+          for:item="oneProductFamily"
+        >
+          <option key={oneProductFamily.id} class="product-family-group"
+            >{oneProductFamily.name}</option
+          >
+          <template
+            key={oneProductFamily.id}
+            for:each={oneProductFamily.grandChildren}
+            for:item="oneDataChild"
+          >
+            <option key={oneDataChild.id} value={oneDataChild.name}
+              >{oneDataChild.name}</option
+            >
+          </template>
+        </template>
+      </select>
+    </div>
+    <div class={documentTypeSelector}>
+      <div class="filters-title">{documentType.DOCUMENT_TYPE}</div>
+      <select
+        class="slds-select"
+        onchange={handlePicklistDocType}
+        title={documentType.DOCUMENT_TYPE}
+      >
+        <option value={labelNone.LABEL_NONE} class="font-normal" selected
+          >{labelNone.LABEL_NONE}</option
+        >
+        <template for:each={mapPicklistDocType} for:item="oneDocType">
+          <option key={oneDocType.value} value={oneDocType.value}
+            >{oneDocType.label}</option
+          >
+        </template>
+      </select>
+    </div>
+  </div>
+  <!-- Legend -->
+  <div class="no-large-legend">
+    <p class="section-title">{legend.LEGEND}</p>
+    <div class="text-legend">
+      <p>{legendParagraph1}</p>
+      <p>{legendParagraph2}</p>
+    </div>
+  </div>
+  <div class="slds-grid slds-wrap slds-gutters">
+    <div class="slds-col slds-large-size_1-of-3 filters page-max-heigth">
+      <!-- Legend -->
+      <p class="section-title">{legend.LEGEND}</p>
+      <div class="text-legend">
+        <p>{legendParagraph1}</p>
+        <p>{legendParagraph2}</p>
+      </div>
+      <!-- Filters -->
+      <p class="section-title filters-title-padding-top">{filters.FILTERS}</p>
+      <!-- Input -->
+      <div class="filters-title">
+        <lightning-input
+          name="enter-search"
+          type="search"
+          placeholder="Enter name"
+          onchange={handleKeyUp}
+          label={searchByName.SEARCH_BY_NAME}
+        ></lightning-input>
+      </div>
+      <!-- Target -->
+      <div class="filters-title">{targetLabel.TARGET}</div>
+      <select class="slds-select" onchange={handleSelectTarget}>
+        <template for:each={listTarget} for:item="oneTarget">
+          <option key={oneTarget} value={oneTarget}>{oneTarget}</option>
+        </template>
+      </select>
+      <!-- BA -->
+      <div class="filters-title">{ba.BA}</div>
+      <select id="selectorBa" class="slds-select" onchange={handlePicklistBa}>
+        <template for:each={mapPicklistBA} for:item="oneBA">
+          <option key={oneBA.id} value={oneBA.id}>{oneBA.name}</option>
+        </template>
+      </select>
+      <template if:true={refreshDesktopFilter}>
+        <!-- Product Family -->
+        <div class="filters-title">{productFamily.PRODUCT_FAMILY}</div>
+        <select
+          id="selectorPF"
+          class="slds-select"
+          onchange={handlePicklistProductFamily}
+        >
+          <option value={labelNone.LABEL_NONE} class="font-normal"
+            >{labelNone.LABEL_NONE}</option
+          >
+          <template
+            for:each={mapPicklistProductFamily}
+            for:item="oneProductFamily"
+          >
+            <option
+              key={oneProductFamily.id}
+              value={oneProductFamily.id}
+              class="product-family-group"
+              >{oneProductFamily.name}</option
+            >
+            <template
+              key={oneProductFamily.id}
+              for:each={oneProductFamily.grandChildren}
+              for:item="oneDataChild"
+            >
+              <option key={oneDataChild.id} value={oneDataChild.id}
+                >{oneDataChild.name}</option
+              >
+            </template>
+          </template>
+        </select>
+        <!-- Language -->
+        <div class="filters-title">{language.LANGUAGE}</div>
+        <select
+          id="selectorLang"
+          class="slds-select"
+          title={language.LANGUAGE}
+          onchange={handlePicklistLanguage}
+        >
+          <option value={labelNone.LABEL_NONE} class="font-normal" selected
+            >{labelNone.LABEL_NONE}</option
+          >
+          <template for:each={mapPicklistLanguage} for:item="oneLang">
+            <option key={oneLang.value} value={oneLang.value}
+              >{oneLang.label}</option
+            >
+          </template>
+        </select>
+        <!-- Document Type -->
+        <div class="filters-title">{documentType.DOCUMENT_TYPE}</div>
+        <select
+          id="selectorDT"
+          class="slds-select"
+          onchange={handlePicklistDocType}
+        >
+          <option value={labelNone.LABEL_NONE} class="font-normal"
+            >{labelNone.LABEL_NONE}</option
+          >
+          <template for:each={mapPicklistDocType} for:item="oneDocType">
+            <option key={oneDocType.value} value={oneDocType.value}
+              >{oneDocType.label}</option
+            >
+          </template>
+        </select>
+      </template>
+    </div>
+    <div class="slds-col slds-large-size_2-of-3 slds-size_1-of-1">
+      <!-- Doc list -->
+      <div class="section-title">{documentList.DOCUMENT_LIST}</div>
+      <!-- Sort -->
+      <div class="padding-left-20">
+        <h3>{sortBy.SORT_BY}</h3>
+        <select class="slds-select sort-list" onchange={handleSort}>
+          <template for:each={sortList} for:item="element">
+            <option key={element.value} value={element.value}
+              >{element.label}</option
+            >
+          </template>
+        </select>
+      </div>
+      <div id="docList" class="page-max-heigth">
+        <div class="slds-scrollable_y">
+          <div class="slds-grid slds-wrap slds-gutters width-99">
+            <template if:false={noResult}>
+              <template for:each={mapDocDisplay} for:item="oneDoc">
+                <div
+                  key={oneDoc.documentId}
+                  class="slds-col slds-large-size_1-of-5 slds-medium-size_1-of-3 slds-size_1-of-1"
+                >
+                  <div class="my-slds-card">
+                    <div class="tooltip">
+                      <div
+                        class="slds-truncate slds-p-horizontal_xx-small sizing-title"
+                      >
+                        {oneDoc.documentTitle}
+                      </div>
+                      <span class="tooltiptext">{oneDoc.documentTitle}</span>
+                    </div>
+                    <p title={oneDoc.documentTitle} class="my-slds-card"></p>
+                    <p class="background-document-type styling-doc-type">
+                      {oneDoc.documentType}
+                    </p>
+                    <p class="background-document-img">
+                      <!-- <a href={oneDoc.publicPictureDefaultPath} target="_blank"
+                        ><img
+                          src={oneDoc.publicPicturePath}
+                          alt={oneDoc.documentTitle}
+                          class="sizing-img"
+                      /></a> -->
+                      <c-smc_lwc_ml_document_picture
+                        defaulturl={oneDoc.publicPictureDefaultPath}
+                        url={oneDoc.publicPicturePath}
+                        documenttitle={oneDoc.documentTitle}
+                        documentid={oneDoc.documentId}
+                        onsendtoparentlwc={sendToAuraParent}
+                      ></c-smc_lwc_ml_document_picture>
+                    </p>
+                    <p class="language-sizing">
+                      <select
+                        class="slds-select"
+                        onchange={handleSelectLanguageForTheDoc}
+                      >
+                        <template for:each={oneDoc.files} for:item="oneFile">
+                          <option key={oneFile.lang} value={oneFile.publicPath}
+                            >{oneFile.lang}</option
+                          >
+                        </template>
+                      </select>
+                    </p>
+                  </div>
+                </div>
+              </template>
+            </template>
+            <template if:true={noResult}>
+              <c-smc_lwc_desert_illustration
+                noresultlabel={noResultLabel.NO_RESULT}
+                class="center-no-result-picture"
+              ></c-smc_lwc_desert_illustration>
+            </template>
+          </div>
+        </div>
+      </div>
+      <!-- Pagination Footer -->
+      <div id="pages-footer" class="margin-top-10">
+        <lightning-layout horizontal-align="center" vertical-align="center">
+          <lightning-layout-item>
+            <lightning-button
+              label="First"
+              icon-name="utility:chevronleft"
+              onclick={handleFirst}
+              disabled={showFirstButton}
+            ></lightning-button>
+          </lightning-layout-item>
+          <lightning-layout-item>
+            <lightning-button
+              label="Previous"
+              icon-name="utility:chevronleft"
+              onclick={handlePrevious}
+              disabled={showFirstButton}
+            ></lightning-button>
+          </lightning-layout-item>
+          <lightning-layout-item class="pagination"
+            >{currentpage}</lightning-layout-item
+          >
+          <lightning-layout-item>
+            <lightning-button
+              label="Next"
+              icon-name="utility:chevronright"
+              icon-position="right"
+              onclick={handleNext}
+              disabled={showLastButton}
+            ></lightning-button>
+          </lightning-layout-item>
+          <lightning-layout-item>
+            <lightning-button
+              label="Last"
+              icon-name="utility:chevronright"
+              icon-position="right"
+              onclick={handleLast}
+              disabled={showLastButton}
+            ></lightning-button>
+          </lightning-layout-item>
+        </lightning-layout>
+      </div>
+    </div>
+  </div>
+</template>

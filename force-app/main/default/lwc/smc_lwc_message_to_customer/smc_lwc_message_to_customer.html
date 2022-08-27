@@ -1,0 +1,39 @@
+<!--
+  @File Name          : smc_lwc_message_to_customer.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 14/01/2020 à 10:14:15
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    13/01/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+  <div class="contact-title">{selectContact.SELECT_CONTACT}</div>
+  <select
+    class="slds-select"
+    onchange={handleSelectContact}
+    title={selectContact.SELECT_CONTACT}
+  >
+    <template for:each={contacts} for:item="oneCtc">
+      <option key={oneCtc.Id} value={oneCtc.Id}>{oneCtc.Name}</option>
+    </template>
+  </select>
+  <lightning-input
+    type="text"
+    label="Title"
+    value={titleMessage}
+    onchange={handleTitle}
+  ></lightning-input>
+  <lightning-textarea
+    name="bodyMessage"
+    label="Message"
+    max-length="40000"
+  ></lightning-textarea>
+  <lightning-button
+    variant="brand"
+    label={send.SEND}
+    onclick={onSend}
+  ></lightning-button>
+</template>

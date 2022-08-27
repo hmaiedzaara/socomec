@@ -1,0 +1,70 @@
+<!--
+  @File Name          : smc_lwc_tile_maintenance_service.html
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 15/06/2020 à 11:56:07
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    08/06/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<template>
+  <div class="slds-card">
+    <div class="slds-card__header">
+      <div class="slds-media slds-media_center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <span class="slds-icon_container king-blue" title={title}>
+            <i class={titleIcon}></i>
+          </span>
+        </div>
+        <div class="slds-media__body">
+          <h2 class="slds-card__header-title slds-align_center slds-truncate">
+            <a class="slds-card__header-link slds-truncate" title={title}>
+              <span>{title}</span>
+            </a>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div
+      class="slds-card__body slds-card__body_inner slds-border_top sizing-body"
+    >
+      <!-- BODY -->
+      <div class="slds-grid slds-wrap slds-gutters shadow-box">
+        <div class="slds-col slds-size_1-of-1">
+          <a href="/myspace/s/workorder/WorkOrder/00B24000005ByidEAC">
+            <lightning-icon
+              icon-name="utility:news"
+              alternative-text={m_activities.M_ACTIVITIES}
+              title={m_activities.M_ACTIVITIES}
+            ></lightning-icon>
+            <div>{m_activities.M_ACTIVITIES}</div>
+          </a>
+        </div>
+        <div class="slds-col slds-size_1-of-1">
+          <a
+            href="/myspace/s/servicecontract/ServiceContract/00B1o000005asB0EAI"
+          >
+            <lightning-icon
+              icon-name="utility:opened_folder"
+              alternative-text={m_contracts.M_CONTRACTS}
+              title={m_contracts.M_CONTRACTS}
+            ></lightning-icon>
+            <div>{m_contracts.M_CONTRACTS}</div>
+          </a>
+        </div>
+        <div class="slds-col slds-size_1-of-1">
+          <a href="#">
+            <lightning-icon
+              icon-name="utility:knowledge_base"
+              alternative-text={s_catalog.S_CATALOG}
+              title={s_catalog.S_CATALOG}
+            ></lightning-icon>
+            <div>{s_catalog.S_CATALOG}</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

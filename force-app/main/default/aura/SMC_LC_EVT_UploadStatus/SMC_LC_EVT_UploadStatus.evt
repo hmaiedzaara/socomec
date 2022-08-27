@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="Upload Status">
+  <aura:attribute name="status" type="Boolean" />
+  <aura:attribute name="documentId" type="String" />
+  <aura:attribute name="recId" type="String" />
+</aura:event>

@@ -1,0 +1,9 @@
+.THIS .main-header {
+    padding: .5rem .5rem;
+    background-color: #2F486D;
+    color: #fff;
+    border-radius: 4px;
+    font-weight:normal;
+    margin-top:.4rem;
+    margin-bottom:.4rem;
+}

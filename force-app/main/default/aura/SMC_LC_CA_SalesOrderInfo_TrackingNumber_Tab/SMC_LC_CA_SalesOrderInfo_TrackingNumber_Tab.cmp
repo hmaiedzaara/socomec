@@ -1,0 +1,173 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 04-06-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   09-08-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<aura:component description="SMC_LC_CA_SalesOrderInfo_TrackingNumber_Tab">
+  <aura:attribute name="salesOrderLines" type="SObject" access="global" />
+  <aura:attribute name="indVar" type="Integer" access="global" />
+
+  <div class="slds-scrollable_x">
+    <aura:if isTrue="{!v.indVar > 0}">
+      <div style="padding-top: 30px"></div>
+    </aura:if>
+    <table
+      class="slds-table slds-table_col-bordered slds-table_striped slds-no-row-hover"
+    >
+      <tbody>
+        <tr class="slds-text-title_caps smc-header">
+          <td scope="col"
+            ><div class="slds-truncate" title="Packing Number"
+              >{!$Label.c.SMC_PackingNumber}</div
+            ></td
+          >
+          <td scope="col"
+            ><div class="slds-truncate" title="Packing Date"
+              >{!$Label.c.SMC_PackingDate}</div
+            ></td
+          >
+          <td scope="col"
+            ><div class="slds-truncate" title="Delivery Date"
+              >{!$Label.c.SMC_DeliveryDate}</div
+            ></td
+          >
+          <td scope="col"
+            ><div class="slds-truncate" title="Invoice Number"
+              >{!$Label.c.SMC_InvoiceNumber}</div
+            ></td
+          >
+          <td scope="col"
+            ><div class="slds-truncate" title="Priority"
+              >{!$Label.c.SMC_Priority}</div
+            ></td
+          >
+          <td scope="col"
+            ><div class="slds-truncate" title="Carrier"
+              >{!$Label.c.SMC_Carrier}</div
+            ></td
+          >
+          <td scope="col" colspan="5"
+            ><div class="slds-truncate" title="Traking Number"
+              >{!$Label.c.SMC_Tracking_Number}</div
+            ></td
+          >
+        </tr>
+        <aura:iteration
+          items="{!v.salesOrderLines}"
+          var="salesOrderLine"
+          indexVar="j"
+        >
+          <aura:if isTrue="{!j == 0}">
+            <tr>
+              <td scope="row" data-label="Packing Number"
+                >{!salesOrderLine.packingSlipNumber}</td
+              >
+              <td data-label="Packing Date"
+                ><lightning:formattedDateTime
+                  value="{!salesOrderLine.deliverySlipDate}"
+              /></td>
+              <td data-label="Delivery Date"
+                ><lightning:formattedDateTime
+                  value="{!salesOrderLine.packingSlipShippingDate}"
+              /></td>
+              <td data-label="Invoice Number"
+                >{!salesOrderLine.invoiceNumber}</td
+              >
+              <td data-label="Priority"
+                >{!salesOrderLine.salesOrderFlowCategory}</td
+              >
+              <td data-label="Carrier">{!salesOrderLine.packingSlipCarrier}</td>
+              <td data-label="Traking Number" colspan="5"
+                >{!salesOrderLine.packingSlipTrackingNumber}</td
+              >
+            </tr>
+            <tr class="slds-text-title_caps smc-header">
+              <td class="smc-td-hidden"></td>
+              <td scope="col"
+                ><div class="slds-truncate" title="Order Number"
+                  >{!$Label.c.SMC_OrderNumber}</div
+                ></td
+              >
+              <td scope="col"
+                ><div class="slds-truncate" title="Line Number"
+                  >{!$Label.c.SMC_LineNumber}</div
+                ></td
+              >
+              <td scope="col"
+                ><div class="slds-truncate" title="Item"
+                  >{!$Label.c.SMC_Item}</div
+                ></td
+              >
+              <td scope="col"
+                ><div class="slds-truncate" title="Description"
+                  >{!$Label.c.SMC_Description}</div
+                ></td
+              >
+              <td scope="col"
+                ><div class="slds-truncate" title="Order Quantity"
+                  >{!$Label.c.SMC_OrderQty}</div
+                ></td
+              >
+              <td scope="col"
+                ><div class="slds-truncate" title="Packing Quantity"
+                  >{!$Label.c.SMC_PackQty}</div
+                ></td
+              >
+              <td scope="col"
+                ><div class="slds-truncate" title="Remaining Quantity"
+                  >{!$Label.c.SMC_RemainingQty}</div
+                ></td
+              >
+              <td scope="col"
+                ><div class="slds-truncate" title="Request Date"
+                  >{!$Label.c.SMC_RequestDate}</div
+                ></td
+              >
+              <td scope="col"
+                ><div class="slds-truncate" title="Confirm Date"
+                  >{!$Label.c.SMC_ConfirmDate}</div
+                ></td
+              >
+              <td scope="col"
+                ><div class="slds-truncate" title="Review Date"
+                  >{!$Label.c.SMC_ReviewDate}</div
+                ></td
+              >
+            </tr>
+          </aura:if>
+          <tr>
+            <td class="smc-td-hidden"></td>
+            <td data-label="Order Number">{!salesOrderLine.salesOrder}</td>
+            <td data-label="Line Number">{!salesOrderLine.positionNumber}</td>
+            <td data-label="Item">{!salesOrderLine.item}</td>
+            <td data-label="Description">{!salesOrderLine.itemDescription}</td>
+            <td data-label="Order Quantity"
+              >{!salesOrderLine.orderedQuantity}</td
+            >
+            <td data-label="Packing Quantity"
+              >{!salesOrderLine.deliveredQuantity}</td
+            >
+            <td data-label="Remaining Quantity">{!salesOrderLine.backOrder}</td>
+            <td data-label="Request Date"
+              ><lightning:formattedDateTime
+                value="{!salesOrderLine.lineExWorkRequested}"
+            /></td>
+            <td data-label="Confirm Date"
+              ><lightning:formattedDateTime
+                value="{!salesOrderLine.lineExWorkConfirmed}"
+            /></td>
+            <td data-label="Review Date"
+              ><lightning:formattedDateTime
+                value="{!salesOrderLine.lineReviewDate}"
+            /></td>
+          </tr>
+        </aura:iteration>
+      </tbody>
+    </table>
+  </div>
+</aura:component>

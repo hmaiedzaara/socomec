@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="Event template for Scoring">
+    <aura:attribute name="linesToDisplay" type="String[]"/>
+</aura:event>

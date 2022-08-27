@@ -1,0 +1,45 @@
+[
+    {
+        "customer": "039341",
+        "priceGroup": "1EA10",
+        "priceGroupDescriptionEn": "CURRENT TRANSFORMER",
+        "priceGroupDescriptionFr": "TRANSFORMATEURS DE COURANT",
+        "discount": 33.5,
+        "effectiveDate": "2006-01-05T23:00:00.000Z",
+        "previousDiscount": 0.0
+    },
+    {
+        "customer": "039341",
+        "priceGroup": "1EC10",
+        "priceGroupDescriptionEn": "ANALOG INDICATORS",
+        "priceGroupDescriptionFr": "INDIC. ANALOGIQUES",
+        "discount": 33.5,
+        "effectiveDate": "2006-01-05T23:00:00.000Z",
+        "previousDiscount": 0.0
+    },
+    {
+        "customer": "039341",
+        "priceGroup": "1EC20",
+        "priceGroupDescriptionEn": "DIGITAL INDICATORS",
+        "priceGroupDescriptionFr": "INDIC. NUMERIQUES",
+        "discount": 33.5,
+        "effectiveDate": "2006-01-05T23:00:00.000Z",
+        "previousDiscount": 0.0
+    },
+    {
+        "customer": "039341",
+        "priceGroup": "1EC30",
+        "priceGroupDescriptionEn": "TRANSDUCER",
+        "priceGroupDescriptionFr": "TRANSDUCTEURS",
+        "discount": 33.5,
+        "effectiveDate": "2006-01-05T23:00:00.000Z",
+        "previousDiscount": 0.0
+    },
+    {
+        "customer": "039341",
+        "priceGroup": "GENERAL",
+        "discount": 40.5,
+        "effectiveDate": "1997-12-31T23:00:00.000Z",
+        "previousDiscount": 0.0
+    }
+]

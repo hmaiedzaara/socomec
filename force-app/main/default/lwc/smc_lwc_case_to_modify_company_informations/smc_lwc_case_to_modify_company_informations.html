@@ -1,0 +1,103 @@
+<!--
+  @File Name          : smc_lwc_case_to_modify_company_informations.html
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 11-30-2020
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    25/05/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<template>
+  <!-- Account Page Header -->
+  <header
+    role="banner"
+    class="forceHighlightsPanel forceCommunityRecordHeadline"
+  >
+    <div
+      class="slds-page-header slds-page-header_record-home forceHighlightsStencilDesktop forceRecordLayout"
+    >
+      <div class="slds-grid primaryFieldRow">
+        <div class="slds-grid slds-col slds-has-flexi-truncate">
+          <div class="profilePicWrapper slds-media slds-no-space ">
+            <div
+              class="slds-media__figure slds-icon forceEntityIcon account-icon-background"
+            >
+              <div class="logoContainer slds-clearfix forceSocialPhotoWrapper">
+                <span class="photoContainer forceSocialPhoto">
+                  <lightning-icon
+                    icon-name="standard:account"
+                    alternative-text="Account"
+                  ></lightning-icon>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="slds-media__body">
+            <h1>
+              <div class="entityNameTitle slds-line-height_reset">
+                Account
+              </div>
+              <div
+                class="slds-page-header__title slds-m-right--small slds-align-middle fade-text"
+              >
+                <span class="uiOutputText">
+                  {accountName}
+                </span>
+              </div>
+            </h1>
+          </div>
+        </div>
+        <div
+          class="slds-col slds-no-flex slds-grid slds-grid_vertical-align-center actionsContainer"
+          role="group"
+        >
+          <lightning-button
+            label={messageToSalesContact.MESSAGE_TO_SALES_CONTACT}
+            title={messageToSalesContact.MESSAGE_TO_SALES_CONTACT}
+            onclick={handleMessageToSalesContact}
+            class="slds-m-left_x-small"
+          ></lightning-button>
+          <template if:true={displayEditContact}>
+            <lightning-button
+              label={editContacts.EDIT_CONTACTS}
+              title={editContacts.EDIT_CONTACTS}
+              onclick={handleEditContacts}
+              class="slds-m-left_x-small"
+            ></lightning-button>
+          </template>
+          <template if:true={displayAccountInformationModification}>
+            <lightning-button
+              label={modifAccInfLabel.MODIF_ACC_INF}
+              title={modifAccInfLabel.MODIF_ACC_INF}
+              onclick={handleModifAccInf}
+              class="slds-m-left_x-small"
+            ></lightning-button>
+          </template>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MODALS -->
+  <!-- Message To Sales Contact -->
+  <template if:true={showMessageToSalesContact}>
+    <c-smc_lwc_message_to_salesforce_agent
+      onsendingmessage={handleMessageToSalesContact}
+      fromaccount="true"
+    ></c-smc_lwc_message_to_salesforce_agent>
+  </template>
+  <!-- Edit Contacts -->
+  <template if:true={showEditContacts}>
+    <c-smc_lwc_edit_contacts_from_account
+      oniotcontactmodificationrequest={handleEditContacts}
+    ></c-smc_lwc_edit_contacts_from_account>
+  </template>
+  <!-- Edit Contacts -->
+  <template if:true={showModifAccInf}>
+    <c-smc_lwc_case_to_modify_company_information_casecreation
+      onaccountinformationmodification={handleModifAccInf}
+    ></c-smc_lwc_case_to_modify_company_information_casecreation>
+  </template>
+</template>

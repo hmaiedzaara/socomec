@@ -1,0 +1,103 @@
+<!--
+  @File Name          : smc_lwc_erp_line_unit.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 04/02/2020 à 13:21:21
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    03/02/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+  <!-- ERP Invoice -->
+  <template if:true={isinvoice}>
+    <li>
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-large-size_1-of-2 grey-color">
+          {amount.AMOUNT}
+        </div>
+        <div class="slds-col slds-large-size_1-of-2">
+          <lightning-formatted-number
+            value={thedata.amount}
+            format-style="currency"
+            currency-code={elementcurrency}
+            minimum-fraction-digits="2"
+            maximum-fraction-digits="2"
+          >
+          </lightning-formatted-number>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-large-size_1-of-2 grey-color">{ba.BA}</div>
+        <div class="slds-col slds-large-size_1-of-2">{thedata.ba}</div>
+      </div>
+    </li>
+  </template>
+  <!-- ERP Order -->
+  <template if:true={isorder}>
+    <li>
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-large-size_1-of-2 grey-color">
+          {quantity.QUANTITY}
+        </div>
+        <div class="slds-col slds-large-size_1-of-2">{thedata.quantity}</div>
+      </div>
+    </li>
+    <li>
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-large-size_1-of-2 grey-color">
+          {amount.AMOUNT}
+        </div>
+        <div class="slds-col slds-large-size_1-of-2">
+          <lightning-formatted-number
+            value={thedata.amount}
+            format-style="currency"
+            currency-code={elementcurrency}
+            minimum-fraction-digits="2"
+            maximum-fraction-digits="2"
+          >
+          </lightning-formatted-number>
+        </div>
+      </div>
+    </li>
+  </template>
+  <!-- ERP Quote -->
+  <template if:true={isquote}>
+    <li>
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-large-size_1-of-2 grey-color">
+          {quantity.QUANTITY}
+        </div>
+        <div class="slds-col slds-large-size_1-of-2">{thedata.quantity}</div>
+      </div>
+    </li>
+    <li>
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-large-size_1-of-2 grey-color">
+          {amount.AMOUNT}
+        </div>
+        <div class="slds-col slds-large-size_1-of-2">
+          <lightning-formatted-number
+            value={thedata.amount}
+            format-style="currency"
+            currency-code={elementcurrency}
+            minimum-fraction-digits="2"
+            maximum-fraction-digits="2"
+          >
+          </lightning-formatted-number>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-large-size_1-of-2 grey-color">
+          {status.STATUS}
+        </div>
+        <div class="slds-col slds-large-size_1-of-2">{thedata.status}</div>
+      </div>
+    </li>
+  </template>
+</template>

@@ -1,0 +1,41 @@
+.slds-card-blue-background{
+    position: relative;
+    padding: 0;
+    background:#102e61;
+    border: 1px solid #102e61;
+    border-radius: .25rem;
+    background-clip: padding-box;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.10);
+}
+.max-width{
+    width: 100%;
+    border: none;
+    padding: 5px 30px;
+}
+.slds-button_brand{
+    transition: none !important;
+}
+.modalContainer{
+    height: 650px !important;
+}
+.slds-modal__container{
+    width: 1000px !important;
+    max-width: 1100px;
+    min-width: 950px;
+}
+@media (min-width: 48em){
+     .slds-modal__container {
+        width: 1000px !important;
+        max-width: 1100px;
+        min-width: 950px;
+    }
+}
+.greyColor svg{
+    fill:lightgrey;
+}
+.error {
+    color: #D8000C;
+}
+.success {
+    color: #270;
+}

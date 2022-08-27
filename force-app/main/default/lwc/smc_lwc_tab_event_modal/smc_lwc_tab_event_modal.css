@@ -1,0 +1,38 @@
+.obscur-background {
+  position: absolute;
+  height: 500%;
+  width: 200%;
+  background: rgba(119, 119, 119, 0.5);
+  z-index: 1000;
+  top: -20px;
+  left: -50px;
+  overflow: auto;
+}
+
+.padding-top-5 {
+  padding-top: 5px;
+}
+
+.padding-rigth-5 {
+  padding-right: 5px;
+}
+
+.slds-modal__container {
+  /* width: 40px; */
+  min-width: 30rem;
+}
+
+.slds-modal__content {
+  height: 300px;
+}
+
+@media (max-width: 500px) {
+  .slds-modal__container {
+    /* width: 40px; */
+    min-width: 10rem;
+  }
+
+  .slds-modal__content {
+    height: 180px;
+  }
+}

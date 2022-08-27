@@ -1,0 +1,235 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 05-17-2021
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   10-08-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <h2>{generalInformationsLabel.GENERAL_INFORMATIONS}</h2>
+  <div class="slds-grid slds-wrap slds-gutters">
+    <div class="slds-col slds-size_2-of-3">
+      <!-- Account -->
+      <template if:true={haveOnlyOneAccount}>
+        <lightning-input type="text" 
+                         label={accountLabel.ACCOUNT}
+                         value={specificAccount.COMPANYNAME} 
+                         disabled={accountIsSelected}>
+        </lightning-input>
+      </template>
+      <template if:false={haveOnlyOneAccount}>
+        <h3 class="margin-top-10">{selectAccountLabel.SELECT_ACCOUNT} :</h3>
+        <select
+          class="slds-select"
+          onchange={accountSelector}
+          disabled={accountIsSelected}
+        >
+          <option value="" selected disabled hidden
+            >{chooseHereLabel.CHOOSE_HERE}</option
+          >
+          <template for:each={accounts} for:item="oneAcc">
+            <option key={oneAcc.CDCLI} value={oneAcc.CDCLI}
+              >{oneAcc.COMPANYNAME}</option
+            >
+          </template>
+        </select>
+      </template>
+      <div class="margin-top-10">
+        <lightning-input
+          type="text"
+          name="custref"
+          label={yourReferenceLabel.YOUR_REFERENCE}
+          value={custRef}
+          onchange={handleCustRef}
+        ></lightning-input>
+      </div>
+      <div class="margin-top-10">
+        <lightning-input
+          type="date"
+          name="requestedDeliveryDate"
+          label={reqDelDateLabel.REQ_DEL_DATE}
+          value={reqDate}
+          onchange={handleRequestedDeliveryDate}
+        ></lightning-input>
+        <!-- <div class="slds-grid slds-wrap slds-gutters">
+          <div class="slds-col slds-size_2-of-3">
+            <lightning-input
+              type="date"
+              name="requestedDeliveryDate"
+              label={reqDelDateLabel.REQ_DEL_DATE}
+              onchange={handleRequestedDeliveryDate}
+              value={reqDate}
+              disabled={reqDateIsSelected}
+            ></lightning-input>
+          </div>
+          <div class="slds-col slds-size_1-of-3 margin-top-23">
+            <lightning-button
+              variant="neutral"
+              label={resetLabel.RESET}
+              onclick={handleResetRequestedDate}
+              class="space-beteween-btn"
+            ></lightning-button>
+          </div>
+        </div> -->
+      </div>
+      <template if:true={accountIsSelected}>
+        <div class="margin-top-20">
+          <label>
+            <strong>{shimpentDetailsLabel.SHIPMENT_DETAILS}</strong>
+          </label>
+        </div>
+        <div class="slds-grid slds-wrap slds-gutters">
+          <div class="slds-col slds-size_1-of-1">
+            <template if:true={haveOnlyOneAddress}>
+              <lightning-formatted-text
+                value={specificAddress.concatAddress}
+              ></lightning-formatted-text>
+            </template>
+            <!-- ADDRESS -->
+            <template if:false={haveOnlyOneAddress}>
+              <h3>{selectAddressLabel.SELECT_ADDRESS} :</h3>
+              <select class="slds-select" onchange={addressSelector}>
+                <!-- Default option -->
+                <template if:false={addressFromCache}>
+                  <option value="" selected disabled hidden>
+                    {chooseHereLabel.CHOOSE_HERE}
+                  </option>
+                  <!-- New address -->
+                  <option value={newAddress.NEW_ADDRESS}>{newAddress.NEW_ADDRESS}</option>
+                </template>
+                <!-- Address from cache -->
+                <template if:true={addressFromCache}>
+                  <!-- New address -->
+                  <template if:true={selectNewAddress}>
+                    <option value={newAddress.NEW_ADDRESS}>{newAddress.NEW_ADDRESS}</option>
+                  </template>
+                  <!-- Cached address -->
+                  <template if:false={selectNewAddress}>
+                    <option value={specificAddress.ADDRESSCODE} selected>
+                      {specificAddress.concatAddress}
+                    </option>
+                    <!-- New address -->
+                    <option value={newAddress.NEW_ADDRESS}>{newAddress.NEW_ADDRESS}</option>
+                  </template>
+                </template>
+                <!-- Address list -->
+                <template for:each={addresses} for:item="oneAdd">
+                  <option key={oneAdd.ADDRESSCODE} value={oneAdd.ADDRESSCODE}
+                    >{oneAdd.concatAddress}</option
+                  >
+                </template>
+              </select>
+            </template>
+            <template if:true={selectNewAddress}>
+              <h3 class="margin-top-10">{newAddress.NEW_ADDRESS} :</h3>
+              <!-- <lightning-input-address
+                  address-label="Address"
+                  street-label="Street"
+                  city-label="City"
+                  country-label="Country"
+                  province-label="Province"
+                  postal-code-label="PostalCode"
+                  street=""
+                  city=""
+                  province=""
+                  country=""
+                  postal-code=""
+                  required
+                  country-options={countryvalues}
+                  province-options={statevalues}
+                  field-level-help="Enter your new address"
+                  onchange={handleChangeNewAddress}>
+              </lightning-input-address> -->
+              <!-- <div class="slds-p-around_medium lgc-bg"> -->
+                <lightning-input type="text" label="CompanyName" class="companyName" placeholder="" onchange={handleChangeNewAddress} maxlength="35"></lightning-input>
+              <!-- </div> -->
+              <lightning-input-address
+                  address-label="Address"
+                  street-label="Street"
+                  city-label="City"
+                  country-label="Country"
+                  province-label="Province"
+                  postal-code-label="PostalCode"
+                  street=""
+                  city=""
+                  province=""
+                  country=""
+                  postal-code=""
+                  required
+                  country-options={countryvalues}
+                  field-level-help="Enter your new address"
+                  onchange={handleChangeNewAddress}>
+              </lightning-input-address>
+            </template>
+          </div>
+        </div>
+        <div class="margin-top-10">
+          <div class="slds-grid slds-wrap slds-gutters">
+            <div class="slds-col slds-size_2-of-3">
+              <lightning-input
+                type="text"
+                name="contactname"
+                label={contactNameLabel.CONTACT_NAME}
+                value={contactName}
+                onchange={handleContactName}
+              ></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+              <lightning-input
+                type="tel"
+                name="contactphone"
+                label={contactPhoneLabel.CONTACT_PHONE}
+                value={contactPhone}
+                onchange={handleContactPhone}
+              ></lightning-input>
+            </div>
+          </div>
+        </div>
+        <div class="margin-top-10">
+          <div class="slds-grid slds-wrap slds-gutters">
+            <div class="slds-col slds-size_1-of-2">
+              <lightning-input
+                type="time"
+                name="preftime"
+                label={preftimeLabel.PREF_TIME}
+                value={prefTime}
+                onchange={handlePreftime}
+              ></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+              <h3 class="margin-top-5">{tailliftLabel.TAIL_LIFT}</h3>
+              <div class="slds-form-element">
+                <label class="slds-checkbox_toggle">
+                  <input type="checkbox" name={tailliftLabel.TAIL_LIFT} value={tailliftLabelValue} checked={taillift} onchange={handleTaillift} />
+                  <span id="checkbox-toggle-16" class="slds-checkbox_faux_container" aria-live="assertive">
+                    <span class="slds-checkbox_faux"></span>
+                    <span class="slds-checkbox_on">Yes</span>
+                    <span class="slds-checkbox_off">No</span>
+                  </span>
+                </label>
+              </div>
+              <!-- <select class="slds-select" onchange={handleTaillift}>
+                <template for:each={tailliftOptions} for:item="onOption">
+                  <option key={onOption.value} value={onOption.value}
+                    >{onOption.label}</option
+                  >
+                </template>
+              </select> -->
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+              <lightning-textarea
+                name="note"
+                label="Note"
+                value={note}
+                onchange={handleNote}
+              ></lightning-textarea>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</template>

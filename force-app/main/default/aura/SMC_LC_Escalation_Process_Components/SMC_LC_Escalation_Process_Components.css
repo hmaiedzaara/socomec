@@ -1,0 +1,19 @@
+.THIS li {
+    margin: 10px;
+}
+
+.THIS .slds-scrollable_y{
+    height: 250px;
+}
+
+.THIS .fix-right-side-no-list{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: rgb(110, 110, 110);
+}
+
+.THIS .slds-text-heading_medium {
+    font-size: 16px;
+}

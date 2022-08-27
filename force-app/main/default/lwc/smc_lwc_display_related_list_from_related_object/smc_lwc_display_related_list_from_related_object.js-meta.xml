@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Display related list from related object</masterLabel>
+
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__RecordPage</target>
+    </targets>
+
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="relatedObjectAPIName" type="String" label="Related object API Name" default="" datasource="apex://SMC_AC_Related_Lookup_Picklist" description="Set the related object APIName" required="true"/>
+            <property name="relatedListAPIName" type="String" label="Related list API Name" default="" description="Set related list APIName to display" required="true"/>
+            <property name="relatedLookupAPIName" type="String" label="Related Field API Name" default="" description="API Name of the lookup for the query." required="true"/>
+            <property name="listFieldsAPIName" type="String" label="List of Fields API Name" default="" description="Set the list of fields APIName to display separated by ','"/>
+            <property name="stringTitle" type="String" label="Title" default="" description="Title of the component"/>
+        </targetConfig>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="recordId" type="String" label="Record Id" default ="{!recordId}"  description="Should be {!recordId}" required="true"/>
+            <property name="communityName" type="String" label="Community Name" description="API Name of the Community (Case sensitive)" required="true"/>
+            <property name="relatedObjectAPIName" type="String" label="Related object API Name" default="" description="Set the related object APIName" required="true"/>
+            <property name="relatedListAPIName" type="String" label="Related list API Name" default="" description="Set related list APIName to display" required="true"/>
+            <property name="relatedLookupAPIName" type="String" label="Related Field API Name" default="" description="API Name of the lookup for the query." required="true"/>
+            <property name="listFieldsAPIName" type="String" label="List of Fields API Name" default="" description="Set the list of fields APIName to display separated by ','"/>
+            <property name="stringTitle" type="String" label="Title" default="" description="Title of the component"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

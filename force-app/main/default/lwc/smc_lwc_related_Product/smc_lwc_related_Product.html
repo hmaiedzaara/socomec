@@ -1,0 +1,31 @@
+<template>
+           
+    <div class="slds-col slds-size_12-of-12 title" if:true={showComponenet}>
+        <span> {label.smc_cl_Produit_de_remplacement_Title_Label} </span>
+    </div>
+
+    <div  class="slds-grid slds-gutters"  style="max-width:100%;overflow-x: auto; overflow-y:auto;" >
+        <template for:each={lstRelatedProduct} for:item="item" if:true={showComponenet}>
+            <div key={item.Id} class="slds-grid slds-wrap" style="min-width : 20%; min-height : 20%;">
+                <div class="slds-col slds-size_12-of-12">
+                    <span><a href={item.relatedProduct_URL}> <img src={item.relatedProduct_DefaultImage_URL}  alt="Product Image" width="120px" height="120px" /> </a> </span>
+                </div>
+                  
+                <div class="slds-col slds-size_12-of-12">
+                    <span class="productName">{item.relatedProduct_Name}</span>
+                </div>
+                  
+                <div class="slds-col slds-size_12-of-12">
+                    <span>{item.relatedProduct_SKU}</span>
+                </div>
+                 
+                <div class="slds-col slds-size_12-of-12">
+                    <span>{item.relatedProduct_Description}</span>
+                </div>
+
+            </div>
+            
+        </template>
+    </div>
+
+</template>

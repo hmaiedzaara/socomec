@@ -1,0 +1,47 @@
+<apex:page renderAs="pdf" standardStylesheets="false" showHeader="false" sidebar="false"  applyBodyTag="false" applyHtmlTag="false" controller="SMC_AC_VFP_Training_Template_Controller" >
+    <head>
+        <style type="text/css">
+            @page {
+            	size:landscape !important;
+            }
+            .backgroud-picture {
+            	margin-top: 3%;
+            	z-index: -1;
+            	min-width: 100% !important;
+            }
+            .dynamic-text {
+            	z-index: 100;
+            	position: absolute;
+            	font-family: "Arial Unicode MS", sans-serif;
+            }
+            .participant {
+            	font-size: 20px;
+            	top: 46%;
+            	left: 5%;
+            }
+            .company {
+            	font-size: 20px;
+            	top: 50%;
+            	left: 5%;
+            }
+            .expiration-date {
+            	font-size: 20px;
+            	top:89.1%;
+            	left:20%;
+            }
+            .trainer {
+            	font-size: 13px;
+            	top:90.4%;
+            	left:45%;
+            }
+        </style>
+    </head>
+    <body>
+        <c:SMC_VFC_Training_Certification_Template backgroundPicture="{!backgroundPicture}" 
+                                                   participant="{!participant}" 
+                                                   company="{!company}" 
+                                                   endValidity="{!endValidity}" 
+                                                   trainer="{!trainer}">
+        </c:SMC_VFC_Training_Certification_Template>
+    </body>
+</apex:page>

@@ -1,0 +1,247 @@
+<!--	Name : SMC_LC_Scoring
+        Author : Vincent RECASENS
+        Description : This component get a scoring for an account let the possibily to modify
+                      the actual Max Discount Suggested and the actual Discount apllied
+  
+  Maintenance History :
+
+  Date		Name			Version 	Remarks 
+  26-DEC-2017 SMC_LC_Scoring	1.0			Initial Version-->
+
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId"
+  access="global"
+  controller="SMC_AC_Scoring"
+>
+  <aura:attribute name="errors" type="String" />
+
+  <aura:attribute name="token" type="String" />
+  <aura:attribute name="baIds" type="List" />
+
+  <aura:attribute name="account" type="Account" />
+  <aura:attribute name="recordId" type="String" />
+  <aura:attribute name="scoring" type="SMC_DTO_Scoring" />
+  <aura:attribute name="scoringShow" type="SMC_DTO_Scoring" />
+  <aura:attribute name="scoringFilter" type="SMC_DTO_Scoring" />
+  <aura:attribute name="numberOfVisibleLines" type="Integer" />
+
+  <aura:attribute name="userinputPriceGroup" type="String" />
+  <aura:attribute name="userinputDescription" type="String" />
+  <aura:attribute name="timer" type="Integer" />
+
+  <aura:attribute
+    name="isAuthorizeToSeeMaxSuggested"
+    type="Boolean"
+    default="false"
+  />
+  <aura:attribute name="userSeeMaxSuggested" type="Boolean" default="true" />
+  <aura:attribute name="isLoadingScoring" type="Boolean" />
+  <aura:attribute name="isSavingScoring" type="Boolean" />
+  <aura:attribute name="isOpen" type="Boolean" />
+  <aura:attribute name="unsaved" type="Boolean" default="false" />
+
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:handler
+    name="change"
+    value="{!v.userinputPriceGroup}"
+    action="{!c.timeoutFiltrage}"
+  />
+  <aura:handler
+    name="change"
+    value="{!v.userinputDescription}"
+    action="{!c.timeoutFiltrage}"
+  />
+
+  <aura:registerevent name="SMC_LC_EVT_Scoring" type="c:SMC_LC_EVT_Scoring" />
+  <aura:registerevent
+    name="SMC_LC_EVT_CloseScoring"
+    type="c:SMC_LC_EVT_CloseScoring"
+  />
+
+  <!-- Error -->
+  <aura:if isTrue="{!v.errors}">
+    <ui:message title="Error" severity="error" closable="true">
+      {!v.errors}
+    </ui:message>
+  </aura:if>
+
+  <aura:if isTrue="{! !v.errors}">
+    <!-- Modal in waiting for saving the new scoring -->
+    <aura:if isTrue="{! v.isSavingScoring }">
+      <div class="demo-only" style="position:absolute">
+        <section
+          role="dialog"
+          tabindex="-1"
+          aria-labelledby="modal-heading-01"
+          aria-modal="true"
+          aria-describedby="modal-content-id-1"
+          class="slds-modal slds-fade-in-open"
+        >
+          <div class="slds-modal__container">
+            <header class="slds-modal__header">
+              <h2
+                id="modal-heading-01"
+                class="slds-text-heading_medium slds-hyphenate"
+                >{!$Label.c.SMC_Waiting}</h2
+              >
+            </header>
+            <div
+              class="slds-modal__content slds-p-around_medium"
+              id="modal-content-id-1"
+            >
+              <p>{!$Label.c.SMC_Waiting_Save_Scoring}</p>
+            </div>
+          </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+      </div>
+    </aura:if>
+
+    <!-- Scoring -->
+    <div class="slds-card">
+      <div class="slds-p-around_medium">
+        <article class="slds-text-heading_medium">
+          <h1>
+            <b>{! $Label.c.SMC_Scoring_Title } : {! v.account.Name }</b>
+          </h1>
+        </article>
+
+        <!-- Bloc FILTERS -->
+        <div class="searchBar">
+          <div class="input-search-container searchInput">
+            <ui:inputText
+              value="{! v.userinputPriceGroup }"
+              class="searchTools"
+              aura:id="searchFieldByPricingGroup"
+              label="{!$Label.c.SMC_Search_PricingGroup}"
+              placeholder="{!$Label.c.SMC_PricingGroup}"
+              updateOn="keyup"
+            />
+            <ui:inputText
+              value="{! v.userinputDescription }"
+              class="searchTools"
+              aura:id="searchFieldByDescription"
+              label="{!$Label.c.SMC_Search_Description}"
+              placeholder="{!$Label.c.SMC_PricingGroupDescription}"
+              updateOn="keyup"
+            />
+          </div>
+          <div class="filters-container">
+            <p>{!$Label.c.SMC_Filters}</p>
+            <div>
+              <ui:inputCheckbox
+                class="searchTools"
+                aura:id="showOnlyDiscountMax"
+                label="{!$Label.c.SMC_High_Discount}"
+                change="{!c.timeoutFiltrage}"
+              />
+              <aura:if isTrue="{! v.isAuthorizeToSeeMaxSuggested }">
+                <ui:inputCheckbox
+                  class="searchTools"
+                  aura:id="hiddeMaxSuggested"
+                  label="{!$Label.c.SMC_Hide_Max_Suggested}"
+                  change="{!c.hiddeMaxSuggested}"
+                  value="{! v.scoringShow.userSeeMaxSuggested }"
+                />
+              </aura:if>
+            </div>
+          </div>
+          <div class="chartLegend">
+            <p>{!$Label.c.SMC_Legend}</p>
+            <p>
+              <lightning:icon
+                iconName="utility:up"
+                size="small"
+                alternativeText="{!$Label.c.SMC_Discount_Valid}"
+                title="Discount in corridor"
+                class="validIcon"
+              />{!$Label.c.SMC_Discount_Valid}</p
+            >
+            <p>
+              <lightning:icon
+                iconName="utility:up"
+                size="small"
+                alternativeText="{!$Label.c.SMC_High_Discount}"
+                title="Discount out corridor"
+                class="warningIcon"
+              />{!$Label.c.SMC_High_Discount}</p
+            >
+          </div>
+        </div>
+
+        <!-- Bloc TAB -->
+        <div class="slds-tabs_default">
+          <!-- <ul class="slds-tabs_default__nav" role="tablist">
+                        <aura:iteration items="{! v.scoringShow.ba }" var="ba" indexVar="indexTab">
+                            <li class="slds-tabs_default__item" title="Item One" role="presentation" aura:id="tab">
+                                <a class="slds-tabs_default__link" aria-controls="{! ba.dpx.businessApplication.ba }" role="tab" onclick="{! c.selectBa }"
+                                    data-id="{! ba.dpx.businessApplication.id }">
+                                    {! ba.dpx.businessApplication.ba }
+                                </a>
+                            </li>
+                        </aura:iteration>
+                    </ul> -->
+          <!-- <aura:iteration items="{! v.scoringShow.ba }" var="ba" indexVar="indexRow"> -->
+          <div
+            aura:id="rows"
+            class="slds-tabs_default__content"
+            role="tabpanel"
+          >
+            <!-- Bloc TITLE COLUMN -->
+            <th class="scoringTab">
+              <td class="group">{!$Label.c.SMC_PricingGroup}</td>
+              <td class="code">{!$Label.c.SMC_PricingGroupDescription}</td>
+              <!-- <td class="code">{!$Label.c.SMC_Type}</td> -->
+              <!-- <td class="code">{!$Label.c.SMC_Tier}</td> -->
+              <td class="min">{!$Label.c.SMC_MinDiscount}</td>
+              <td class="max">{!$Label.c.SMC_MaxDiscount}</td>
+              <aura:if isTrue="{! v.isAuthorizeToSeeMaxSuggested }">
+                <aura:if isTrue="{! !v.scoringShow.userSeeMaxSuggested }">
+                  <td class="maxSuggested"
+                    >{!$Label.c.SMC_MaxSuggestedDiscount}</td
+                  >
+                </aura:if>
+              </aura:if>
+              <td class="discount">{!$Label.c.SMC_StandardDiscount}</td>
+              <td class="discountIsValid">{!$Label.c.SMC_DiscountValidity}</td>
+              <td class="lastEditDate">{!$Label.c.SMC_LastEditDate}</td>
+            </th>
+            <!-- Bloc VALUE -->
+            <div class="slds-scrollable_y">
+              <aura:if isTrue="{! v.isLoadingScoring }">
+                <lightning:spinner
+                  alternativeText="{!$Label.c.SMC_Loading}"
+                  size="medium"
+                />
+                <aura:set attribute="else">
+                  <aura:iteration
+                    items="{! v.scoringShow.scoringLines }"
+                    var="line"
+                    indexVar="indexLine"
+                  >
+                    <c:SMC_LC_ScoringLine
+                      numberOfVisibleLines="{! v.numberOfVisibleLines }"
+                      userSeeMaxSuggested="{! v.userSeeMaxSuggested }"
+                      isAuthorizeToSeeMaxSuggested="{! v.isAuthorizeToSeeMaxSuggested }"
+                      line="{! line}"
+                      aura:id="{! line.id }"
+                    />
+                  </aura:iteration>
+                </aura:set>
+              </aura:if>
+            </div>
+          </div>
+          <!-- </aura:iteration> -->
+        </div>
+        <div class="slds-text-align_right">
+          <lightning:button
+            name="saveDiscount"
+            variant="brand"
+            label="{!$Label.c.SMC_Save}"
+            onclick="{! c.saveScoring }"
+          />
+        </div>
+      </div>
+    </div>
+  </aura:if>
+</aura:component>

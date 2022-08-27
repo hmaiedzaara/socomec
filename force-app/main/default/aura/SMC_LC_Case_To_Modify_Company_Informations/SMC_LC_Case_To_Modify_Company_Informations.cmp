@@ -1,0 +1,105 @@
+<!--
+  @File Name          : SMC_LC_Case_To_Modify_Company_Informations.cmp
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 26/05/2020 à 11:31:40
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    25/05/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<aura:component
+  implements="force:lightningQuickAction,forceCommunity:availableForAllPageTypes,force:hasRecordId"
+  controller="SMC_AC_Modify_Company_Informations"
+>
+  <!-- Attributes -->
+  <aura:attribute name="accountName" type="String" default="Account Name" />
+  <!-- Handler -->
+  <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+  <!-- Call QuickActionAPI -->
+  <lightning:quickActionAPI aura:id="quickActionAPI" />
+
+  <div class="padding-16px">
+    <div
+      class="slds-page-header-custom slds-page-header_record-home forceHighlightsStencilDesktop forceRecordLayout"
+    >
+      <div class="slds-grid primaryFieldRow">
+        <div class="slds-grid slds-col slds-has-flexi-truncate">
+          <div class="profilePicWrapper slds-media slds-no-space ">
+            <div
+              class="slds-media__figure slds-icon forceEntityIcon account-icon-background"
+            >
+              <div class="logoContainer slds-clearfix forceSocialPhotoWrapper">
+                <span class="photoContainer forceSocialPhoto">
+                  <div class="small roundedSquare forceEntityIcon">
+                    <span class="uiImage">
+                      <img
+                        class="icon"
+                        src="https://dev-socomec.cs88.force.com/img/icon/t4v35/standard/account_120.png"
+                      />
+                    </span>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="slds-media__body">
+            <h1>
+              <div class="entityNameTitle slds-line-height_reset">
+                Account
+              </div>
+              <div
+                class="slds-page-header__title slds-m-right--small slds-align-middle fade-text"
+              >
+                <span class="uiOutputText">
+                  {! v.accountName }
+                </span>
+              </div>
+            </h1>
+          </div>
+        </div>
+        <div
+          class="slds-col slds-no-flex slds-grid slds-grid_vertical-align-center actionsContainer"
+          role="group"
+        >
+          <ul
+            class="branding-actions slds-button-group slds-m-left--xx-small oneActionsRibbon forceActionsContainer"
+          >
+            <li class="slds-button slds-button--neutral slds-truncate">
+              <a
+                class="forceActionLink"
+                title="{!$Label.c.SMC_Message_To_Sales_Contact}"
+                role="button"
+                onclick="{! c.sendMessageToSalesContact }"
+              >
+                <div
+                  class="slds-truncate"
+                  title="{!$Label.c.SMC_Message_To_Sales_Contact}"
+                >
+                  {!$Label.c.SMC_Message_To_Sales_Contact}
+                </div>
+              </a>
+            </li>
+            <li class="slds-button slds-button--neutral slds-truncate">
+              <a
+                href="#"
+                class="forceActionLink"
+                title="{!$Label.c.SMC_Edit_Contacts}"
+                role="button"
+                onclick="{! c.editContacts }"
+              >
+                <div
+                  class="slds-truncate"
+                  title="{!$Label.c.SMC_Edit_Contacts}"
+                >
+                  {!$Label.c.SMC_Edit_Contacts}
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</aura:component>

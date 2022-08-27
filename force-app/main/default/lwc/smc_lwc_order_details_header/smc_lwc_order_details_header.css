@@ -1,0 +1,17 @@
+h2 {
+  font-size: 24px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.slds-col {
+  min-height: 40px;
+}
+.slds-text-title {
+  min-height: 1px !important;
+}
+.title-address {
+  font-size: 16px;
+}

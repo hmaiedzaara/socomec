@@ -1,0 +1,30 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 10-22-2020
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   07-22-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <h2>{orderTracking.ORDER_TRACKING}</h2>
+  <div class="slds-grid slds-wrap slds-gutters">
+    <div class="slds-col slds-large-size_8-of-12">
+      <lightning-input
+        type="text"
+        label={orderTrackingNumberLabel.ORDER_TRACKING_NUMBER}
+        onchange={handleSearchOrder}
+      ></lightning-input>
+    </div>
+    <div class="slds-col slds-large-size_4-of-12 searchBtn">
+      <lightning-button
+        variant="brand"
+        label={validateLabel.VALIDATE}
+        onclick={handleValidate}
+        class="slds-m-left_x-small"
+      ></lightning-button>
+    </div>
+  </div>
+</template>

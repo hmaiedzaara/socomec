@@ -1,0 +1,26 @@
+lightning-layout{
+    margin-bottom: 6px;
+}
+lightning-layout-item{
+    margin-left: 22px;
+}
+.margin-icon{
+    margin-right: 5px;
+    padding-bottom : 2px;
+}
+
+.document-detail:not(:last-child):after{
+    content: "\2022";
+    margin-top: 0px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+}
+
+label{
+    color: rgb(150, 150, 150);
+}
+
+.case-number{
+    color: rgb(63, 63, 63);
+}

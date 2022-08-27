@@ -1,0 +1,21 @@
+<!--
+  @File Name          : smc_lwc_WorkOrderLineCheckEolAsset.html
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 08-17-2020
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    10/03/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+  <lightning-card if:true={showWarningEOL}>
+    <label class="text-style"><strong>{warningEol.WARNING_EOL}</strong></label>
+  </lightning-card>
+  <lightning-card if:true={showWarningSparePart}>
+    <label class="text-style"
+      ><strong>{ warningSparePart.WARNING_SPAREPART }</strong></label
+    >
+  </lightning-card>
+</template>

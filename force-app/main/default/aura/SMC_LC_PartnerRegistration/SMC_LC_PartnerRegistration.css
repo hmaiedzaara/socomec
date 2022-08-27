@@ -1,0 +1,29 @@
+.THIS {
+    font-size:15px;
+}
+
+
+.THIS h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 21px;
+    margin-bottom: 10.5px;
+    
+}
+
+.THIS p  {
+    text-align: center;
+    font-size: 15px;
+}
+
+.THIS .separator {
+    display:block; 
+    background-color: #c50e1f;
+    width: 75px;
+    height: 5px;
+    margin: 40px auto;
+}
+
+.THIS .forceCommunityFlowCommunity {
+    box-shadow: 0 1px 2px rgba(0,0,0,.20);
+}

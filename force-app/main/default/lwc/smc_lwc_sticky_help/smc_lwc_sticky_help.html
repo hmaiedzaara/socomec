@@ -1,0 +1,74 @@
+<!--
+  @File Name          : smc_lwc_sticky_help.html
+  @Description        : 
+  @Author             : Vincent RECASENS (Modis)
+  @Group              : 
+  @Last Modified By   : Vincent RECASENS (Modis)
+  @Last Modified On   : 07-16-2020
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    19/05/2020   Vincent RECASENS (Modis)     Initial Version
+-->
+<template>
+  <template if:true={showSticky}>
+    <div class="slds-grid slds-wrap slds-gutters shadow-box">
+      <div
+        class="slds-col slds-large-size_1-of-2 slds-medium-size_1-of-2 slds-size_1-of-1"
+      >
+        <a href={caseUrl} onclick={toogleSticky}>
+          <lightning-icon
+            icon-name="utility:case"
+            alternative-text={createNewCase.CREATE_NEW_CASE}
+            title={createNewCase.CREATE_NEW_CASE}
+          ></lightning-icon>
+          <div>{createNewCase.CREATE_NEW_CASE}</div>
+        </a>
+      </div>
+      <div
+        class="slds-col slds-large-size_1-of-2 slds-medium-size_1-of-2 slds-size_1-of-1"
+      >
+        <a href={faqUrl} onclick={toogleSticky}>
+          <div>
+            <lightning-icon
+              icon-name="utility:help"
+              alternative-text={faq.FAQ}
+              title={faq.FAQ}
+            ></lightning-icon>
+          </div>
+          <div>{faq.FAQ}</div>
+        </a>
+      </div>
+      <div
+        class="slds-col slds-large-size_1-of-2 slds-medium-size_1-of-2 slds-size_1-of-1"
+      >
+        <a href={contactUsUrl} onclick={toogleSticky}>
+          <div>
+            <lightning-icon
+              icon-name="utility:questions_and_answers"
+              alternative-text={contactUs.CONTACT_US}
+              title={contactUs.CONTACT_US}
+            ></lightning-icon>
+          </div>
+          <div>{contactUs.CONTACT_US}</div>
+        </a>
+      </div>
+      <div
+        class="slds-col slds-large-size_1-of-2 slds-medium-size_1-of-2 slds-size_1-of-1"
+      >
+        <a href={accessDocUrl} onclick={toogleSticky}>
+          <div>
+            <lightning-icon
+              icon-name="utility:archive"
+              alternative-text="Access Docs"
+              title="Access Docs"
+            ></lightning-icon>
+          </div>
+          <div>Access Docs</div>
+        </a>
+      </div>
+    </div>
+  </template>
+  <div class="need-help">
+    <div class="sticky-help-button" onclick={toogleSticky}>Need Help</div>
+  </div>
+</template>

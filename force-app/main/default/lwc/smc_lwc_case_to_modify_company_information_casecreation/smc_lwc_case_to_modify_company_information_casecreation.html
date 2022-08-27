@@ -1,0 +1,81 @@
+<!--
+  @description       : 
+  @author            : Vincent RECASENS (Modis)
+  @group             : 
+  @last modified on  : 11-30-2020
+  @last modified by  : Vincent RECASENS (Modis)
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   11-30-2020   Vincent RECASENS (Modis)   Initial Version
+-->
+<template>
+  <div class="obscur-background"></div>
+  <section
+    role="dialog"
+    tabindex="-1"
+    class="slds-modal slds-fade-in-open slds-modal_medium"
+    aria-labelledby="modal-heading-01"
+    aria-modal="true"
+    aria-describedby="modal-content-id-1"
+  >
+    <div
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="header43"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <div class="slds-modal__header">
+          <h2 class="slds-text-heading--medium">
+            {modifAccInfLabel.MODIF_ACC_INF}
+          </h2>
+        </div>
+        <div class="slds-modal__content slds-p-around--medium">
+          <!-- Body of modal -->
+          <template if:true={isWriting}>
+            <lightning-input
+              type="text"
+              label="Subject"
+              value={subjectCase}
+              onchange={subjectChange}
+            ></lightning-input>
+            <lightning-textarea
+              name="caseDescription"
+              label="Message"
+              max-length="40000"
+            ></lightning-textarea>
+          </template>
+          <!-- Spinner during message insertion -->
+          <template if:true={inWaitingDuringCreation}>
+            <p>
+              <lightning-icon
+                icon-name="action:share"
+                alternative-text="Waiting the sending"
+                size="x-small"
+              >
+              </lightning-icon>
+              <label class="padding-left-10"
+                >{waitCreation.WAIT_CREATION}</label
+              >
+            </p>
+          </template>
+        </div>
+        <div class="slds-modal__footer">
+          <template if:true={isWriting}>
+            <lightning-button
+              class="padding-rigth-5"
+              variant="destructive"
+              label={cancel.CANCEL}
+              onclick={onCancel}
+            ></lightning-button>
+            <lightning-button
+              variant="brand"
+              label={createCaseLabel.CREATE_CASE}
+              onclick={onCaseCreation}
+            ></lightning-button>
+          </template>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
